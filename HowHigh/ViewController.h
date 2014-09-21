@@ -6,10 +6,12 @@
 //  Copyright (c) 2014 Lucky Bunny LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import iAd;
+@import CoreMotion;
+@import CoreLocation;
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, ADBannerViewDelegate, CLLocationManagerDelegate>
 
 @end
 
