@@ -34,13 +34,13 @@
 
 - (UIColor *)mainColor
 {
-    UIColor *mainColor = [[UIColor colorWithHex:0x84b1db] colorWithAlphaComponent:0.95];
+    UIColor *mainColor = [[UIColor colorWithHex:0x699fd2] colorWithAlphaComponent:0.95];
     return mainColor;
 }
 
 - (UIColor *)secondaryColor
 {
-    UIColor *mainColor = [[UIColor colorWithHex:0xc8c8d4] colorWithAlphaComponent:1];
+    UIColor *mainColor = [[UIColor colorWithHex:0xc0c0c7] colorWithAlphaComponent:1];
     return mainColor;
 }
 
@@ -161,6 +161,7 @@
 //    [self.feedbackLabel.layer addAnimation:animation forKey:@"changeTextTransition"];
 //    
 //    // Change the text
+//    self.feedbackLabel.text = [NSString stringWithFormat:@"%.1f", MAX(0, self.currentMeters * self.unitMultiple)];
     self.feedbackLabel.text = [NSString stringWithFormat:@"%.1f", MAX(0, self.currentMeters * self.unitMultiple)];
 }
 
@@ -262,7 +263,7 @@
 {
     NSLog(@"%s", __FUNCTION__);
     [UIView animateWithDuration:0.5 animations:^{
-        [self.bannerView setAlpha:1];
+//        [self.bannerView setAlpha:1];
     }];
 }
 
