@@ -263,7 +263,7 @@
 {
     NSLog(@"%s", __FUNCTION__);
     [UIView animateWithDuration:0.5 animations:^{
-//        [self.bannerView setAlpha:1];
+        [self.bannerView setAlpha:1];
     }];
 }
 
