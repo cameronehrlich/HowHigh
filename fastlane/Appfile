@@ -3,9 +3,11 @@
 
 # Example (uncomment and fill in):
 # apple_id "your-itunes-connect-email@example.com"
-# app_identifier "com.LuckyBunny.HowHigh"
-# itc_team_id "123456789"
-# team_id "842K77RHSG"
+
+app_identifier(ENV.fetch("APP_IDENTIFIER", "com.LuckyBunny.HowHigh"))
+apple_id(ENV.fetch("FASTLANE_USER", "cam@37.technology"))
+team_id(ENV.fetch("APP_STORE_TEAM_ID", "842K77RHSG"))
+itc_team_id(ENV.fetch("ITC_TEAM_ID", "1506181"))
 
 # Recommended: use environment variables so credentials never land in git.
 # FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD, APP_STORE_CONNECT_API_KEY_PATH, etc.

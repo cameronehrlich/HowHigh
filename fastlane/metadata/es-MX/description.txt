@@ -1,0 +1,12 @@
+HowHigh convierte tu iPhone o iPad en un barómetro y altímetro de precisión pensado para quienes dependen de los cambios de presión y ganancia de altura. Cambia entre pestañas dedicadas a lecturas en vivo, grabaciones y análisis histórico dentro de una experiencia nativa que se siente totalmente iOS.
+
+Por qué excursionistas, pilotos y cazadores de tormentas en México confían en HowHigh:
+- Paneles dobles de barómetro y altímetro con presión en tiempo real, altitud, velocidad de ascenso y ajustes al nivel del mar.
+- Grabación de sesiones que guarda cada salida, entrenamiento o experimento para consultarlo cuando quieras.
+- Gráficas interactivas con Swift Charts para recorrer picos, comparar unidades en metros o pies y destacar tendencias con un toque.
+- Calibración automática para lecturas confiables en ciudades altas, rutas de montaña o monitoreo interior.
+- Compatibilidad universal optimizada para iPhone y iPad, Split View, Dynamic Type y las funciones de accesibilidad más recientes de iOS.
+
+Desde el primer día está lista para localizaciones: todos los textos viven en recursos traducibles para mantener sincronizados los lanzamientos globales. Las sesiones se conservan en el dispositivo hasta que decidas compartirlas o exportarlas.
+
+Lleva tu próxima caminata, vuelo, viaje en globo o proyecto científico al siguiente nivel con HowHigh. Empieza a grabar, observa cómo cambia la presión y mantén control total de tu altitud.

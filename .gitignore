@@ -24,3 +24,9 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+
+# Fastlane build artifacts
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/test_output
+fastlane/.env

@@ -1,0 +1,12 @@
+HowHigh turns your iPhone or iPad into a precision barometer and altimeter built for people who live by pressure changes and elevation gains. Switch instantly between dedicated tabs for live readings, log recording, and historical analysis, all wrapped in a native Apple design that feels at home on every device.
+
+Why outdoor pros, pilots, and weather watchers choose HowHigh:
+- Dual barometer and altimeter dashboards provide real-time pressure, elevation, rate of change, and sea-level adjustments.
+- Session recording captures every adventure or experiment, storing rich datasets you can replay at any time.
+- Interactive Swift Charts let you scrub through graphs, highlight peaks, and compare English or metric units with a tap.
+- Automatic device calibration keeps readings trustworthy whether you are tracking storms, mapping mountain trails, or tuning indoor environments.
+- Universal support means the experience is optimized for iPhone and iPad, Split View, Dynamic Type, and the latest iOS accessibility features.
+
+Ready from day one for localization, HowHigh surfaces every string through Localizable resources so teams can translate quickly and keep global releases in sync. iCloud sync is not required—your sessions remain safely on-device until you decide to share or export them.
+
+Take your next hike, flight, studio session, or science experiment to a new level with HowHigh. Start a recording, watch the pressure build, and keep precise altitude intelligence in your pocket.

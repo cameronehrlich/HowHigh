@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+# Ensure Deliver writes metadata inside the repository.
+metadata_path('./fastlane/metadata')
+screenshots_path('./fastlane/screenshots')
+
+# Reduce accidental uploads when using deliver interactively.
+skip_binary_upload(true)
+skip_metadata(false)

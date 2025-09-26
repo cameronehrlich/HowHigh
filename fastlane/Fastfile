@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'fileutils'
+
 # Shared Fastlane configuration for the HowHigh project.
 # This file defines lanes you can run locally or in CI.
 
@@ -8,12 +10,13 @@ def metadata_path
 end
 
 def screenshots_path
-  File.expand_path("metadata/screenshots", __dir__)
+  File.expand_path("screenshots", __dir__)
 end
 
 def sanitize_output_directories
-  FileUtils.mkdir_p(metadata_path)
-  FileUtils.mkdir_p(screenshots_path)
+  [metadata_path, screenshots_path].each do |path|
+    FileUtils.mkdir_p(path)
+  end
 end
 
 fastlane_version '2.221.1'
@@ -25,6 +28,9 @@ platform :ios do
   lane :download_metadata do |options|
     sanitize_output_directories
 
+    languages = options[:languages]
+    language_array = languages&.split(',')&.map(&:strip)
+
     deliver(
       force: true,                          # overwrite local metadata files
       skip_binary_upload: true,             # we are not uploading a build
@@ -34,6 +40,7 @@ platform :ios do
       overwrite_screenshots: options[:screenshots] ? true : false,
       metadata_path: metadata_path,
       screenshots_path: screenshots_path,
+      languages: language_array,
       redact_sensitive: false
     )
   end

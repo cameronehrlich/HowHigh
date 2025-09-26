@@ -1,0 +1,30 @@
+{
+  "default": {
+    "background_color": "#FFFFFF",
+    "title": {
+      "en-US": "Live pressure & altitude",
+      "es-ES": "Presión y altura en vivo",
+      "es-MX": "Presión y altura al instante"
+    },
+    "subtitle": {
+      "en-US": "Record sessions, compare Swift Charts, share insights",
+      "es-ES": "Registra sesiones, compara gráficas y comparte datos",
+      "es-MX": "Graba sesiones, revisa gráficas y comparte información"
+    },
+    "keyword": {
+      "en-US": "HowHigh",
+      "es-ES": "HowHigh",
+      "es-MX": "HowHigh"
+    },
+    "fonts": {
+      "title": {
+        "name": "HelveticaNeue-Bold",
+        "size": 80
+      },
+      "subtitle": {
+        "name": "HelveticaNeue",
+        "size": 44
+      }
+    }
+  }
+}
