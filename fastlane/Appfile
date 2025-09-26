@@ -1,0 +1,11 @@
+# Fastlane Appfile
+# Populate with your App Store Connect details or export them as environment variables.
+
+# Example (uncomment and fill in):
+# apple_id "your-itunes-connect-email@example.com"
+# app_identifier "com.LuckyBunny.HowHigh"
+# itc_team_id "123456789"
+# team_id "842K77RHSG"
+
+# Recommended: use environment variables so credentials never land in git.
+# FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD, APP_STORE_CONNECT_API_KEY_PATH, etc.
