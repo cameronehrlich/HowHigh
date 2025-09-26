@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "229C618C-1FB8-44B5-8B09-7E570D442D5F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:HowHigh.xcodeproj",
+        "identifier" : "7DD7F2C72E7A858C002F64C2",
+        "name" : "HowHighUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
