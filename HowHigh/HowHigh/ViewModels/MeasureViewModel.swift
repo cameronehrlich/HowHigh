@@ -139,7 +139,6 @@ extension MeasureViewModel {
     }
 }
 
-#if DEBUG
 extension MeasureViewModel {
     static func preview(mode: AltitudeSession.Mode = .altimeter) -> MeasureViewModel {
         MeasureViewModel(mode: mode,
@@ -148,4 +147,3 @@ extension MeasureViewModel {
                          settingsStore: SettingsStore())
     }
 }
-#endif

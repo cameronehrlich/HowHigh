@@ -30,7 +30,8 @@ final class ScreenshotUITests: XCTestCase {
 
     private let locales: [LocaleConfig] = [
         LocaleConfig(languageCode: "en", localeIdentifier: "en_US", name: "en-US", barometerTitle: "Barometer", altimeterTitle: "Altimeter", profileTitle: "Profile"),
-        LocaleConfig(languageCode: "es", localeIdentifier: "es_ES", name: "es-ES", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil")
+        LocaleConfig(languageCode: "es", localeIdentifier: "es_ES", name: "es-ES", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil"),
+        LocaleConfig(languageCode: "es", localeIdentifier: "es_MX", name: "es-MX", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil")
     ]
 
     override func setUp() {

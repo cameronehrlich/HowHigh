@@ -14,6 +14,12 @@
             "state": "translated",
             "value": "Cancelar"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
         }
       }
     },
@@ -26,6 +32,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Listo"
@@ -46,6 +58,12 @@
             "state": "translated",
             "value": "Aceptar"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptar"
+          }
         }
       }
     },
@@ -58,6 +76,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registra una sesión para verla aquí."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Registra una sesión para verla aquí."
@@ -78,6 +102,12 @@
             "state": "translated",
             "value": "Sin sesiones aún"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin sesiones aún"
+          }
         }
       }
     },
@@ -90,6 +120,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historial"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Historial"
@@ -110,6 +146,12 @@
             "state": "translated",
             "value": "Has ascendido %@ en %@ sesiones."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has ascendido %@ en %@ sesiones."
+          }
         }
       }
     },
@@ -122,6 +164,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ascenso acumulado"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Ascenso acumulado"
@@ -142,6 +190,12 @@
             "state": "translated",
             "value": "Registra tu primera actividad para ver información sobre la presión."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registra tu primera actividad para ver información sobre la presión."
+          }
         }
       }
     },
@@ -154,6 +208,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin sesiones aún"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Sin sesiones aún"
@@ -174,6 +234,12 @@
             "state": "translated",
             "value": "Ganaste %@ en %@."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ganaste %@ en %@."
+          }
         }
       }
     },
@@ -186,6 +252,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Última sesión"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Última sesión"
@@ -206,6 +278,12 @@
             "state": "translated",
             "value": "%@ • %@ • %@"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
         }
       }
     },
@@ -218,6 +296,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión local"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Presión local"
@@ -238,6 +322,12 @@
             "state": "translated",
             "value": "Tendencia de presión"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendencia de presión"
+          }
         }
       }
     },
@@ -254,6 +344,12 @@
             "state": "translated",
             "value": "La presión media está %@ en %@ kPa por sesión."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión media está %@ en %@ kPa por sesión."
+          }
         }
       }
     },
@@ -266,6 +362,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tendencia semanal"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Tendencia semanal"
@@ -287,6 +389,12 @@
             "state": "translated",
             "value": "bajando"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bajando"
+          }
         }
       }
     },
@@ -300,6 +408,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "subiendo"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "subiendo"
@@ -320,6 +434,12 @@
             "state": "translated",
             "value": "Información"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Información"
+          }
         }
       }
     },
@@ -332,6 +452,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizando información meteorológica"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Actualizando información meteorológica"
@@ -352,6 +478,12 @@
             "state": "translated",
             "value": "Calibrar"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrar"
+          }
         }
       }
     },
@@ -364,6 +496,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausar"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Pausar"
@@ -384,6 +522,12 @@
             "state": "translated",
             "value": "Grabando…"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grabando…"
+          }
         }
       }
     },
@@ -396,6 +540,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reanudar"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Reanudar"
@@ -416,6 +566,12 @@
             "state": "translated",
             "value": "Iniciar sesión"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar sesión"
+          }
         }
       }
     },
@@ -428,6 +584,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detener"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Detener"
@@ -449,6 +611,12 @@
             "state": "translated",
             "value": "Este dispositivo no tiene sensor barométrico."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este dispositivo no tiene sensor barométrico."
+          }
         }
       }
     },
@@ -461,6 +629,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barómetro no disponible"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Barómetro no disponible"
@@ -481,6 +655,12 @@
             "state": "translated",
             "value": "Altitud (ft)"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitud (ft)"
+          }
         }
       }
     },
@@ -493,6 +673,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitud (m)"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitud (m)"
@@ -513,6 +699,12 @@
             "state": "translated",
             "value": "Presión"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión"
+          }
         }
       }
     },
@@ -525,6 +717,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Hora"
@@ -545,6 +743,12 @@
             "state": "translated",
             "value": "Pulsa Iniciar para ver lecturas en vivo aquí."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pulsa Iniciar para ver lecturas en vivo aquí."
+          }
         }
       }
     },
@@ -557,6 +761,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleccionado"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Seleccionado"
@@ -577,6 +787,12 @@
             "state": "translated",
             "value": "%@ • %@"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
         }
       }
     },
@@ -589,6 +805,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elevación en vivo"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Elevación en vivo"
@@ -609,6 +831,12 @@
             "state": "translated",
             "value": "Presión en vivo"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión en vivo"
+          }
         }
       }
     },
@@ -621,6 +849,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Detener la sesión?"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "¿Detener la sesión?"
@@ -641,6 +875,12 @@
             "state": "translated",
             "value": "Detener y guardar"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detener y guardar"
+          }
         }
       }
     },
@@ -653,6 +893,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pulsa Iniciar para comenzar a registrar tu ascenso."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Pulsa Iniciar para comenzar a registrar tu ascenso."
@@ -673,6 +919,12 @@
             "state": "translated",
             "value": "Pulsa Iniciar para comenzar a registrar los cambios de presión."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pulsa Iniciar para comenzar a registrar los cambios de presión."
+          }
         }
       }
     },
@@ -685,6 +937,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitud actual"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitud actual"
@@ -705,6 +963,12 @@
             "state": "translated",
             "value": "Presión actual"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión actual"
+          }
         }
       }
     },
@@ -717,6 +981,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duración"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Duración"
@@ -737,6 +1007,12 @@
             "state": "translated",
             "value": "Ascenso"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ascenso"
+          }
         }
       }
     },
@@ -749,6 +1025,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Máxima"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Máxima"
@@ -769,6 +1051,12 @@
             "state": "translated",
             "value": "Descenso"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descenso"
+          }
         }
       }
     },
@@ -781,6 +1069,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mínima"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Mínima"
@@ -801,6 +1095,12 @@
             "state": "translated",
             "value": "Sesiones anteriores"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesiones anteriores"
+          }
         }
       }
     },
@@ -813,6 +1113,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resumen de la sesión"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Resumen de la sesión"
@@ -833,6 +1139,12 @@
             "state": "translated",
             "value": "HowHigh"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HowHigh"
+          }
         }
       }
     },
@@ -845,6 +1157,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión inicial"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Versión inicial"
@@ -865,6 +1183,12 @@
             "state": "translated",
             "value": "Aplicar valor de presión de WeatherKit"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplicar valor de presión de WeatherKit"
+          }
         }
       }
     },
@@ -877,6 +1201,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplicar %@"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Aplicar %@"
@@ -897,6 +1227,12 @@
             "state": "translated",
             "value": "Actualizar desde WeatherKit"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar desde WeatherKit"
+          }
         }
       }
     },
@@ -909,6 +1245,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué es esto?"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "¿Qué es esto?"
@@ -929,6 +1271,12 @@
             "state": "translated",
             "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: 101,3 kPa."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: 101,3 kPa."
+          }
         }
       }
     },
@@ -941,6 +1289,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajusta este valor para que coincida con las lecturas de una estación meteorológica cercana y mejorar la precisión de la altitud."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Ajusta este valor para que coincida con las lecturas de una estación meteorológica cercana y mejorar la precisión de la altitud."
@@ -961,6 +1315,12 @@
             "state": "translated",
             "value": "Consejo: busca “%@ presión a nivel del mar” o usa los datos METAR del aeropuerto más cercano."
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consejo: busca “%@ presión a nivel del mar” o usa los datos METAR del aeropuerto más cercano."
+          }
         }
       }
     },
@@ -973,6 +1333,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión a nivel del mar"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Presión a nivel del mar"
@@ -993,6 +1359,12 @@
             "state": "translated",
             "value": "Presión a nivel del mar"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión a nivel del mar"
+          }
         }
       }
     },
@@ -1005,6 +1377,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consejos para el sensor barométrico"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Consejos para el sensor barométrico"
@@ -1025,6 +1403,12 @@
             "state": "translated",
             "value": "Contactar con soporte"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contactar con soporte"
+          }
         }
       }
     },
@@ -1037,6 +1421,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perfil"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Perfil"
@@ -1057,6 +1447,12 @@
             "state": "translated",
             "value": "Unidades preferidas"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unidades preferidas"
+          }
         }
       }
     },
@@ -1069,6 +1465,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tu zona"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "tu zona"
@@ -1089,6 +1491,12 @@
             "state": "translated",
             "value": "Acerca de"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acerca de"
+          }
         }
       }
     },
@@ -1101,6 +1509,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibración"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Calibración"
@@ -1121,6 +1535,12 @@
             "state": "translated",
             "value": "Soporte"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soporte"
+          }
         }
       }
     },
@@ -1133,6 +1553,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unidades"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Unidades"
@@ -1153,6 +1579,12 @@
             "state": "translated",
             "value": "Calibración con WeatherKit"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibración con WeatherKit"
+          }
         }
       }
     },
@@ -1165,6 +1597,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obtén la presión local para calibrar automáticamente."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Obtén la presión local para calibrar automáticamente."
@@ -1185,6 +1623,12 @@
             "state": "translated",
             "value": "Última lectura"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Última lectura"
+          }
         }
       }
     },
@@ -1197,6 +1641,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -1217,6 +1667,12 @@
             "state": "translated",
             "value": "Presión"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión"
+          }
         }
       }
     },
@@ -1233,6 +1689,12 @@
             "state": "translated",
             "value": "Hora"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora"
+          }
         }
       }
     },
@@ -1245,6 +1707,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este gráfico aparecerá cuando guardes una sesión."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Este gráfico aparecerá cuando guardes una sesión."
@@ -1266,6 +1734,12 @@
             "state": "translated",
             "value": "%@ • %@"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
         }
       }
     },
@@ -1278,6 +1752,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elevación"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Elevación"
@@ -1298,6 +1778,12 @@
             "state": "translated",
             "value": "Presión"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presión"
+          }
         }
       }
     },
@@ -1310,6 +1796,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añade notas después de tu próxima aventura para recordar las condiciones."
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Añade notas después de tu próxima aventura para recordar las condiciones."
@@ -1330,6 +1822,12 @@
             "state": "translated",
             "value": "Notas"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notas"
+          }
         }
       }
     },
@@ -1342,6 +1840,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resumen"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Resumen"
@@ -1362,6 +1866,12 @@
             "state": "translated",
             "value": "Altímetro"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altímetro"
+          }
         }
       }
     },
@@ -1378,6 +1888,12 @@
             "state": "translated",
             "value": "Barómetro"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barómetro"
+          }
         }
       }
     },
@@ -1390,6 +1906,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perfil"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Perfil"
@@ -1411,6 +1933,12 @@
             "state": "translated",
             "value": "La presión está bajando"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión está bajando"
+          }
         }
       }
     },
@@ -1424,6 +1952,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión está subiendo"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "La presión está subiendo"
@@ -1445,6 +1979,12 @@
             "state": "translated",
             "value": "La presión se mantiene estable"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La presión se mantiene estable"
+          }
         }
       }
     },
@@ -1461,6 +2001,12 @@
             "state": "translated",
             "value": "Imperial (ft)"
           }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imperial (ft)"
+          }
         }
       }
     },
@@ -1473,6 +2019,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Métrico (m)"
+          }
+        },
+        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "Métrico (m)"

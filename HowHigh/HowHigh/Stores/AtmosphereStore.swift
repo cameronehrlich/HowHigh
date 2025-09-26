@@ -43,7 +43,6 @@ final class AtmosphereStore: ObservableObject {
     }
 }
 
-#if DEBUG
 private struct PreviewAtmosphereService: AtmosphericProviding {
     func fetchObservation(for location: CLLocation) async throws -> AtmosphericObservation {
         AtmosphericObservation(timestamp: Date(),
@@ -66,4 +65,3 @@ extension AtmosphereStore {
         AtmosphereStore(service: PreviewAtmosphereService(), locationProvider: PreviewLocationProvider())
     }
 }
-#endif
