@@ -54,21 +54,16 @@ The `--skip-screenshots` flag mirrors the default lane behaviour; drop it if you
 
 ## Screenshot automation
 
-1. Capture fresh screenshots (pass `--frame` to automatically run frameit afterwards):
+1. Capture fresh screenshots:
    ```bash
-   ./capture_screenshots.sh --frame
+   ./capture_screenshots.sh
    ```
-   This runs the UITest suite on iPhone 17 Pro and iPad Pro (13-inch M4) and writes the `.xcresult` bundles to the repo root.
+   This runs the UITest suite on iPhone 14 Plus (6.5" class) and iPad Pro (12.9-inch) (6th generation) so the output matches App Store Connect’s supported dimensions (6.5" phone + 13" tablet), and writes the `.xcresult` bundles to the repo root.
 2. Export the attachments into Fastlane’s directory layout:
    ```bash
    python3 scripts/export_screenshots.py ScreenshotResults.xcresult ScreenshotResults_iPad.xcresult --clean
    ```
    The helper examines each attachment name (`<locale>-<device>-<label>`) and saves the PNGs under `fastlane/screenshots/<locale>/` with consistent numbering.
-3. (Optional) Add device frames and overlay text using [frameit](https://docs.fastlane.tools/actions/frameit/):
-   ```bash
-   bundle exec fastlane frameit --white
-   ```
-   The included `fastlane/Framefile.json` provides starter copy for English, Spanish (Spain), and Spanish (Mexico). Customise fonts, colours, and messaging as needed.
 
 ## Output structure
 

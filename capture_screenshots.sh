@@ -1,7 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-# Runs screenshot UI tests for iPhone and iPad. Optional arg = base result bundle name.
+# Runs screenshot UI tests for iPhone and iPad.
+# Usage: ./capture_screenshots.sh [base_name]
+
+# Optional arg = base result bundle name.
 BASE_RESULT=${1:-ScreenshotResults}
 PROJECT_PATH="HowHigh/HowHigh.xcodeproj"
 SCHEME="HowHighUITests"
@@ -41,12 +44,15 @@ run_tests() {
   fi
 }
 
-run_tests 'platform=iOS Simulator,name=iPhone 17 Pro' "$BASE_RESULT" 'platform=iOS Simulator,name=iPhone 17'
-run_tests 'platform=iOS Simulator,name=iPad Pro 13-inch (M4),OS=26.0' "${BASE_RESULT}_iPad"
+run_tests 'platform=iOS Simulator,name=iPhone 14 Plus' "$BASE_RESULT" 'platform=iOS Simulator,name=iPhone 14 Pro Max'
+run_tests 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (6th generation)' "${BASE_RESULT}_iPad" 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (5th generation)'
+
+echo "\nExporting screenshots into fastlane/screenshots..."
+python3 scripts/export_screenshots.py "${BASE_RESULT}.xcresult" "${BASE_RESULT}_iPad.xcresult" --clean
 
 cat <<MSG
-\nDone! Result bundles:
+\nDone! Result bundles and fastlane assets updated:
   $(pwd)/$BASE_RESULT.xcresult
   $(pwd)/${BASE_RESULT}_iPad.xcresult
-Open them in Finder or Xcode to export the PNG attachments.
+  $(pwd)/fastlane/screenshots/
 MSG

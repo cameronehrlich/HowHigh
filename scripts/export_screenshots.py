@@ -3,7 +3,7 @@
 
 Usage examples:
     python scripts/export_screenshots.py ScreenshotResults.xcresult ScreenshotResults_iPad.xcresult
-    python scripts/export_screenshots.py --clean --frame ScreenshotResults*.xcresult
+    python scripts/export_screenshots.py --clean ScreenshotResults*.xcresult
 
 The script expects screenshot attachments named with the pattern
     <locale>-<device>-<label>
@@ -21,7 +21,7 @@ import sys
 import tempfile
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 XCRESULT_TOOL = Path("/usr/bin/xcrun")
 LOCALE_PATTERN = re.compile(r"^(?P<locale>[a-z]{2}-[A-Z]{2})-(?P<rest>.+)$")
@@ -172,19 +172,6 @@ def export_from_xcresult(path: Path, output: Path, counters: Dict[Tuple[str, str
     return exported
 
 
-def run_frameit(output: Path) -> None:
-    try:
-        subprocess.run(
-            ["bundle", "exec", "fastlane", "frameit", "--white"],
-            cwd=output.parent,
-            check=True,
-        )
-    except FileNotFoundError:
-        sys.stderr.write("fastlane frameit not available. Install fastlane to use framing.\n")
-    except subprocess.CalledProcessError as exc:
-        stderr = exc.stderr.decode() if exc.stderr else str(exc)
-        sys.stderr.write(stderr + "\n")
-
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Export UI test screenshots into fastlane directories")
@@ -199,11 +186,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         "--clean",
         action="store_true",
         help="Remove existing PNG files beneath the output directory before exporting",
-    )
-    parser.add_argument(
-        "--frame",
-        action="store_true",
-        help="Run `bundle exec fastlane frameit` after exporting (requires Framefile configuration)",
     )
     args = parser.parse_args(argv)
 
@@ -230,9 +212,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     print("Saved screenshots:")
     for path in exported_total:
         print(f"  {path}")
-
-    if args.frame:
-        run_frameit(output_root)
 
     return 0
 
