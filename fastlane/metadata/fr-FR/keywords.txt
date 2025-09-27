@@ -1,0 +1,1 @@
+baromètre,altimètre,altitude,pression,météo,randonnée,aviation,orage,tracking,scientifique

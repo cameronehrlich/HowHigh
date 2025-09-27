@@ -1,0 +1,1 @@
+barômetro,altímetro,altitude,pressão,clima,tempestade,trilha,aviação,rastreamento,ciência

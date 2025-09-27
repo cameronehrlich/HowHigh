@@ -1,0 +1,12 @@
+HowHigh transforme votre iPhone ou iPad en baromètre et altimètre de précision conçu pour celles et ceux qui scrutent les variations de pression et les gains d'altitude. Basculez en un clin d'œil entre les onglets dédiés aux relevés en direct, à l'enregistrement des sessions et à l'analyse de l'historique, le tout dans une expérience Apple native parfaitement intégrée.
+
+Pourquoi les randonneurs, pilotes et passionnés de météo en France font confiance à HowHigh :
+- Des tableaux de bord baromètre et altimètre fournissent pression, altitude, vitesse de variation et réglages du niveau de la mer en temps réel.
+- L'enregistrement de session capture chaque sortie ou expérience et crée des ensembles de données riches que vous pouvez consulter à tout moment.
+- Les graphiques interactifs Swift Charts permettent de parcourir les courbes, de mettre en évidence les sommets et de passer de l'impérial au métrique d'un simple toucher.
+- La calibration automatique du dispositif garantit des mesures fiables pour suivre les tempêtes, planifier des itinéraires en montagne ou optimiser un environnement intérieur.
+- La prise en charge universelle est optimisée pour iPhone et iPad, Split View, Dynamic Type et les dernières fonctionnalités d'accessibilité d'iOS.
+
+Pensé pour la localisation dès le premier jour, HowHigh gère toutes les chaînes via des ressources Localizable afin que les équipes traduisent rapidement et maintiennent des sorties mondiales synchronisées. Aucune synchronisation iCloud n'est requise : vos sessions restent en sécurité sur l'appareil jusqu'à ce que vous décidiez de les partager ou de les exporter.
+
+Préparez votre prochaine randonnée, vol, séance en studio ou expérience scientifique avec HowHigh. Lancez un enregistrement, observez l'évolution de la pression et conservez des informations d'altitude précises toujours à portée de main.

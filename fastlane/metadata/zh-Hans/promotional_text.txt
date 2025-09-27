@@ -1,0 +1,1 @@
+记录精准的气压与海拔会话，浏览 Swift Charts，并在 iPhone 与 iPad 上享受无缝体验。

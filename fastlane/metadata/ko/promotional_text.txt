@@ -1,0 +1,1 @@
+정밀한 기압·고도 세션을 기록하고 Swift Charts를 확인하며 iPhone과 iPad에서 매끄럽게 활용하세요.

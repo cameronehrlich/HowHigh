@@ -1,0 +1,1 @@
+Barometer,Altimeter,Höhenmesser,Druckmesser,Wetter,Sturm,Tracking,Wandern,Luftfahrt,Outdoor
