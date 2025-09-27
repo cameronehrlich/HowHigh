@@ -2,28 +2,10 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var settingsStore: SettingsStore
-    @ObservedObject var atmosphereStore: AtmosphereStore
     @State private var showSeaLevelInfo = false
-
-    private var temperatureFormatter: MeasurementFormatter {
-        let formatter = MeasurementFormatter()
-        formatter.unitOptions = .providedUnit
-        formatter.unitStyle = .medium
-        formatter.locale = .autoupdatingCurrent
-        formatter.numberFormatter.maximumFractionDigits = 0
-        return formatter
-    }
 
     private var regionIdentifier: String {
         Locale.current.region?.identifier ?? String(localized: "profile.region.unknown")
-    }
-
-    private func observationSummary(for observation: AtmosphericObservation) -> String {
-        let pressure = PressureFormatter.hectopascals(fromKilopascals: observation.seaLevelPressureHPa / 10.0)
-        let temperatureMeasurement = Measurement(value: observation.temperatureCelsius, unit: UnitTemperature.celsius)
-        let temperature = temperatureFormatter.string(from: temperatureMeasurement)
-        let format = String(localized: "profile.weatherKit.summary.format", bundle: .main)
-        return String(format: format, locale: .autoupdatingCurrent, pressure, observation.conditionDescription, temperature)
     }
 
     var body: some View {
@@ -31,7 +13,6 @@ struct ProfileView: View {
             Form {
                 unitsSection
                 calibrationSection
-                weatherKitSection
                 supportSection
                 aboutSection
             }
@@ -70,56 +51,9 @@ struct ProfileView: View {
         }
     }
 
-    private var weatherKitSection: some View {
-        Section(header: Text("profile.section.weatherKit")) {
-            if let observation = atmosphereStore.latestObservation {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("profile.weatherKit.latest")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Text(observationSummary(for: observation))
-                    Button {
-                        let kPa = observation.seaLevelPressureHPa / 10.0
-                        settingsStore.seaLevelPressureKPa = kPa
-                    } label: {
-                        let appliedValue = PressureFormatter.kilopascals(observation.seaLevelPressureHPa / 10.0)
-                        let format = String(localized: "profile.action.applyPressure.format", bundle: .main)
-                        let labelText = String(format: format, locale: .autoupdatingCurrent, appliedValue)
-                        Label(labelText, systemImage: "checkmark.circle")
-                    }
-                    .accessibilityLabel(String(localized: "profile.action.applyPressure.accessibility", bundle: .main))
-                }
-            } else {
-                Text("profile.weatherKit.empty")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            }
-
-            Button {
-                Task { await atmosphereStore.refresh() }
-            } label: {
-                if atmosphereStore.isFetching {
-                    ProgressView()
-                } else {
-                    Label("profile.action.refreshWeather", systemImage: "arrow.clockwise")
-                }
-            }
-            .disabled(atmosphereStore.isFetching)
-
-            if let error = atmosphereStore.lastError {
-                Text(error)
-                    .font(.caption)
-                    .foregroundStyle(.orange)
-            }
-        }
-    }
-
     private var supportSection: some View {
         Section(header: Text("profile.section.support")) {
-            Link(destination: URL(string: "https://support.apple.com/en-us/HT207106")!) {
-                Label("profile.link.barometerTips", systemImage: "link")
-            }
-            Link(destination: URL(string: "mailto:hello@howhigh.app")!) {
+            Link(destination: URL(string: "mailto:howhigh@37.technology")!) {
                 Label("profile.link.contactSupport", systemImage: "envelope")
             }
         }
@@ -130,11 +64,18 @@ struct ProfileView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("profile.about.appName")
                     .font(.headline)
-                Text("profile.about.version")
+                Text(appVersionDescription)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
+    }
+
+    private var appVersionDescription: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
+        let format = String(localized: "profile.about.version.format", bundle: .main)
+        return String(format: format, locale: .autoupdatingCurrent, version, build)
     }
 
     private var seaLevelInfoSheet: some View {
@@ -164,5 +105,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(settingsStore: SettingsStore(), atmosphereStore: AtmosphereStore.preview())
+    ProfileView(settingsStore: SettingsStore())
 }

@@ -4,19 +4,16 @@ struct RootView: View {
     @ObservedObject var settingsStore: SettingsStore
     @ObservedObject var sessionStore: SessionStore
     @ObservedObject var altitudeService: AltitudeService
-    @ObservedObject var atmosphereStore: AtmosphereStore
 
     @StateObject private var barometerViewModel: MeasureViewModel
     @StateObject private var altimeterViewModel: MeasureViewModel
 
     init(settingsStore: SettingsStore,
          sessionStore: SessionStore,
-         altitudeService: AltitudeService,
-         atmosphereStore: AtmosphereStore) {
+         altitudeService: AltitudeService) {
         _settingsStore = ObservedObject(initialValue: settingsStore)
         _sessionStore = ObservedObject(initialValue: sessionStore)
         _altitudeService = ObservedObject(initialValue: altitudeService)
-        _atmosphereStore = ObservedObject(initialValue: atmosphereStore)
         _barometerViewModel = StateObject(wrappedValue: MeasureViewModel(mode: .barometer,
                                                                          altitudeService: altitudeService,
                                                                          sessionStore: sessionStore,
@@ -39,7 +36,7 @@ struct RootView: View {
                     Label(String(localized: "tab.altimeter.title"), systemImage: "mountain.2")
                 }
 
-            ProfileView(settingsStore: settingsStore, atmosphereStore: atmosphereStore)
+            ProfileView(settingsStore: settingsStore)
                 .tabItem {
                     Label(String(localized: "tab.profile.title"), systemImage: "person")
                 }
@@ -51,9 +48,7 @@ struct RootView: View {
     let settings = SettingsStore()
     let sessionStore = SessionStore(controller: PersistenceController(inMemory: true))
     let service = AltitudeService.preview
-    let atmosphere = AtmosphereStore.preview()
     return RootView(settingsStore: settings,
                     sessionStore: sessionStore,
-                    altitudeService: service,
-                    atmosphereStore: atmosphere)
+                    altitudeService: service)
 }

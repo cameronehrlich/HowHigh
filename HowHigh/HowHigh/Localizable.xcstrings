@@ -3,7 +3,25 @@
   "strings": {
     "common.cancel": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إلغاء"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbrechen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Cancel"
@@ -21,16 +39,10 @@
             "value": "Cancelar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancel"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "取消"
+            "value": "Annuler"
           }
         },
         "ja": {
@@ -45,18 +57,6 @@
             "value": "취소"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abbrechen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -69,17 +69,35 @@
             "value": "Отмена"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "إلغاء"
+            "value": "取消"
           }
         }
       }
     },
     "common.done": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertig"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Done"
@@ -97,16 +115,10 @@
             "value": "Listo"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Done"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完成"
+            "value": "Terminé"
           }
         },
         "ja": {
@@ -121,18 +133,6 @@
             "value": "완료"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fertig"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terminé"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -145,17 +145,35 @@
             "value": "Готово"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "تم"
+            "value": "完成"
           }
         }
       }
     },
     "common.ok": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حسنًا"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -173,16 +191,10 @@
             "value": "Aceptar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "好"
           }
         },
         "ja": {
@@ -197,18 +209,6 @@
             "value": "확인"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -221,17 +221,35 @@
             "value": "ОК"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "حسنًا"
+            "value": "好"
           }
         }
       }
     },
     "history.empty.subtitle": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سجّل جلسة لتظهر هنا."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nimm eine Sitzung auf, um sie hier zu sehen."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Record a session to see it appear here."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Record a session to see it appear here."
@@ -249,16 +267,10 @@
             "value": "Registra una sesión para verla aquí."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Record a session to see it appear here."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "记录一次会话即可在此查看。"
+            "value": "Enregistrez une session pour la voir ici."
           }
         },
         "ja": {
@@ -273,18 +285,6 @@
             "value": "세션을 기록하면 여기에 표시됩니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nimm eine Sitzung auf, um sie hier zu sehen."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enregistrez une session pour la voir ici."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -297,17 +297,35 @@
             "value": "Запишите сеанс, чтобы увидеть его здесь."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "سجّل جلسة لتظهر هنا."
+            "value": "记录一次会话即可在此查看。"
           }
         }
       }
     },
     "history.empty.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد جلسات بعد"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch keine Sitzungen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Sessions Yet"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "No Sessions Yet"
@@ -325,16 +343,10 @@
             "value": "Sin sesiones aún"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "No Sessions Yet"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂无会话"
+            "value": "Aucune session"
           }
         },
         "ja": {
@@ -349,18 +361,6 @@
             "value": "세션이 없습니다"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noch keine Sitzungen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune session"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -373,17 +373,35 @@
             "value": "Сеансов пока нет"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا توجد جلسات بعد"
+            "value": "暂无会话"
           }
         }
       }
     },
     "history.navigation.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "السجل"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlauf"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "History"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "History"
@@ -401,16 +419,10 @@
             "value": "Historial"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "History"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "历史记录"
+            "value": "Historique"
           }
         },
         "ja": {
@@ -425,18 +437,6 @@
             "value": "기록"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verlauf"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Historique"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -449,17 +449,35 @@
             "value": "История"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "السجل"
+            "value": "历史记录"
           }
         }
       }
     },
     "insights.card.cumulativeGain.message.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صعدت %@ عبر %@ جلسات."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du bist %@ in %@ Sitzungen gestiegen."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've climbed %@ across %@ sessions."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "You've climbed %@ across %@ sessions."
@@ -477,16 +495,10 @@
             "value": "Has ascendido %@ en %@ sesiones."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "You've climbed %@ across %@ sessions."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你已在 %@ 次会话中攀升 %@。"
+            "value": "Vous avez gravi %@ au cours de %@ sessions."
           }
         },
         "ja": {
@@ -501,18 +513,6 @@
             "value": "%@회 세션에서 총 %@을(를) 올랐습니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du bist %@ in %@ Sitzungen gestiegen."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous avez gravi %@ au cours de %@ sessions."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -525,17 +525,35 @@
             "value": "Вы поднялись на %@ за %@ сеансов."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "صعدت %@ عبر %@ جلسات."
+            "value": "你已在 %@ 次会话中攀升 %@。"
           }
         }
       }
     },
     "insights.card.cumulativeGain.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إجمالي الارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kumulativer Anstieg"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cumulative Gain"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Cumulative Gain"
@@ -553,16 +571,10 @@
             "value": "Ascenso acumulado"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cumulative Gain"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "累计攀升"
+            "value": "Gain cumulé"
           }
         },
         "ja": {
@@ -577,18 +589,6 @@
             "value": "누적 상승 고도"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kumulativer Anstieg"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gain cumulé"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -601,17 +601,35 @@
             "value": "Совокупный подъём"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "إجمالي الارتفاع"
+            "value": "累计攀升"
           }
         }
       }
     },
     "insights.card.empty.message": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابدأ أول صعود لك لعرض رؤى الضغط."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starte deine erste Tour, um Druckanalysen freizuschalten."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start your first climb to unlock pressure insights."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Start your first climb to unlock pressure insights."
@@ -629,16 +647,10 @@
             "value": "Registra tu primera actividad para ver información sobre la presión."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Start your first climb to unlock pressure insights."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开始第一次攀登以解锁气压洞察。"
+            "value": "Lancez votre première ascension pour afficher les informations de pression."
           }
         },
         "ja": {
@@ -653,18 +665,6 @@
             "value": "첫 세션을 시작해 기압 인사이트를 확인하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Starte deine erste Tour, um Druckanalysen freizuschalten."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lancez votre première ascension pour afficher les informations de pression."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -677,17 +677,35 @@
             "value": "Начните первый подъём, чтобы открыть данные о давлении."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ابدأ أول صعود لك لعرض رؤى الضغط."
+            "value": "开始第一次攀登以解锁气压洞察。"
           }
         }
       }
     },
     "insights.card.empty.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد جلسات بعد"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch keine Sitzungen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Sessions Yet"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "No Sessions Yet"
@@ -705,16 +723,10 @@
             "value": "Sin sesiones aún"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "No Sessions Yet"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂无会话"
+            "value": "Aucune session"
           }
         },
         "ja": {
@@ -729,18 +741,6 @@
             "value": "세션이 없습니다"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noch keine Sitzungen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune session"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -753,17 +753,35 @@
             "value": "Сеансов пока нет"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا توجد جلسات بعد"
+            "value": "暂无会话"
           }
         }
       }
     },
     "insights.card.lastSession.message.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حققت %@ خلال %@."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du hast %@ in %@ erreicht."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gained %@ over %@."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Gained %@ over %@."
@@ -781,16 +799,10 @@
             "value": "Ganaste %@ en %@."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gained %@ over %@."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "攀升了 %@，耗时 %@。"
+            "value": "Gain de %@ en %@."
           }
         },
         "ja": {
@@ -805,18 +817,6 @@
             "value": "%@ 동안 %@을(를) 획득했습니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du hast %@ in %@ erreicht."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gain de %@ en %@."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -829,17 +829,35 @@
             "value": "Подъём %@ за %@."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "حققت %@ خلال %@."
+            "value": "攀升了 %@，耗时 %@。"
           }
         }
       }
     },
     "insights.card.lastSession.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الجلسة الأخيرة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letzte Sitzung"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last Session"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Last Session"
@@ -857,16 +875,10 @@
             "value": "Última sesión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Last Session"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "上一会话"
+            "value": "Dernière session"
           }
         },
         "ja": {
@@ -881,18 +893,6 @@
             "value": "마지막 세션"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Letzte Sitzung"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dernière session"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -905,17 +905,35 @@
             "value": "Последний сеанс"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الجلسة الأخيرة"
+            "value": "上一会话"
           }
         }
       }
     },
     "insights.card.localPressure.message.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -933,13 +951,7 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
-        "zh-Hans": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -957,18 +969,6 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -981,7 +981,7 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -991,7 +991,25 @@
     },
     "insights.card.localPressure.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط المحلي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftdruck vor Ort"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Local Pressure"
@@ -1009,16 +1027,10 @@
             "value": "Presión local"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Local Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "本地气压"
+            "value": "Pression locale"
           }
         },
         "ja": {
@@ -1033,18 +1045,6 @@
             "value": "지역 기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Luftdruck vor Ort"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression locale"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1057,17 +1057,35 @@
             "value": "Местное давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط المحلي"
+            "value": "本地气压"
           }
         }
       }
     },
     "insights.card.pressureTrend.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اتجاه الضغط"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Drucktrend"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure Trend"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure Trend"
@@ -1085,16 +1103,10 @@
             "value": "Tendencia de presión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure Trend"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压趋势"
+            "value": "Tendance de pression"
           }
         },
         "ja": {
@@ -1109,18 +1121,6 @@
             "value": "기압 추세"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Drucktrend"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tendance de pression"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1133,17 +1133,35 @@
             "value": "Тренд давления"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اتجاه الضغط"
+            "value": "气压趋势"
           }
         }
       }
     },
     "insights.card.weeklyTrend.message.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متوسط الضغط %@ ويتغير بمقدار %@ كيلو باسكال لكل جلسة."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Durchschnittsdruck liegt bei %@ und ändert sich um %@ kPa pro Sitzung."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Average pressure is %@ by %@ kPa per session."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Average pressure is %@ by %@ kPa per session."
@@ -1161,16 +1179,10 @@
             "value": "La presión media está %@ en %@ kPa por sesión."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Average pressure is %@ by %@ kPa per session."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "平均气压为 %@，每次会话变化 %@ kPa。"
+            "value": "La pression moyenne est de %@ avec une variation de %@ kPa par session."
           }
         },
         "ja": {
@@ -1185,18 +1197,6 @@
             "value": "평균 기압은 %@이며 세션당 %@ kPa 변합니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Durchschnittsdruck liegt bei %@ und ändert sich um %@ kPa pro Sitzung."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La pression moyenne est de %@ avec une variation de %@ kPa par session."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1209,17 +1209,35 @@
             "value": "Среднее давление %@, изменение %@ кПа за сеанс."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "متوسط الضغط %@ ويتغير بمقدار %@ كيلو باسكال لكل جلسة."
+            "value": "平均气压为 %@，每次会话变化 %@ kPa。"
           }
         }
       }
     },
     "insights.card.weeklyTrend.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اتجاه أسبوعي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wochentrend"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly Trend"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Weekly Trend"
@@ -1237,16 +1255,10 @@
             "value": "Tendencia semanal"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Weekly Trend"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "每周趋势"
+            "value": "Tendance hebdomadaire"
           }
         },
         "ja": {
@@ -1261,18 +1273,6 @@
             "value": "주간 추세"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wochentrend"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tendance hebdomadaire"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1285,10 +1285,10 @@
             "value": "Недельный тренд"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اتجاه أسبوعي"
+            "value": "每周趋势"
           }
         }
       }
@@ -1296,7 +1296,25 @@
     "insights.direction.dropping": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ينخفض"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "fallend"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dropping"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "dropping"
@@ -1314,16 +1332,10 @@
             "value": "bajando"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "dropping"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "下降中"
+            "value": "en baisse"
           }
         },
         "ja": {
@@ -1338,18 +1350,6 @@
             "value": "하락 중"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "fallend"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "en baisse"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1362,10 +1362,10 @@
             "value": "понижается"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ينخفض"
+            "value": "下降中"
           }
         }
       }
@@ -1373,7 +1373,25 @@
     "insights.direction.rising": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يرتفع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "steigend"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "rising"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "rising"
@@ -1391,16 +1409,10 @@
             "value": "subiendo"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "rising"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "上升中"
+            "value": "en hausse"
           }
         },
         "ja": {
@@ -1415,18 +1427,6 @@
             "value": "상승 중"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "steigend"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "en hausse"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1439,17 +1439,35 @@
             "value": "повышается"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "يرتفع"
+            "value": "上升中"
           }
         }
       }
     },
     "insights.navigation.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الرؤى"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einblicke"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insights"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Insights"
@@ -1467,16 +1485,10 @@
             "value": "Información"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Insights"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "洞察"
+            "value": "Aperçus"
           }
         },
         "ja": {
@@ -1491,18 +1503,6 @@
             "value": "인사이트"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einblicke"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aperçus"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1515,17 +1515,35 @@
             "value": "Аналитика"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الرؤى"
+            "value": "洞察"
           }
         }
       }
     },
     "insights.progress.weather": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ تحديث الطقس"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wetter wird aktualisiert"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refreshing Weather"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Refreshing Weather"
@@ -1543,16 +1561,10 @@
             "value": "Actualizando información meteorológica"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Refreshing Weather"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "正在刷新天气"
+            "value": "Actualisation météo"
           }
         },
         "ja": {
@@ -1567,18 +1579,6 @@
             "value": "날씨 새로 고치는 중"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wetter wird aktualisiert"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Actualisation météo"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1591,17 +1591,35 @@
             "value": "Обновление данных погоды"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "جارٍ تحديث الطقس"
+            "value": "正在刷新天气"
           }
         }
       }
     },
     "measure.action.calibrate": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معايرة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalibrieren"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrate"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Calibrate"
@@ -1619,16 +1637,10 @@
             "value": "Calibrar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibrate"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "校准"
+            "value": "Calibrer"
           }
         },
         "ja": {
@@ -1641,18 +1653,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "보정"
-          }
-        },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kalibrieren"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calibrer"
           }
         },
         "pt-BR": {
@@ -1667,17 +1667,35 @@
             "value": "Калибровать"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "معايرة"
+            "value": "校准"
           }
         }
       }
     },
     "measure.action.pause": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف مؤقت"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pause"
@@ -1695,16 +1713,10 @@
             "value": "Pausar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "Pause"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂停"
           }
         },
         "ja": {
@@ -1719,18 +1731,6 @@
             "value": "일시 중지"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1743,17 +1743,35 @@
             "value": "Пауза"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "إيقاف مؤقت"
+            "value": "暂停"
           }
         }
       }
     },
     "measure.action.recording": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ التسجيل…"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aufnahme…"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recording…"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Recording…"
@@ -1771,16 +1789,10 @@
             "value": "Grabando…"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recording…"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "正在记录…"
+            "value": "Enregistrement…"
           }
         },
         "ja": {
@@ -1795,18 +1807,6 @@
             "value": "기록 중…"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aufnahme…"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enregistrement…"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1819,17 +1819,35 @@
             "value": "Запись…"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "جارٍ التسجيل…"
+            "value": "正在记录…"
           }
         }
       }
     },
     "measure.action.resume": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استئناف"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortsetzen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Resume"
@@ -1847,16 +1865,10 @@
             "value": "Reanudar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Resume"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "继续"
+            "value": "Reprendre"
           }
         },
         "ja": {
@@ -1871,18 +1883,6 @@
             "value": "재개"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsetzen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reprendre"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1895,17 +1895,35 @@
             "value": "Продолжить"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "استئناف"
+            "value": "继续"
           }
         }
       }
     },
     "measure.action.start": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بدء الجلسة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitzung starten"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Session"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Start Session"
@@ -1923,16 +1941,10 @@
             "value": "Iniciar sesión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Start Session"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开始会话"
+            "value": "Démarrer la session"
           }
         },
         "ja": {
@@ -1947,18 +1959,6 @@
             "value": "세션 시작"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sitzung starten"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Démarrer la session"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -1971,17 +1971,35 @@
             "value": "Начать сеанс"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "بدء الجلسة"
+            "value": "开始会话"
           }
         }
       }
     },
     "measure.action.stop": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopp"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Stop"
@@ -1999,16 +2017,10 @@
             "value": "Detener"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止"
+            "value": "Arrêter"
           }
         },
         "ja": {
@@ -2023,18 +2035,6 @@
             "value": "중지"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stopp"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrêter"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2047,10 +2047,10 @@
             "value": "Стоп"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "إيقاف"
+            "value": "停止"
           }
         }
       }
@@ -2058,7 +2058,25 @@
     "measure.alert.barometerUnavailable.message": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا يتوفر مستشعر للضغط الجوي على هذا الجهاز."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieses Gerät verfügt über keinen Barometersensor."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A barometer sensor is not available on this device."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "A barometer sensor is not available on this device."
@@ -2076,16 +2094,10 @@
             "value": "Este dispositivo no tiene sensor barométrico."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "A barometer sensor is not available on this device."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "此设备不支持气压计传感器。"
+            "value": "Ce dispositif ne possède pas de capteur barométrique."
           }
         },
         "ja": {
@@ -2100,18 +2112,6 @@
             "value": "이 기기에는 기압 센서가 없습니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dieses Gerät verfügt über keinen Barometersensor."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ce dispositif ne possède pas de capteur barométrique."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2124,17 +2124,35 @@
             "value": "На этом устройстве нет барометрического датчика."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا يتوفر مستشعر للضغط الجوي على هذا الجهاز."
+            "value": "此设备不支持气压计传感器。"
           }
         }
       }
     },
     "measure.alert.barometerUnavailable.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البارومتر غير متاح"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barometer nicht verfügbar"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barometer Unavailable"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Barometer Unavailable"
@@ -2152,16 +2170,10 @@
             "value": "Barómetro no disponible"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Barometer Unavailable"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法使用气压计"
+            "value": "Baromètre indisponible"
           }
         },
         "ja": {
@@ -2176,18 +2188,6 @@
             "value": "기압계 사용 불가"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Barometer nicht verfügbar"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Baromètre indisponible"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2200,17 +2200,35 @@
             "value": "Барометр недоступен"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "البارومتر غير متاح"
+            "value": "无法使用气压计"
           }
         }
       }
     },
     "measure.chart.axis.altitude.imperial": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الارتفاع (قدم)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhe (ft)"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitude (ft)"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitude (ft)"
@@ -2228,16 +2246,10 @@
             "value": "Altitud (ft)"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitude (ft)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海拔 (英尺)"
           }
         },
         "ja": {
@@ -2252,18 +2264,6 @@
             "value": "고도 (ft)"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Höhe (ft)"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altitude (ft)"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2276,17 +2276,35 @@
             "value": "Высота (фт)"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الارتفاع (قدم)"
+            "value": "海拔 (英尺)"
           }
         }
       }
     },
     "measure.chart.axis.altitude.metric": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الارتفاع (متر)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhe (m)"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitude (m)"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitude (m)"
@@ -2304,16 +2322,10 @@
             "value": "Altitud (m)"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "Altitude (m)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海拔 (米)"
           }
         },
         "ja": {
@@ -2328,18 +2340,6 @@
             "value": "고도 (m)"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Höhe (m)"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altitude (m)"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2352,17 +2352,35 @@
             "value": "Высота (м)"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الارتفاع (متر)"
+            "value": "海拔 (米)"
           }
         }
       }
     },
     "measure.chart.axis.pressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure"
@@ -2380,16 +2398,10 @@
             "value": "Presión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压"
+            "value": "Pression"
           }
         },
         "ja": {
@@ -2404,18 +2416,6 @@
             "value": "기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2428,17 +2428,35 @@
             "value": "Давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط"
+            "value": "气压"
           }
         }
       }
     },
     "measure.chart.axis.time": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوقت"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeit"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Time"
@@ -2456,16 +2474,10 @@
             "value": "Hora"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Time"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "时间"
+            "value": "Temps"
           }
         },
         "ja": {
@@ -2480,18 +2492,6 @@
             "value": "시간"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zeit"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temps"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2504,17 +2504,35 @@
             "value": "Время"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الوقت"
+            "value": "时间"
           }
         }
       }
     },
     "measure.chart.placeholder": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اضغط على بدء لعرض القراءات الحية هنا."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe auf Start, um hier Live-Werte zu sehen."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Press Start to see live readings here."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Press Start to see live readings here."
@@ -2532,16 +2550,10 @@
             "value": "Pulsa Iniciar para ver lecturas en vivo aquí."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Press Start to see live readings here."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击“开始”即可在此查看实时读数。"
+            "value": "Touchez Démarrer pour afficher ici les mesures en direct."
           }
         },
         "ja": {
@@ -2556,18 +2568,6 @@
             "value": "시작을 누르면 여기에서 실시간 데이터를 볼 수 있습니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tippe auf Start, um hier Live-Werte zu sehen."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Touchez Démarrer pour afficher ici les mesures en direct."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2580,17 +2580,35 @@
             "value": "Нажмите «Пуск», чтобы видеть здесь показания в реальном времени."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اضغط على بدء لعرض القراءات الحية هنا."
+            "value": "点击“开始”即可在此查看实时读数。"
           }
         }
       }
     },
     "measure.chart.selected": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "محدد"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausgewählt"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selected"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Selected"
@@ -2608,16 +2626,10 @@
             "value": "Seleccionado"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selected"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已选"
+            "value": "Sélectionné"
           }
         },
         "ja": {
@@ -2632,18 +2644,6 @@
             "value": "선택됨"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ausgewählt"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionné"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2656,17 +2656,35 @@
             "value": "Выбрано"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "محدد"
+            "value": "已选"
           }
         }
       }
     },
     "measure.chart.selected.detail.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -2684,13 +2702,7 @@
             "value": "%@ • %@"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
-        "zh-Hans": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -2708,18 +2720,6 @@
             "value": "%@ • %@"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2732,7 +2732,7 @@
             "value": "%@ • %@"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -2742,7 +2742,25 @@
     },
     "measure.chart.title.elevation": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ارتفاع مباشر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live-Höhe"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live Elevation"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Live Elevation"
@@ -2760,16 +2778,10 @@
             "value": "Elevación en vivo"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Live Elevation"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实时海拔"
+            "value": "Altitude en direct"
           }
         },
         "ja": {
@@ -2784,18 +2796,6 @@
             "value": "실시간 고도"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Live-Höhe"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altitude en direct"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2808,17 +2808,35 @@
             "value": "Текущая высота"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ارتفاع مباشر"
+            "value": "实时海拔"
           }
         }
       }
     },
     "measure.chart.title.pressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ضغط مباشر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live-Druck"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Live Pressure"
@@ -2836,16 +2854,10 @@
             "value": "Presión en vivo"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Live Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实时气压"
+            "value": "Pression en direct"
           }
         },
         "ja": {
@@ -2860,18 +2872,6 @@
             "value": "실시간 기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Live-Druck"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression en direct"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2884,17 +2884,35 @@
             "value": "Текущее давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ضغط مباشر"
+            "value": "实时气压"
           }
         }
       }
     },
     "measure.dialog.stop.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد إنهاء الجلسة؟"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitzung beenden?"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop Session?"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Stop Session?"
@@ -2912,16 +2930,10 @@
             "value": "¿Detener la sesión?"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop Session?"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "要停止会话吗？"
+            "value": "Arrêter la session ?"
           }
         },
         "ja": {
@@ -2936,18 +2948,6 @@
             "value": "세션을 중지할까요?"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sitzung beenden?"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrêter la session ?"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -2960,17 +2960,35 @@
             "value": "Остановить сеанс?"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "هل تريد إنهاء الجلسة؟"
+            "value": "要停止会话吗？"
           }
         }
       }
     },
     "measure.dialog.stopAndSave": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إيقاف وحفظ"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beenden & sichern"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop & Save"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Stop & Save"
@@ -2988,16 +3006,10 @@
             "value": "Detener y guardar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop & Save"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止并保存"
+            "value": "Arrêter et enregistrer"
           }
         },
         "ja": {
@@ -3012,18 +3024,6 @@
             "value": "중지 및 저장"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beenden & sichern"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrêter et enregistrer"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3036,17 +3036,35 @@
             "value": "Остановить и сохранить"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "إيقاف وحفظ"
+            "value": "停止并保存"
           }
         }
       }
     },
     "measure.hint.startAltimeter": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اضغط على بدء لبدء تتبع صعودك."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe auf Start, um deinen Aufstieg zu verfolgen."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap Start to begin tracking your climb."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Tap Start to begin tracking your climb."
@@ -3064,16 +3082,10 @@
             "value": "Pulsa Iniciar para comenzar a registrar tu ascenso."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap Start to begin tracking your climb."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击“开始”以开始跟踪你的攀登。"
+            "value": "Touchez Démarrer pour suivre votre ascension."
           }
         },
         "ja": {
@@ -3088,18 +3100,6 @@
             "value": "시작을 눌러 등반 추적을 시작하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tippe auf Start, um deinen Aufstieg zu verfolgen."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Touchez Démarrer pour suivre votre ascension."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3112,17 +3112,35 @@
             "value": "Нажмите «Пуск», чтобы начать отслеживать подъём."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اضغط على بدء لبدء تتبع صعودك."
+            "value": "点击“开始”以开始跟踪你的攀登。"
           }
         }
       }
     },
     "measure.hint.startBarometer": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اضغط على بدء لبدء تتبع تغيّر الضغط."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe auf Start, um Druckänderungen zu verfolgen."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap Start to begin tracking pressure changes."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Tap Start to begin tracking pressure changes."
@@ -3140,16 +3158,10 @@
             "value": "Pulsa Iniciar para comenzar a registrar los cambios de presión."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap Start to begin tracking pressure changes."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击“开始”以开始跟踪气压变化。"
+            "value": "Touchez Démarrer pour suivre les variations de pression."
           }
         },
         "ja": {
@@ -3164,18 +3176,6 @@
             "value": "시작을 눌러 기압 변화를 기록하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tippe auf Start, um Druckänderungen zu verfolgen."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Touchez Démarrer pour suivre les variations de pression."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3188,17 +3188,35 @@
             "value": "Нажмите «Пуск», чтобы отслеживать изменения давления."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اضغط على بدء لبدء تتبع تغيّر الضغط."
+            "value": "点击“开始”以开始跟踪气压变化。"
           }
         }
       }
     },
     "measure.metric.currentAltitude": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الارتفاع الحالي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktuelle Höhe"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current Altitude"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Current Altitude"
@@ -3216,16 +3234,10 @@
             "value": "Altitud actual"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Current Altitude"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前海拔"
+            "value": "Altitude actuelle"
           }
         },
         "ja": {
@@ -3240,18 +3252,6 @@
             "value": "현재 고도"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktuelle Höhe"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altitude actuelle"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3264,17 +3264,35 @@
             "value": "Текущая высота"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الارتفاع الحالي"
+            "value": "当前海拔"
           }
         }
       }
     },
     "measure.metric.currentPressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط الحالي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktueller Druck"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Current Pressure"
@@ -3292,16 +3310,10 @@
             "value": "Presión actual"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Current Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前气压"
+            "value": "Pression actuelle"
           }
         },
         "ja": {
@@ -3316,18 +3328,6 @@
             "value": "현재 기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktueller Druck"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression actuelle"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3340,17 +3340,35 @@
             "value": "Текущее давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط الحالي"
+            "value": "当前气压"
           }
         }
       }
     },
     "measure.metric.duration": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المدة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dauer"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duration"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Duration"
@@ -3368,16 +3386,10 @@
             "value": "Duración"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Duration"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "时长"
+            "value": "Durée"
           }
         },
         "ja": {
@@ -3392,18 +3404,6 @@
             "value": "지속 시간"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dauer"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Durée"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3416,17 +3416,35 @@
             "value": "Длительность"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "المدة"
+            "value": "时长"
           }
         }
       }
     },
     "measure.metric.gain": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anstieg"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gain"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Gain"
@@ -3444,16 +3462,10 @@
             "value": "Ascenso"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "Gain"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "上升"
           }
         },
         "ja": {
@@ -3468,18 +3480,6 @@
             "value": "상승"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anstieg"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gain"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3492,17 +3492,35 @@
             "value": "Подъём"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ارتفاع"
+            "value": "上升"
           }
         }
       }
     },
     "measure.metric.high": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أعلى قيمة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maximum"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "High"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "High"
@@ -3520,16 +3538,10 @@
             "value": "Máxima"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "High"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最高"
+            "value": "Maximum"
           }
         },
         "ja": {
@@ -3544,18 +3556,6 @@
             "value": "최고"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maximum"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maximum"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3568,17 +3568,35 @@
             "value": "Максимум"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "أعلى قيمة"
+            "value": "最高"
           }
         }
       }
     },
     "measure.metric.loss": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "انخفاض"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abstieg"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loss"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Loss"
@@ -3596,16 +3614,10 @@
             "value": "Descenso"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loss"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "下降"
+            "value": "Perte"
           }
         },
         "ja": {
@@ -3620,18 +3632,6 @@
             "value": "하강"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abstieg"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perte"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3644,17 +3644,35 @@
             "value": "Спуск"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "انخفاض"
+            "value": "下降"
           }
         }
       }
     },
     "measure.metric.low": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدنى قيمة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimum"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Low"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Low"
@@ -3672,16 +3690,10 @@
             "value": "Mínima"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Low"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最低"
+            "value": "Minimum"
           }
         },
         "ja": {
@@ -3696,18 +3708,6 @@
             "value": "최저"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minimum"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minimum"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3720,17 +3720,35 @@
             "value": "Минимум"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "أدنى قيمة"
+            "value": "最低"
           }
         }
       }
     },
     "measure.pastSessions.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الجلسات السابقة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frühere Sitzungen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Past Sessions"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Past Sessions"
@@ -3748,16 +3766,10 @@
             "value": "Sesiones anteriores"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Past Sessions"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "以往会话"
+            "value": "Sessions précédentes"
           }
         },
         "ja": {
@@ -3772,18 +3784,6 @@
             "value": "지난 세션"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frühere Sitzungen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sessions précédentes"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3796,17 +3796,35 @@
             "value": "Прошлые сеансы"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الجلسات السابقة"
+            "value": "以往会话"
           }
         }
       }
     },
     "measure.sessionSummary.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملخص الجلسة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitzungsübersicht"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Session Summary"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Session Summary"
@@ -3824,16 +3842,10 @@
             "value": "Resumen de la sesión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Session Summary"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "会话摘要"
+            "value": "Résumé de session"
           }
         },
         "ja": {
@@ -3848,18 +3860,6 @@
             "value": "세션 요약"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sitzungsübersicht"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Résumé de session"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3872,17 +3872,35 @@
             "value": "Сводка сеанса"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ملخص الجلسة"
+            "value": "会话摘要"
           }
         }
       }
     },
     "profile.about.appName": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HowHigh"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HowHigh"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HowHigh"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "HowHigh"
@@ -3900,13 +3918,7 @@
             "value": "HowHigh"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HowHigh"
-          }
-        },
-        "zh-Hans": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "HowHigh"
@@ -3924,18 +3936,6 @@
             "value": "HowHigh"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HowHigh"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HowHigh"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -3948,7 +3948,7 @@
             "value": "HowHigh"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "HowHigh"
@@ -3957,8 +3957,27 @@
       }
     },
     "profile.about.version": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الإصدار الأول"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstveröffentlichung"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Initial release"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Initial release"
@@ -3976,16 +3995,10 @@
             "value": "Versión inicial"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Initial release"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "初始版本"
+            "value": "Version initiale"
           }
         },
         "ja": {
@@ -4000,18 +4013,6 @@
             "value": "첫 번째 출시"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erstveröffentlichung"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Version initiale"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4024,17 +4025,112 @@
             "value": "Первый релиз"
           }
         },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "初始版本"
+          }
+        }
+      }
+    },
+    "profile.about.version.format": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (Build %2$@)"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (Build %2$@)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %1$@ (compilación %2$@)"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %1$@ (compilación %2$@)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %1$@（构建 %2$@）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン %1$@（ビルド %2$@）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "버전 %1$@ (빌드 %2$@)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (Build %2$@)"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (build %2$@)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão %1$@ (build %2$@)"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Версия %1$@ (сборка %2$@)"
+          }
+        },
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "الإصدار الأول"
+            "value": "الإصدار %1$@ (البنية %2$@)"
           }
         }
       }
     },
     "profile.action.applyPressure.accessibility": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تطبيق قيمة الضغط من WeatherKit"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WeatherKit-Druckwert anwenden"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apply WeatherKit pressure value"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Apply WeatherKit pressure value"
@@ -4052,16 +4148,10 @@
             "value": "Aplicar valor de presión de WeatherKit"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apply WeatherKit pressure value"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用 WeatherKit 气压值"
+            "value": "Appliquer la valeur de pression WeatherKit"
           }
         },
         "ja": {
@@ -4076,18 +4166,6 @@
             "value": "WeatherKit 기압 값 적용"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "WeatherKit-Druckwert anwenden"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Appliquer la valeur de pression WeatherKit"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4100,17 +4178,36 @@
             "value": "Применить значение давления из WeatherKit"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "تطبيق قيمة الضغط من WeatherKit"
+            "value": "应用 WeatherKit 气压值"
           }
         }
       }
     },
     "profile.action.applyPressure.format": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تطبيق %@"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ anwenden"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apply %@"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Apply %@"
@@ -4128,16 +4225,10 @@
             "value": "Aplicar %@"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apply %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用 %@"
+            "value": "Appliquer %@"
           }
         },
         "ja": {
@@ -4152,18 +4243,6 @@
             "value": "%@ 적용"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ anwenden"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Appliquer %@"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4176,17 +4255,36 @@
             "value": "Применить %@"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "تطبيق %@"
+            "value": "应用 %@"
           }
         }
       }
     },
     "profile.action.refreshWeather": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحديث من WeatherKit"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Über WeatherKit aktualisieren"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update from WeatherKit"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Update from WeatherKit"
@@ -4204,16 +4302,10 @@
             "value": "Actualizar desde WeatherKit"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Update from WeatherKit"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "从 WeatherKit 更新"
+            "value": "Mettre à jour via WeatherKit"
           }
         },
         "ja": {
@@ -4228,18 +4320,6 @@
             "value": "WeatherKit에서 업데이트"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Über WeatherKit aktualisieren"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mettre à jour via WeatherKit"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4252,17 +4332,35 @@
             "value": "Обновить через WeatherKit"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "تحديث من WeatherKit"
+            "value": "从 WeatherKit 更新"
           }
         }
       }
     },
     "profile.action.whatIsThis": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ما هذا؟"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Was ist das?"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What is this?"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "What is this?"
@@ -4280,16 +4378,10 @@
             "value": "¿Qué es esto?"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "What is this?"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "这是什么？"
+            "value": "Qu'est-ce que c'est ?"
           }
         },
         "ja": {
@@ -4304,18 +4396,6 @@
             "value": "이게 무엇인가요?"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Was ist das?"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qu'est-ce que c'est ?"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4328,17 +4408,35 @@
             "value": "Что это?"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ما هذا؟"
+            "value": "这是什么？"
           }
         }
       }
     },
     "profile.calibration.footer": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يضبط الضغط عند مستوى سطح البحر تقديرات الارتفاع. القيمة النموذجية: 101.3 كيلو باسكال."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Luftdruck auf Meereshöhe verbessert die Höhenberechnung. Typischer Wert: 101,3 kPa."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sea-level pressure refines altitude estimates. Typical value: 101.3 kPa."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Sea-level pressure refines altitude estimates. Typical value: 101.3 kPa."
@@ -4356,16 +4454,10 @@
             "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: 101,3 kPa."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sea-level pressure refines altitude estimates. Typical value: 101.3 kPa."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海平面气压可优化海拔估算。典型值：101.3 kPa。"
+            "value": "La pression au niveau de la mer affine l'estimation de l'altitude. Valeur typique : 101,3 kPa."
           }
         },
         "ja": {
@@ -4380,18 +4472,6 @@
             "value": "해수면 기압을 설정하면 고도 추정이 향상됩니다. 일반 값: 101.3 kPa."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Luftdruck auf Meereshöhe verbessert die Höhenberechnung. Typischer Wert: 101,3 kPa."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La pression au niveau de la mer affine l'estimation de l'altitude. Valeur typique : 101,3 kPa."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4404,17 +4484,35 @@
             "value": "Давление на уровне моря улучшает расчёт высоты. Типичное значение: 101,3 кПа."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "يضبط الضغط عند مستوى سطح البحر تقديرات الارتفاع. القيمة النموذجية: 101.3 كيلو باسكال."
+            "value": "海平面气压可优化海拔估算。典型值：101.3 kPa。"
           }
         }
       }
     },
     "profile.info.description": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اضبط هذه القيمة لتطابق قراءات محطة الطقس القريبة للحصول على قياسات ارتفاع أدق."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passe den Wert an eine nahe Wetterstation an, um genauere Höhenangaben zu erhalten."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adjust this value to match local weather station readings for more accurate altitude calculations."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Adjust this value to match local weather station readings for more accurate altitude calculations."
@@ -4432,16 +4530,10 @@
             "value": "Ajusta este valor para que coincida con las lecturas de una estación meteorológica cercana y mejorar la precisión de la altitud."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adjust this value to match local weather station readings for more accurate altitude calculations."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "调整此值以匹配附近气象站读数，从而获得更准确的海拔计算。"
+            "value": "Ajustez cette valeur selon une station météo locale pour améliorer la précision de l'altitude."
           }
         },
         "ja": {
@@ -4456,18 +4548,6 @@
             "value": "근처 기상 관측값에 맞춰 조정하면 고도 계산이 더 정확해집니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passe den Wert an eine nahe Wetterstation an, um genauere Höhenangaben zu erhalten."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustez cette valeur selon une station météo locale pour améliorer la précision de l'altitude."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4480,17 +4560,35 @@
             "value": "Настройте этот параметр по данным ближайшей метеостанции для большей точности."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اضبط هذه القيمة لتطابق قراءات محطة الطقس القريبة للحصول على قياسات ارتفاع أدق."
+            "value": "调整此值以匹配附近气象站读数，从而获得更准确的海拔计算。"
           }
         }
       }
     },
     "profile.info.tip.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نصيحة: ابحث عن \"ضغط %@ عند مستوى سطح البحر\" أو استخدم بيانات METAR لأقرب مطار."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipp: Suche nach „%@ Luftdruck Meereshöhe“ oder nutze METAR-Daten des nächsten Flughafens."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tip: Search “%@ sea level pressure” or use nearby airport METAR data."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Tip: Search “%@ sea level pressure” or use nearby airport METAR data."
@@ -4508,16 +4606,10 @@
             "value": "Consejo: busca “%@ presión a nivel del mar” o usa los datos METAR del aeropuerto más cercano."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tip: Search “%@ sea level pressure” or use nearby airport METAR data."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "提示：搜索“%@ 海平面气压”或使用附近机场的 METAR 数据。"
+            "value": "Astuce : recherchez « %@ pression au niveau de la mer » ou utilisez les données METAR d'un aéroport proche."
           }
         },
         "ja": {
@@ -4532,18 +4624,6 @@
             "value": "팁: \"%@ 해수면 기압\"을 검색하거나 가까운 공항의 METAR 데이터를 사용하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipp: Suche nach „%@ Luftdruck Meereshöhe“ oder nutze METAR-Daten des nächsten Flughafens."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Astuce : recherchez « %@ pression au niveau de la mer » ou utilisez les données METAR d'un aéroport proche."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4556,17 +4636,35 @@
             "value": "Совет: найдите «%@ давление на уровне моря» или используйте METAR ближайшего аэропорта."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "نصيحة: ابحث عن \"ضغط %@ عند مستوى سطح البحر\" أو استخدم بيانات METAR لأقرب مطار."
+            "value": "提示：搜索“%@ 海平面气压”或使用附近机场的 METAR 数据。"
           }
         }
       }
     },
     "profile.info.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط عند مستوى سطح البحر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftdruck auf Meereshöhe"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sea-Level Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Sea-Level Pressure"
@@ -4584,16 +4682,10 @@
             "value": "Presión a nivel del mar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sea-Level Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海平面气压"
+            "value": "Pression au niveau de la mer"
           }
         },
         "ja": {
@@ -4608,18 +4700,6 @@
             "value": "해수면 기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Luftdruck auf Meereshöhe"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression au niveau de la mer"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4632,17 +4712,35 @@
             "value": "Давление на уровне моря"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط عند مستوى سطح البحر"
+            "value": "海平面气压"
           }
         }
       }
     },
     "profile.label.seaLevelPressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط عند مستوى سطح البحر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftdruck auf Meereshöhe"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sea-Level Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Sea-Level Pressure"
@@ -4660,16 +4758,10 @@
             "value": "Presión a nivel del mar"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sea-Level Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海平面气压"
+            "value": "Pression au niveau de la mer"
           }
         },
         "ja": {
@@ -4684,18 +4776,6 @@
             "value": "해수면 기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Luftdruck auf Meereshöhe"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression au niveau de la mer"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4708,17 +4788,36 @@
             "value": "Давление на уровне моря"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط عند مستوى سطح البحر"
+            "value": "海平面气压"
           }
         }
       }
     },
     "profile.link.barometerTips": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نصائح مستشعر البارومتر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipps zum Barometersensor"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barometer Sensor Tips"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Barometer Sensor Tips"
@@ -4736,16 +4835,10 @@
             "value": "Consejos para el sensor barométrico"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Barometer Sensor Tips"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压计传感器提示"
+            "value": "Conseils pour le capteur barométrique"
           }
         },
         "ja": {
@@ -4760,18 +4853,6 @@
             "value": "기압 센서 팁"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tipps zum Barometersensor"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conseils pour le capteur barométrique"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4784,17 +4865,35 @@
             "value": "Советы по датчику барометра"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "نصائح مستشعر البارومتر"
+            "value": "气压计传感器提示"
           }
         }
       }
     },
     "profile.link.contactSupport": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الاتصال بالدعم"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support kontaktieren"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact Support"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Contact Support"
@@ -4812,16 +4911,10 @@
             "value": "Contactar con soporte"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Contact Support"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "联系支持"
+            "value": "Contacter l'assistance"
           }
         },
         "ja": {
@@ -4836,18 +4929,6 @@
             "value": "지원 문의"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Support kontaktieren"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contacter l'assistance"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4860,17 +4941,35 @@
             "value": "Связаться с поддержкой"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الاتصال بالدعم"
+            "value": "联系支持"
           }
         }
       }
     },
     "profile.navigation.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملف الشخصي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profil"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profile"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Profile"
@@ -4888,16 +4987,10 @@
             "value": "Perfil"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Profile"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "个人资料"
+            "value": "Profil"
           }
         },
         "ja": {
@@ -4912,18 +5005,6 @@
             "value": "프로필"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -4936,17 +5017,35 @@
             "value": "Профиль"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الملف الشخصي"
+            "value": "个人资料"
           }
         }
       }
     },
     "profile.picker.units": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوحدات المفضلة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevorzugte Einheiten"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferred Units"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Preferred Units"
@@ -4964,16 +5063,10 @@
             "value": "Unidades preferidas"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Preferred Units"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "首选单位"
+            "value": "Unités préférées"
           }
         },
         "ja": {
@@ -4988,18 +5081,6 @@
             "value": "선호 단위"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bevorzugte Einheiten"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unités préférées"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5012,17 +5093,35 @@
             "value": "Предпочитаемые единицы"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الوحدات المفضلة"
+            "value": "首选单位"
           }
         }
       }
     },
     "profile.region.unknown": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "منطقتك"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "deiner Region"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "your area"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "your area"
@@ -5040,16 +5139,10 @@
             "value": "tu zona"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "your area"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "您的区域"
+            "value": "votre région"
           }
         },
         "ja": {
@@ -5064,18 +5157,6 @@
             "value": "사용자 지역"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "deiner Region"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "votre région"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5088,17 +5169,35 @@
             "value": "вашем регионе"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "منطقتك"
+            "value": "您的区域"
           }
         }
       }
     },
     "profile.section.about": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حول"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "About"
@@ -5116,16 +5215,10 @@
             "value": "Acerca de"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "About"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "关于"
+            "value": "À propos"
           }
         },
         "ja": {
@@ -5140,18 +5233,6 @@
             "value": "정보"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Info"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "À propos"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5164,17 +5245,35 @@
             "value": "О приложении"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "حول"
+            "value": "关于"
           }
         }
       }
     },
     "profile.section.calibration": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المعايرة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalibrierung"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibration"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Calibration"
@@ -5192,16 +5291,10 @@
             "value": "Calibración"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calibration"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "校准"
+            "value": "Calibrage"
           }
         },
         "ja": {
@@ -5216,18 +5309,6 @@
             "value": "보정"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kalibrierung"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calibrage"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5240,17 +5321,35 @@
             "value": "Калибровка"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "المعايرة"
+            "value": "校准"
           }
         }
       }
     },
     "profile.section.support": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الدعم"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Support"
@@ -5268,16 +5367,10 @@
             "value": "Soporte"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Support"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "支持"
+            "value": "Assistance"
           }
         },
         "ja": {
@@ -5292,18 +5385,6 @@
             "value": "지원"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Support"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Assistance"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5316,17 +5397,35 @@
             "value": "Поддержка"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الدعم"
+            "value": "支持"
           }
         }
       }
     },
     "profile.section.units": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوحدات"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einheiten"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Units"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Units"
@@ -5344,16 +5443,10 @@
             "value": "Unidades"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Units"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "单位"
+            "value": "Unités"
           }
         },
         "ja": {
@@ -5368,18 +5461,6 @@
             "value": "단위"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einheiten"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unités"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5392,17 +5473,36 @@
             "value": "Единицы"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الوحدات"
+            "value": "单位"
           }
         }
       }
     },
     "profile.section.weatherKit": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معايرة WeatherKit"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WeatherKit-Kalibrierung"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WeatherKit Calibration"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "WeatherKit Calibration"
@@ -5420,16 +5520,10 @@
             "value": "Calibración con WeatherKit"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "WeatherKit Calibration"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "WeatherKit 校准"
+            "value": "Calibrage WeatherKit"
           }
         },
         "ja": {
@@ -5444,18 +5538,6 @@
             "value": "WeatherKit 보정"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "WeatherKit-Kalibrierung"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calibrage WeatherKit"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5468,17 +5550,36 @@
             "value": "Калибровка WeatherKit"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "معايرة WeatherKit"
+            "value": "WeatherKit 校准"
           }
         }
       }
     },
     "profile.weatherKit.empty": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اجلب بيانات الضغط المحلي للمعايرة التلقائية."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hole lokale Druckdaten für eine automatische Kalibrierung."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fetch local pressure data to auto-calibrate."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Fetch local pressure data to auto-calibrate."
@@ -5496,16 +5597,10 @@
             "value": "Obtén la presión local para calibrar automáticamente."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fetch local pressure data to auto-calibrate."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "获取本地气压以自动校准。"
+            "value": "Récupérez la pression locale pour calibrer automatiquement."
           }
         },
         "ja": {
@@ -5520,18 +5615,6 @@
             "value": "지역 기압을 가져와 자동으로 보정하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hole lokale Druckdaten für eine automatische Kalibrierung."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Récupérez la pression locale pour calibrer automatiquement."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5544,17 +5627,36 @@
             "value": "Получите местное давление для автоматической калибровки."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "اجلب بيانات الضغط المحلي للمعايرة التلقائية."
+            "value": "获取本地气压以自动校准。"
           }
         }
       }
     },
     "profile.weatherKit.latest": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "آخر قراءة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letzte Messung"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Latest Reading"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Latest Reading"
@@ -5572,16 +5674,10 @@
             "value": "Última lectura"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Reading"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最新读数"
+            "value": "Dernière lecture"
           }
         },
         "ja": {
@@ -5596,18 +5692,6 @@
             "value": "최신 측정"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Letzte Messung"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dernière lecture"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5620,17 +5704,36 @@
             "value": "Последнее измерение"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "آخر قراءة"
+            "value": "最新读数"
           }
         }
       }
     },
     "profile.weatherKit.summary.format": {
+      "extractionState": "stale",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@ • %@"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -5648,13 +5751,7 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "en-GB": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
-        "zh-Hans": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -5672,18 +5769,6 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@ • %@"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5696,7 +5781,7 @@
             "value": "%@ • %@ • %@"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@ • %@"
@@ -5706,7 +5791,25 @@
     },
     "session.chart.axis.pressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure"
@@ -5724,16 +5827,10 @@
             "value": "Presión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压"
+            "value": "Pression"
           }
         },
         "ja": {
@@ -5748,18 +5845,6 @@
             "value": "기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5772,17 +5857,35 @@
             "value": "Давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط"
+            "value": "气压"
           }
         }
       }
     },
     "session.chart.axis.time": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الوقت"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeit"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Time"
@@ -5800,16 +5903,10 @@
             "value": "Hora"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Time"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "时间"
+            "value": "Temps"
           }
         },
         "ja": {
@@ -5824,18 +5921,6 @@
             "value": "시간"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zeit"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temps"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5848,17 +5933,35 @@
             "value": "Время"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الوقت"
+            "value": "时间"
           }
         }
       }
     },
     "session.chart.placeholder": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيظهر هذا المخطط بعد حفظ تسجيل."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieses Diagramm erscheint, nachdem du eine Aufzeichnung gespeichert hast."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This chart appears after you save a recording."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "This chart appears after you save a recording."
@@ -5876,16 +5979,10 @@
             "value": "Este gráfico aparecerá cuando guardes una sesión."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "This chart appears after you save a recording."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保存记录后会显示此图表。"
+            "value": "Ce graphique apparaîtra après l'enregistrement d'une session."
           }
         },
         "ja": {
@@ -5900,18 +5997,6 @@
             "value": "기록을 저장하면 그래프가 표시됩니다."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dieses Diagramm erscheint, nachdem du eine Aufzeichnung gespeichert hast."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ce graphique apparaîtra après l'enregistrement d'une session."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5924,16 +6009,28 @@
             "value": "Диаграмма появится после сохранения записи."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "سيظهر هذا المخطط بعد حفظ تسجيل."
+            "value": "保存记录后会显示此图表。"
           }
         }
       }
     },
     "session.chart.selected": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا شيء"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -5946,10 +6043,22 @@
             "value": "None"
           }
         },
-        "zh-Hans": {
+        "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "无"
+            "value": "Ninguno"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin selección"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune"
           }
         },
         "ja": {
@@ -5964,18 +6073,6 @@
             "value": "없음"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -5988,41 +6085,29 @@
             "value": "Нет"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا شيء"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ninguno"
-          }
-        },
-        "es-MX": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sin selección"
+            "value": "无"
           }
         }
       }
     },
     "session.chart.selected.detail.format": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
-        "es-MX": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -6034,7 +6119,19 @@
             "value": "%@ • %@"
           }
         },
-        "zh-Hans": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ • %@"
+          }
+        },
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -6052,18 +6149,6 @@
             "value": "%@ • %@"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ • %@"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6076,7 +6161,7 @@
             "value": "%@ • %@"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "%@ • %@"
@@ -6086,7 +6171,25 @@
     },
     "session.chart.title.elevation": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhe"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elevation"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Elevation"
@@ -6104,16 +6207,10 @@
             "value": "Elevación"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elevation"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "海拔"
+            "value": "Altitude"
           }
         },
         "ja": {
@@ -6128,18 +6225,6 @@
             "value": "고도"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Höhe"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altitude"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6152,17 +6237,35 @@
             "value": "Высота"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الارتفاع"
+            "value": "海拔"
           }
         }
       }
     },
     "session.chart.title.pressure": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure"
@@ -6180,16 +6283,10 @@
             "value": "Presión"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压"
+            "value": "Pression"
           }
         },
         "ja": {
@@ -6204,18 +6301,6 @@
             "value": "기압"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6228,17 +6313,35 @@
             "value": "Давление"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط"
+            "value": "气压"
           }
         }
       }
     },
     "session.notes.placeholder": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أضف ملاحظات بعد مغامرتك القادمة لتتذكر الظروف."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge nach deinem nächsten Abenteuer Notizen hinzu, um die Bedingungen festzuhalten."
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add notes after your next adventure to remember the conditions."
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Add notes after your next adventure to remember the conditions."
@@ -6256,16 +6359,10 @@
             "value": "Añade notas después de tu próxima aventura para recordar las condiciones."
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add notes after your next adventure to remember the conditions."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "下一次冒险后添加备注，记录当时的环境。"
+            "value": "Ajoutez des notes après votre prochaine sortie pour garder en mémoire les conditions."
           }
         },
         "ja": {
@@ -6280,18 +6377,6 @@
             "value": "다음 활동 후 조건을 기억하도록 메모를 추가하세요."
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Füge nach deinem nächsten Abenteuer Notizen hinzu, um die Bedingungen festzuhalten."
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez des notes après votre prochaine sortie pour garder en mémoire les conditions."
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6304,17 +6389,35 @@
             "value": "Добавьте заметки после следующего выхода, чтобы помнить условия."
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "أضف ملاحظات بعد مغامرتك القادمة لتتذكر الظروف."
+            "value": "下一次冒险后添加备注，记录当时的环境。"
           }
         }
       }
     },
     "session.notes.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ملاحظات"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notizen"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Notes"
@@ -6332,16 +6435,10 @@
             "value": "Notas"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
             "value": "Notes"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "备注"
           }
         },
         "ja": {
@@ -6356,18 +6453,6 @@
             "value": "메모"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notizen"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notes"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6380,17 +6465,35 @@
             "value": "Заметки"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "ملاحظات"
+            "value": "备注"
           }
         }
       }
     },
     "session.overview.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نظرة عامة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übersicht"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overview"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Overview"
@@ -6408,16 +6511,10 @@
             "value": "Resumen"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Overview"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "概览"
+            "value": "Vue d'ensemble"
           }
         },
         "ja": {
@@ -6432,18 +6529,6 @@
             "value": "개요"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Übersicht"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vue d'ensemble"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6456,17 +6541,35 @@
             "value": "Обзор"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "نظرة عامة"
+            "value": "概览"
           }
         }
       }
     },
     "tab.altimeter.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مقياس الارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhenmesser"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altimeter"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Altimeter"
@@ -6484,16 +6587,10 @@
             "value": "Altímetro"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Altimeter"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "高度计"
+            "value": "Altimètre"
           }
         },
         "ja": {
@@ -6508,18 +6605,6 @@
             "value": "고도계"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Höhenmesser"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Altimètre"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6532,17 +6617,35 @@
             "value": "Высотомер"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "مقياس الارتفاع"
+            "value": "高度计"
           }
         }
       }
     },
     "tab.barometer.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "البارومتر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barometer"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barometer"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Barometer"
@@ -6560,16 +6663,10 @@
             "value": "Barómetro"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Barometer"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压计"
+            "value": "Baromètre"
           }
         },
         "ja": {
@@ -6584,18 +6681,6 @@
             "value": "기압계"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Barometer"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Baromètre"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6608,17 +6693,35 @@
             "value": "Барометр"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "البارومتر"
+            "value": "气压计"
           }
         }
       }
     },
     "tab.profile.title": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الملف الشخصي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profil"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profile"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Profile"
@@ -6636,16 +6739,10 @@
             "value": "Perfil"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Profile"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "个人资料"
+            "value": "Profil"
           }
         },
         "ja": {
@@ -6660,18 +6757,6 @@
             "value": "프로필"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Profil"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6684,10 +6769,10 @@
             "value": "Профиль"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الملف الشخصي"
+            "value": "个人资料"
           }
         }
       }
@@ -6695,7 +6780,25 @@
     "trend.description.falling": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط في انخفاض"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck fällt"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure falling"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure falling"
@@ -6713,16 +6816,10 @@
             "value": "La presión está bajando"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure falling"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压下降"
+            "value": "Pression en baisse"
           }
         },
         "ja": {
@@ -6737,18 +6834,6 @@
             "value": "기압이 하락하고 있습니다"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck fällt"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression en baisse"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6761,10 +6846,10 @@
             "value": "Давление падает"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط في انخفاض"
+            "value": "气压下降"
           }
         }
       }
@@ -6772,7 +6857,25 @@
     "trend.description.rising": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط في ارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck steigt"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure rising"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure rising"
@@ -6790,16 +6893,10 @@
             "value": "La presión está subiendo"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure rising"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压上升"
+            "value": "Pression en hausse"
           }
         },
         "ja": {
@@ -6814,18 +6911,6 @@
             "value": "기압이 상승하고 있습니다"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck steigt"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression en hausse"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6838,10 +6923,10 @@
             "value": "Давление растёт"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط في ارتفاع"
+            "value": "气压上升"
           }
         }
       }
@@ -6849,7 +6934,25 @@
     "trend.description.steady": {
       "extractionState": "manual",
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الضغط مستقر"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druck bleibt stabil"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure steady"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Pressure steady"
@@ -6867,16 +6970,10 @@
             "value": "La presión se mantiene estable"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pressure steady"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "气压稳定"
+            "value": "Pression stable"
           }
         },
         "ja": {
@@ -6891,18 +6988,6 @@
             "value": "기압이 안정적입니다"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Druck bleibt stabil"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pression stable"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6915,17 +7000,35 @@
             "value": "Давление стабильное"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "الضغط مستقر"
+            "value": "气压稳定"
           }
         }
       }
     },
     "units.imperial": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النظام الإمبراطوري (قدم)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imperial (ft)"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imperial (ft)"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Imperial (ft)"
@@ -6943,16 +7046,10 @@
             "value": "Imperial (ft)"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Imperial (ft)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "英制 (英尺)"
+            "value": "Impérial (ft)"
           }
         },
         "ja": {
@@ -6967,18 +7064,6 @@
             "value": "야드파운드법 (ft)"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Imperial (ft)"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impérial (ft)"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -6991,17 +7076,35 @@
             "value": "Британская система (ft)"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "النظام الإمبراطوري (قدم)"
+            "value": "英制 (英尺)"
           }
         }
       }
     },
     "units.metric": {
       "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "النظام المتري (متر)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metrisch (m)"
+          }
+        },
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metric (m)"
+          }
+        },
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Metric (m)"
@@ -7019,16 +7122,10 @@
             "value": "Métrico (m)"
           }
         },
-        "en-GB": {
+        "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Metric (m)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "公制 (米)"
+            "value": "Métrique (m)"
           }
         },
         "ja": {
@@ -7043,18 +7140,6 @@
             "value": "미터법 (m)"
           }
         },
-        "de-DE": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metrisch (m)"
-          }
-        },
-        "fr-FR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Métrique (m)"
-          }
-        },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
@@ -7067,10 +7152,10 @@
             "value": "Метрическая (m)"
           }
         },
-        "ar": {
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "النظام المتري (متر)"
+            "value": "公制 (米)"
           }
         }
       }
