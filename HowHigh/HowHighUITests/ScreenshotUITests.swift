@@ -25,7 +25,7 @@ final class ScreenshotUITests: XCTestCase {
 
     private let devices: [DeviceConfig] = [
         DeviceConfig(name: "iPhone 14 Plus", idiom: .phone, launchOptions: ScreenshotLaunchOptions(languageArgument: "-AppleLanguages", localeArgument: "-AppleLocale", extraArguments: [])),
-        DeviceConfig(name: "iPad Pro (12.9-inch) (6th generation)", idiom: .pad, launchOptions: ScreenshotLaunchOptions(languageArgument: "-AppleLanguages", localeArgument: "-AppleLocale", extraArguments: []))
+        DeviceConfig(name: "iPad Pro 13-inch (M4)", idiom: .pad, launchOptions: ScreenshotLaunchOptions(languageArgument: "-AppleLanguages", localeArgument: "-AppleLocale", extraArguments: []))
     ]
 
     private let locales: [LocaleConfig] = [

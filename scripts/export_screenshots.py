@@ -24,7 +24,21 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 XCRESULT_TOOL = Path("/usr/bin/xcrun")
-LOCALE_PATTERN = re.compile(r"^(?P<locale>[a-z]{2}-[A-Z]{2})-(?P<rest>.+)$")
+SUPPORTED_LOCALES = [
+    "en-US",
+    "en-GB",
+    "es-ES",
+    "es-MX",
+    "zh-Hans",
+    "ja",
+    "ko",
+    "de-DE",
+    "fr-FR",
+    "pt-BR",
+    "ru",
+    "ar-SA",
+]
+
 
 
 def run_xcresulttool(args: Sequence[str]) -> bytes:
@@ -117,15 +131,33 @@ def parse_attachment_name(filename: str) -> Tuple[str, str, str]:
     base = filename.rsplit(".", 1)[0]
     if "_0_" in base:
         base = base.split("_0_", 1)[0]
-    match = LOCALE_PATTERN.match(base)
-    if not match:
-        return "en-US", "device", slugify(base)
-    rest = match.group("rest")
-    if "-" in rest:
-        device, label = rest.rsplit("-", 1)
+
+    detected_locale = None
+    remainder = ""
+    for locale in sorted(SUPPORTED_LOCALES, key=len, reverse=True):
+        if base == locale or base.startswith(f"{locale}-"):
+            detected_locale = locale
+            remainder = base[len(locale):]
+            if remainder.startswith("-"):
+                remainder = remainder[1:]
+            break
+
+    if detected_locale is None and "-" in base:
+        detected_locale, remainder = base.split("-", 1)
+    if detected_locale is None:
+        detected_locale = "en-US"
+        remainder = base
+
+    remainder = remainder.strip()
+    if remainder:
+        if "-" in remainder:
+            device, label = remainder.rsplit("-", 1)
+        else:
+            device, label = remainder, "screenshot"
     else:
-        device, label = rest, "screenshot"
-    return match.group("locale"), device.strip(), label.strip()
+        device, label = "device", "screenshot"
+
+    return detected_locale, device.strip(), label.strip()
 
 
 def copy_attachment(result_path: Path, filename: str, payload_id: str, output: Path, counters: Dict[Tuple[str, str], int]) -> Path:

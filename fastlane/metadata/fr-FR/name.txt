@@ -1,1 +1,1 @@
-HowHigh : Baromètre & Altimètre
+HowHigh: Baromètre & Altitude

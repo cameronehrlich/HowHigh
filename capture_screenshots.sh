@@ -45,7 +45,7 @@ run_tests() {
 }
 
 run_tests 'platform=iOS Simulator,name=iPhone 14 Plus' "$BASE_RESULT" 'platform=iOS Simulator,name=iPhone 14 Pro Max'
-run_tests 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (6th generation)' "${BASE_RESULT}_iPad" 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (5th generation)'
+run_tests 'platform=iOS Simulator,name=iPad Pro 13-inch (M4)' "${BASE_RESULT}_iPad" 'platform=iOS Simulator,name=iPad Pro 13-inch (M4) (16GB)'
 
 echo "\nExporting screenshots into fastlane/screenshots..."
 python3 scripts/export_screenshots.py "${BASE_RESULT}.xcresult" "${BASE_RESULT}_iPad.xcresult" --clean

@@ -1,1 +1,1 @@
-Registros de pressão e altitude em tempo real
+Pressão e altitude em tempo
