@@ -30,8 +30,17 @@ final class ScreenshotUITests: XCTestCase {
 
     private let locales: [LocaleConfig] = [
         LocaleConfig(languageCode: "en", localeIdentifier: "en_US", name: "en-US", barometerTitle: "Barometer", altimeterTitle: "Altimeter", profileTitle: "Profile"),
+        LocaleConfig(languageCode: "en-GB", localeIdentifier: "en_GB", name: "en-GB", barometerTitle: "Barometer", altimeterTitle: "Altimeter", profileTitle: "Profile"),
         LocaleConfig(languageCode: "es", localeIdentifier: "es_ES", name: "es-ES", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil"),
-        LocaleConfig(languageCode: "es", localeIdentifier: "es_MX", name: "es-MX", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil")
+        LocaleConfig(languageCode: "es", localeIdentifier: "es_MX", name: "es-MX", barometerTitle: "Barómetro", altimeterTitle: "Altímetro", profileTitle: "Perfil"),
+        LocaleConfig(languageCode: "zh-Hans", localeIdentifier: "zh_Hans", name: "zh-Hans", barometerTitle: "气压计", altimeterTitle: "高度计", profileTitle: "个人资料"),
+        LocaleConfig(languageCode: "ja", localeIdentifier: "ja_JP", name: "ja", barometerTitle: "気圧計", altimeterTitle: "高度計", profileTitle: "プロフィール"),
+        LocaleConfig(languageCode: "ko", localeIdentifier: "ko_KR", name: "ko", barometerTitle: "기압계", altimeterTitle: "고도계", profileTitle: "프로필"),
+        LocaleConfig(languageCode: "de-DE", localeIdentifier: "de_DE", name: "de-DE", barometerTitle: "Barometer", altimeterTitle: "Höhenmesser", profileTitle: "Profil"),
+        LocaleConfig(languageCode: "fr-FR", localeIdentifier: "fr_FR", name: "fr-FR", barometerTitle: "Baromètre", altimeterTitle: "Altimètre", profileTitle: "Profil"),
+        LocaleConfig(languageCode: "pt-BR", localeIdentifier: "pt_BR", name: "pt-BR", barometerTitle: "Barômetro", altimeterTitle: "Altímetro", profileTitle: "Perfil"),
+        LocaleConfig(languageCode: "ru", localeIdentifier: "ru_RU", name: "ru", barometerTitle: "Барометр", altimeterTitle: "Высотомер", profileTitle: "Профиль"),
+        LocaleConfig(languageCode: "ar", localeIdentifier: "ar_SA", name: "ar-SA", barometerTitle: "البارومتر", altimeterTitle: "مقياس الارتفاع", profileTitle: "الملف الشخصي")
     ]
 
     override func setUp() {
