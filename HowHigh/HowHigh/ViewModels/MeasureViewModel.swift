@@ -15,6 +15,7 @@ final class MeasureViewModel: ObservableObject {
     private let altitudeService: AltitudeService
     private let sessionStore: SessionStore
     private let settingsStore: SettingsStore
+    private let reviewManager: ReviewManager
     private var cancellables: Set<AnyCancellable> = []
     private var samplesBuffer: [AltitudeSample] = []
     private var baselineAltitude: Double?
@@ -27,6 +28,7 @@ final class MeasureViewModel: ObservableObject {
         self.altitudeService = altitudeService
         self.sessionStore = sessionStore
         self.settingsStore = settingsStore
+        self.reviewManager = ReviewManager()
         observeSettings()
         subscribeToReadings()
         observeSessionStore()
@@ -75,6 +77,9 @@ final class MeasureViewModel: ObservableObject {
         baselineAltitude = nil
         lastCompletedSession = session
         currentSession = nil
+
+        // Request review at appropriate milestones
+        reviewManager.checkAndRequestReview(sessionDuration: session.duration)
     }
 
     func calibrateToCurrentReading() {
