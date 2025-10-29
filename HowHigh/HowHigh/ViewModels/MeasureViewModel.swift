@@ -28,7 +28,7 @@ final class MeasureViewModel: ObservableObject {
         self.altitudeService = altitudeService
         self.sessionStore = sessionStore
         self.settingsStore = settingsStore
-        self.reviewManager = ReviewManager(settingsStore: settingsStore)
+        self.reviewManager = ReviewManager()
         observeSettings()
         subscribeToReadings()
         observeSessionStore()
