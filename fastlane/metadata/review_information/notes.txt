@@ -1,0 +1,2 @@
+Uses the new CMAltimeter available on the iPhone 6 and 6 Plus to estimate vertical distance traveled!
+Just a fun tool for people who want to put their new hardware to use!
