@@ -1146,73 +1146,73 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "متوسط الضغط %@ ويتغير بمقدار %@ كيلو باسكال لكل جلسة."
+            "value": "متوسط الضغط %@ ويتغير بمقدار %@ لكل جلسة."
           }
         },
         "de-DE": {
           "stringUnit": {
             "state": "translated",
-            "value": "Der Durchschnittsdruck liegt bei %@ und ändert sich um %@ kPa pro Sitzung."
+            "value": "Der Durchschnittsdruck liegt bei %@ und ändert sich um %@ pro Sitzung."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Average pressure is %@ by %@ kPa per session."
+            "value": "Average pressure is %@, changing by %@ per session."
           }
         },
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Average pressure is %@ by %@ kPa per session."
+            "value": "Average pressure is %@, changing by %@ per session."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La presión media está %@ en %@ kPa por sesión."
+            "value": "La presión media es %@ y cambia %@ por sesión."
           }
         },
         "es-MX": {
           "stringUnit": {
             "state": "translated",
-            "value": "La presión media está %@ en %@ kPa por sesión."
+            "value": "La presión media es %@ y cambia %@ por sesión."
           }
         },
         "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "La pression moyenne est de %@ avec une variation de %@ kPa par session."
+            "value": "La pression moyenne est %@ et varie de %@ par session."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "平均気圧は %@ 、セッションあたり %@ kPa 変化しています。"
+            "value": "平均気圧は%@で、セッションごとに%@変化しています。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "평균 기압은 %@이며 세션당 %@ kPa 변합니다."
+            "value": "평균 기압은 %@이며 세션당 %@ 변합니다."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "A pressão média é %@ com variação de %@ kPa por sessão."
+            "value": "A pressão média é %@ e varia %@ por sessão."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Среднее давление %@, изменение %@ кПа за сеанс."
+            "value": "Среднее давление %@, изменение %@ за сеанс."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "平均气压为 %@，每次会话变化 %@ kPa。"
+            "value": "平均气压为 %@，每次会话变化 %@。"
           }
         }
       }
@@ -1671,6 +1671,234 @@
           "stringUnit": {
             "state": "translated",
             "value": "校准"
+          }
+        }
+      }
+    },
+    "measure.action.zero": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تصفير / المعايرة هنا"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nullen / Hier kalibrieren"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zero / Calibrate Here"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zero / Calibrate Here"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cero / Calibrar aquí"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cero / Calibrar aquí"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zéro / Calibrer ici"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ゼロ / ここで校正"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0으로 / 여기서 보정"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zerar / Calibrar aqui"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обнулить / Калибровать здесь"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "归零 / 在此校准"
+          }
+        }
+      }
+    },
+    "measure.action.calibrating": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ المعايرة..."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalibriere..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrating..."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrating..."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrando..."
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrando..."
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrage..."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校正中..."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "보정 중..."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrando..."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Калибровка..."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在校准..."
+          }
+        }
+      }
+    },
+    "measure.mode.label": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وضع الارتفاع"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhenmodus"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitude Mode"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altitude Mode"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo de altitud"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo de altitud"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode altitude"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高度モード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "고도 모드"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo de altitude"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Режим высоты"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高度模式"
           }
         }
       }
@@ -3272,6 +3500,158 @@
         }
       }
     },
+    "measure.amsl.title": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فوق متوسط مستوى سطح البحر (AMSL)"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Über dem mittleren Meeresspiegel (AMSL)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above Mean Sea Level (AMSL)"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above Mean Sea Level (AMSL)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre el nivel medio del mar (AMSL)"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre el nivel medio del mar (AMSL)"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Au-dessus du niveau moyen de la mer (AMSL)"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均海面上 (AMSL)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "평균 해수면 위 (AMSL)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acima do nível médio do mar (AMSL)"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Над средним уровнем моря (AMSL)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高于平均海平面 (AMSL)"
+          }
+        }
+      }
+    },
+    "measure.amsl.helper": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ارتفاعك بالنسبة إلى متوسط مستوى سطح البحر."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Höhe relativ zum mittleren Meeresspiegel."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your elevation relative to average sea level."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your elevation relative to average sea level."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu altitud respecto al nivel medio del mar."
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu altitud respecto al nivel medio del mar."
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre altitude par rapport au niveau moyen de la mer."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均海面に対する高度です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "평균 해수면을 기준으로 한 고도입니다."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua altitude em relação ao nível médio do mar."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ваша высота относительно среднего уровня моря."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的高度相对于平均海平面。"
+          }
+        }
+      }
+    },
     "measure.metric.currentPressure": {
       "localizations": {
         "ar": {
@@ -3496,6 +3876,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "上升"
+          }
+        }
+      }
+    },
+    "measure.metric.net": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التغير الصافي"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nettoänderung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Net Change"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Net Change"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambio neto"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambio neto"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Variation nette"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正味変化"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "순 변화"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Variação líquida"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Чистое изменение"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "净变化"
           }
         }
       }
@@ -4421,73 +4877,73 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "يضبط الضغط عند مستوى سطح البحر تقديرات الارتفاع. القيمة النموذجية: 101.3 كيلو باسكال."
+            "value": "يضبط الضغط عند مستوى سطح البحر تقديرات الارتفاع. القيمة النموذجية: %@."
           }
         },
         "de-DE": {
           "stringUnit": {
             "state": "translated",
-            "value": "Der Luftdruck auf Meereshöhe verbessert die Höhenberechnung. Typischer Wert: 101,3 kPa."
+            "value": "Der Luftdruck auf Meereshöhe verbessert die Höhenberechnung. Typischer Wert: %@."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sea-level pressure refines altitude estimates. Typical value: 101.3 kPa."
+            "value": "Sea-level pressure refines altitude estimates. Typical value: %@."
           }
         },
         "en-GB": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sea-level pressure refines altitude estimates. Typical value: 101.3 kPa."
+            "value": "Sea-level pressure refines altitude estimates. Typical value: %@."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: 101,3 kPa."
+            "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: %@."
           }
         },
         "es-MX": {
           "stringUnit": {
             "state": "translated",
-            "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: 101,3 kPa."
+            "value": "La presión a nivel del mar mejora las estimaciones de altitud. Valor típico: %@."
           }
         },
         "fr-FR": {
           "stringUnit": {
             "state": "translated",
-            "value": "La pression au niveau de la mer affine l'estimation de l'altitude. Valeur typique : 101,3 kPa."
+            "value": "La pression au niveau de la mer affine l'estimation de l'altitude. Valeur typique : %@."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "海面気圧を設定すると高度推定が改善されます。標準値: 101.3 kPa。"
+            "value": "海面気圧を設定すると高度推定が改善されます。標準値: %@。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "해수면 기압을 설정하면 고도 추정이 향상됩니다. 일반 값: 101.3 kPa."
+            "value": "해수면 기압을 설정하면 고도 추정이 향상됩니다. 일반 값: %@."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "A pressão ao nível do mar melhora a estimativa de altitude. Valor típico: 101,3 kPa."
+            "value": "A pressão ao nível do mar melhora a estimativa de altitude. Valor típico: %@."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Давление на уровне моря улучшает расчёт высоты. Типичное значение: 101,3 кПа."
+            "value": "Давление на уровне моря улучшает расчёт высоты. Типичное значение: %@."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "海平面气压可优化海拔估算。典型值：101.3 kPa。"
+            "value": "海平面气压可优化海拔估算。典型值：%@。"
           }
         }
       }
@@ -5097,6 +5553,82 @@
           "stringUnit": {
             "state": "translated",
             "value": "首选单位"
+          }
+        }
+      }
+    },
+    "profile.picker.pressureUnits": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وحدات الضغط"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druckeinheiten"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure Units"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure Units"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unidades de presión"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unidades de presión"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unités de pression"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "気圧単位"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기압 단위"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unidades de pressão"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Единицы давления"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "气压单位"
           }
         }
       }
@@ -6549,6 +7081,234 @@
         }
       }
     },
+    "session.action.delete": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حذف الجلسة"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitzung löschen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Session"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Session"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar sesión"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar sesión"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la session"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "セッションを削除"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "세션 삭제"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir sessão"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удалить сеанс"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除会话"
+          }
+        }
+      }
+    },
+    "session.dialog.delete.title": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هل تريد حذف الجلسة؟"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitzung löschen?"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Session?"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Session?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar sesión?"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar sesión?"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la session ?"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "セッションを削除しますか？"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "세션을 삭제할까요?"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluir sessão?"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удалить сеанс?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除会话？"
+          }
+        }
+      }
+    },
+    "session.dialog.delete.message": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيؤدي ذلك إلى إزالة الجلسة من سجلك."
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Damit wird die Sitzung aus deinem Verlauf entfernt."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This removes the session from your history."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This removes the session from your history."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto elimina la sesión de tu historial."
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto elimina la sesión de tu historial."
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cela supprime la session de votre historique."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この操作により履歴からセッションが削除されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 작업은 기록에서 세션을 삭제합니다."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isso remove a sessão do seu histórico."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Это удалит сеанс из истории."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这会从你的历史记录中移除该会话。"
+          }
+        }
+      }
+    },
     "tab.altimeter.title": {
       "localizations": {
         "ar": {
@@ -7156,6 +7916,158 @@
           "stringUnit": {
             "state": "translated",
             "value": "公制 (米)"
+          }
+        }
+      }
+    },
+    "units.pressure.hpa": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hPa"
+          }
+        }
+      }
+    },
+    "units.pressure.kpa": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "de-DE": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "fr-FR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kPa"
           }
         }
       }

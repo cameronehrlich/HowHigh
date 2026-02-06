@@ -5,8 +5,11 @@ struct SessionDetailView: View {
     let mode: AltitudeSession.Mode
     let session: AltitudeSession
     @ObservedObject var settingsStore: SettingsStore
+    let onDelete: (() async -> Void)?
     @State private var selectedAltitudeSample: AltitudeSample?
     @State private var selectedPressureSample: AltitudeSample?
+    @State private var showDeleteConfirmation: Bool = false
+    @Environment(\.dismiss) private var dismiss
 
     private var samples: [AltitudeSample] {
         session.samples.sorted(by: { $0.timestamp < $1.timestamp })
@@ -31,6 +34,28 @@ struct SessionDetailView: View {
         .navigationTitle(session.startDate.formatted(date: .abbreviated, time: .omitted))
         .navigationBarTitleDisplayMode(.inline)
         .background(backgroundGradient)
+        .toolbar {
+            if onDelete != nil {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(role: .destructive) {
+                        showDeleteConfirmation = true
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                }
+            }
+        }
+        .confirmationDialog(LocalizedStringKey("session.dialog.delete.title"), isPresented: $showDeleteConfirmation, titleVisibility: .visible) {
+            Button(String(localized: "session.action.delete"), role: .destructive) {
+                Task {
+                    await onDelete?()
+                    dismiss()
+                }
+            }
+            Button(String(localized: "common.cancel"), role: .cancel) { }
+        } message: {
+            Text("session.dialog.delete.message")
+        }
     }
 
     private var header: some View {
@@ -84,8 +109,8 @@ struct SessionDetailView: View {
             samples: samples,
             axisLabel: String(localized: "session.chart.axis.pressure"),
             selectedSample: $selectedPressureSample,
-            value: { $0.pressureKPa * 10 },
-            formattedValue: { PressureFormatter.hectopascals(fromKilopascals: $0.pressureKPa) },
+            value: { settingsStore.pressureUnit.value(fromKPa: $0.pressureKPa) },
+            formattedValue: { PressureFormatter.formatted(kPa: $0.pressureKPa, unit: settingsStore.pressureUnit) },
             placeholderKey: "session.chart.placeholder"
         )
     }
@@ -114,13 +139,14 @@ struct SessionDetailView: View {
         case .altimeter:
             return [
                 DetailMetric(titleKey: "measure.metric.gain", value: settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters), icon: "arrow.up"),
+                DetailMetric(titleKey: "measure.metric.net", value: settingsStore.preferredUnit.formattedAltitude(meters: session.netAltitudeChangeMeters), icon: "arrow.up.and.down"),
                 DetailMetric(titleKey: "measure.metric.loss", value: settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters), icon: "arrow.down"),
                 duration
             ]
         case .barometer:
             let pressures = samples.map { $0.pressureKPa }
-            let high = pressures.max().map { PressureFormatter.hectopascals(fromKilopascals: $0) } ?? "—"
-            let low = pressures.min().map { PressureFormatter.hectopascals(fromKilopascals: $0) } ?? "—"
+            let high = pressures.max().map { PressureFormatter.formatted(kPa: $0, unit: settingsStore.pressureUnit) } ?? "—"
+            let low = pressures.min().map { PressureFormatter.formatted(kPa: $0, unit: settingsStore.pressureUnit) } ?? "—"
             return [
                 DetailMetric(titleKey: "measure.metric.high", value: high, icon: "arrow.up"),
                 DetailMetric(titleKey: "measure.metric.low", value: low, icon: "arrow.down"),
@@ -243,5 +269,6 @@ private struct SessionInteractiveChart: View {
 #Preview {
     SessionDetailView(mode: .altimeter,
                       session: AltitudeSession.preview,
-                      settingsStore: SettingsStore())
+                      settingsStore: SettingsStore(),
+                      onDelete: nil)
 }

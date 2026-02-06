@@ -24,7 +24,12 @@ struct HistoryView: View {
                     List {
                         ForEach(viewModel.sessions) { session in
                             NavigationLink {
-                                SessionDetailView(mode: session.mode, session: session, settingsStore: settingsStore)
+                                SessionDetailView(mode: session.mode,
+                                                  session: session,
+                                                  settingsStore: settingsStore,
+                                                  onDelete: {
+                                                      await viewModel.delete(session)
+                                                  })
                             } label: {
                                 HistoryRow(session: session, settingsStore: settingsStore)
                             }
@@ -80,14 +85,14 @@ private struct HistoryRow: View {
                     let pressures = session.samples.map { $0.pressureKPa }
                     if let high = pressures.max() {
                         Label {
-                            Text(PressureFormatter.hectopascals(fromKilopascals: high))
+                            Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
                         } icon: {
                             Image(systemName: "arrow.up")
                         }
                     }
                     if let low = pressures.min() {
                         Label {
-                            Text(PressureFormatter.hectopascals(fromKilopascals: low))
+                            Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
                         } icon: {
                             Image(systemName: "arrow.down")
                         }

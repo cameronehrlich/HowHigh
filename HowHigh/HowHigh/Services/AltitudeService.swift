@@ -22,6 +22,7 @@ final class AltitudeService: ObservableObject {
     private let readingsSubject = PassthroughSubject<AltitudeReading, Never>()
     private var previewTimer: AnyCancellable?
     private var basePressureKPa: Double = 101.325 // default sea-level pressure
+    private var activeRequests: Int = 0
 
     var readings: AnyPublisher<AltitudeReading, Never> {
         readingsSubject.eraseToAnyPublisher()
@@ -46,6 +47,9 @@ final class AltitudeService: ObservableObject {
     }
 
     func startUpdates() {
+        activeRequests += 1
+        guard activeRequests == 1 else { return }
+
         guard !isPreview else {
             startPreview()
             return
@@ -80,6 +84,10 @@ final class AltitudeService: ObservableObject {
     }
 
     func stopUpdates() {
+        guard activeRequests > 0 else { return }
+        activeRequests -= 1
+        guard activeRequests == 0 else { return }
+
         guard !isPreview else {
             previewTimer?.cancel()
             return

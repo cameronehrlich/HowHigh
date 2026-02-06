@@ -56,7 +56,7 @@ final class InsightsViewModel: ObservableObject {
         var newCards: [InsightCard] = []
 
         if let observation = atmosphereStore.latestObservation {
-            let pressure = PressureFormatter.hectopascals(fromKilopascals: observation.seaLevelPressureHPa / 10.0)
+            let pressure = PressureFormatter.formatted(hPa: observation.seaLevelPressureHPa, unit: settingsStore.pressureUnit)
             let temperatureMeasurement = Measurement(value: observation.temperatureCelsius, unit: UnitTemperature.celsius)
             let temperature = temperatureFormatter.string(from: temperatureMeasurement)
             let trendText = NSLocalizedString(observation.trend.descriptionKey, comment: "")
@@ -104,7 +104,7 @@ final class InsightsViewModel: ObservableObject {
             let direction = NSLocalizedString(directionKey, comment: "")
             let title = String(localized: "insights.card.weeklyTrend.title")
             let format = String(localized: "insights.card.weeklyTrend.message.format", bundle: .main)
-            let delta = String(format: "%.2f", locale: .autoupdatingCurrent, abs(avgChange))
+            let delta = PressureFormatter.formatted(kPa: abs(avgChange), unit: settingsStore.pressureUnit)
             let message = String(format: format, locale: .autoupdatingCurrent, direction, delta)
             newCards.append(InsightCard(title: title,
                                         message: message,

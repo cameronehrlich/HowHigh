@@ -8,6 +8,7 @@ struct MeasureView: View {
     @State private var selectedSample: AltitudeSample?
 
     private var mode: AltitudeSession.Mode { viewModel.mode }
+    private var displayMode: AltitudeDisplayMode { settingsStore.altitudeDisplayMode }
 
     private var activeSession: AltitudeSession? {
         viewModel.currentSession ?? viewModel.lastCompletedSession
@@ -33,6 +34,9 @@ struct MeasureView: View {
                             chartCard
                         }
                     }
+                    if mode == .altimeter {
+                        modeControls
+                    }
                     sessionSummary
                     controls
                     if !viewModel.recentSessions.isEmpty {
@@ -46,14 +50,6 @@ struct MeasureView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(mode == .altimeter ? LocalizedStringKey("tab.altimeter.title") : LocalizedStringKey("tab.barometer.title"))
-            .toolbar {
-                if viewModel.canCalibrate {
-                    Button(String(localized: "measure.action.calibrate")) {
-                        viewModel.calibrateToCurrentReading()
-                    }
-                    .disabled(viewModel.currentReading == nil)
-                }
-            }
             .alert(LocalizedStringKey("measure.alert.barometerUnavailable.title"), isPresented: Binding(get: {
                 viewModel.availabilityMessage != nil
             }, set: { _ in
@@ -64,6 +60,12 @@ struct MeasureView: View {
                 if let message = viewModel.availabilityMessage {
                     Text(LocalizedStringKey(message))
                 }
+            }
+            .onAppear {
+                viewModel.startMonitoring()
+            }
+            .onDisappear {
+                viewModel.stopMonitoring()
             }
         }
     }
@@ -79,9 +81,13 @@ struct MeasureView: View {
                         .font(.system(size: 48, weight: .bold, design: .rounded))
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
-                    Text(secondaryMetricValue)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    if mode == .altimeter {
+                        altimeterSecondaryMetrics
+                    } else {
+                        Text(secondaryMetricValue)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 8) {
@@ -121,22 +127,61 @@ struct MeasureView: View {
         .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(.regularMaterial))
     }
 
+    private var modeControls: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 16) {
+                modePicker
+                zeroButton
+            }
+
+            VStack(spacing: 12) {
+                modePicker
+                zeroButton
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(.regularMaterial))
+    }
+
+    private var modePicker: some View {
+        Picker("measure.mode.label", selection: $settingsStore.altitudeDisplayMode) {
+            ForEach(AltitudeDisplayMode.allCases) { option in
+                Text(option.displayNameKey).tag(option)
+            }
+        }
+        .pickerStyle(.segmented)
+        .frame(maxWidth: .infinity)
+        .accessibilityIdentifier("measure.mode.picker")
+    }
+
+    private var zeroButton: some View {
+        Button(action: viewModel.calibrateToCurrentReading) {
+            if viewModel.isCalibrating {
+                HStack(spacing: 8) {
+                    ProgressView()
+                        .controlSize(.small)
+                    Text("measure.action.calibrating")
+                }
+            } else {
+                Label("measure.action.zero", systemImage: "scope")
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .buttonStyle(.borderedProminent)
+        .tint(.teal)
+        .disabled(!viewModel.canCalibrate || viewModel.isCalibrating)
+    }
+
     private var sessionSummary: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("measure.sessionSummary.title")
                 .font(.headline)
                 .accessibilityIdentifier("measure.sessionSummary.title")
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .top, spacing: 16) {
-                    ForEach(summaryMetrics) { metric in
-                        summaryMetricTile(metric)
-                    }
-                }
-
-                VStack(spacing: 12) {
-                    ForEach(summaryMetrics) { metric in
-                        summaryMetricTile(metric)
-                    }
+            let columns = Array(repeating: GridItem(.flexible(), spacing: 12), count: 2)
+            LazyVGrid(columns: columns, spacing: 12) {
+                ForEach(summaryMetrics) { metric in
+                    summaryMetricTile(metric)
                 }
             }
         }
@@ -192,6 +237,25 @@ struct MeasureView: View {
         }
     }
 
+    private var altimeterSecondaryMetrics: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 16) {
+                    InlineMetric(titleKey: "measure.amsl.title", value: amslValue)
+                    InlineMetric(titleKey: "measure.metric.currentPressure", value: pressureValue)
+                }
+
+                VStack(alignment: .leading, spacing: 8) {
+                    InlineMetric(titleKey: "measure.amsl.title", value: amslValue)
+                    InlineMetric(titleKey: "measure.metric.currentPressure", value: pressureValue)
+                }
+            }
+            Label("measure.amsl.helper", systemImage: "info.circle")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+        }
+    }
+
     private var sessionHistory: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("measure.pastSessions.title")
@@ -200,7 +264,12 @@ struct MeasureView: View {
             VStack(spacing: 12) {
                 ForEach(viewModel.recentSessions) { session in
                     NavigationLink {
-                        SessionDetailView(mode: mode, session: session, settingsStore: settingsStore)
+                        SessionDetailView(mode: mode,
+                                          session: session,
+                                          settingsStore: settingsStore,
+                                          onDelete: {
+                                              await viewModel.delete(session: session)
+                                          })
                     } label: {
                         SessionHistoryRow(session: session, mode: mode, settingsStore: settingsStore)
                             .padding(16)
@@ -314,22 +383,27 @@ struct MeasureView: View {
     }
 
     private var primaryMetricTitleKey: LocalizedStringKey {
-        mode == .altimeter ? "measure.metric.currentAltitude" : "measure.metric.currentPressure"
+        mode == .altimeter ? displayMode.metricTitleKey : "measure.metric.currentPressure"
     }
 
     private var primaryMetricValue: String {
         switch mode {
         case .altimeter:
-            if let reading = viewModel.currentReading {
-                return settingsStore.preferredUnit.formattedAltitude(meters: reading.absoluteAltitudeMeters)
-            } else if let fallback = activeSession?.samples.last {
-                return settingsStore.preferredUnit.formattedAltitude(meters: fallback.absoluteAltitudeMeters)
+            switch displayMode {
+            case .gain:
+                if let gain = viewModel.gainAltitudeMeters {
+                    return settingsStore.preferredUnit.formattedGain(meters: gain)
+                }
+            case .net:
+                if let net = viewModel.netAltitudeDeltaMeters {
+                    return settingsStore.preferredUnit.formattedAltitude(meters: net)
+                }
             }
         case .barometer:
             if let reading = viewModel.currentReading {
-                return PressureFormatter.hectopascals(fromKilopascals: reading.pressureKPa)
+                return PressureFormatter.formatted(kPa: reading.pressureKPa, unit: settingsStore.pressureUnit)
             } else if let fallback = activeSession?.samples.last {
-                return PressureFormatter.hectopascals(fromKilopascals: fallback.pressureKPa)
+                return PressureFormatter.formatted(kPa: fallback.pressureKPa, unit: settingsStore.pressureUnit)
             }
         }
         return "—"
@@ -338,17 +412,27 @@ struct MeasureView: View {
     private var secondaryMetricValue: String {
         switch mode {
         case .altimeter:
-            if let reading = viewModel.currentReading {
-                return PressureFormatter.hectopascals(fromKilopascals: reading.pressureKPa)
-            } else if let fallback = activeSession?.samples.last {
-                return PressureFormatter.hectopascals(fromKilopascals: fallback.pressureKPa)
-            }
+            return "—"
         case .barometer:
-            if let reading = viewModel.currentReading {
-                return settingsStore.preferredUnit.formattedAltitude(meters: reading.absoluteAltitudeMeters)
-            } else if let fallback = activeSession?.samples.last {
-                return settingsStore.preferredUnit.formattedAltitude(meters: fallback.absoluteAltitudeMeters)
+            if let meters = viewModel.amslAltitudeMeters {
+                return settingsStore.preferredUnit.formattedAltitude(meters: meters)
             }
+        }
+        return "—"
+    }
+
+    private var pressureValue: String {
+        if let reading = viewModel.currentReading {
+            return PressureFormatter.formatted(kPa: reading.pressureKPa, unit: settingsStore.pressureUnit)
+        } else if let fallback = activeSession?.samples.last {
+            return PressureFormatter.formatted(kPa: fallback.pressureKPa, unit: settingsStore.pressureUnit)
+        }
+        return "—"
+    }
+
+    private var amslValue: String {
+        if let meters = viewModel.amslAltitudeMeters {
+            return settingsStore.preferredUnit.formattedAltitude(meters: meters)
         }
         return "—"
     }
@@ -379,7 +463,13 @@ struct MeasureView: View {
     private var chartDomain: ClosedRange<Double>? {
         let values = samples.map { chartValue(for: $0) }
         guard let min = values.min(), let max = values.max(), min != max else { return nil }
-        let padding = mode == .altimeter ? 5.0 : 0.5
+        let padding: Double
+        switch mode {
+        case .altimeter:
+            padding = 5.0
+        case .barometer:
+            padding = settingsStore.pressureUnit == .hectopascals ? 0.5 : 0.05
+        }
         return (min - padding)...(max + padding)
     }
 
@@ -388,7 +478,7 @@ struct MeasureView: View {
         case .altimeter:
             return settingsStore.preferredUnit.convertedAltitude(from: sample.absoluteAltitudeMeters)
         case .barometer:
-            return sample.pressureKPa * 10
+            return settingsStore.pressureUnit.value(fromKPa: sample.pressureKPa)
         }
     }
 
@@ -399,7 +489,7 @@ struct MeasureView: View {
         case .altimeter:
             value = settingsStore.preferredUnit.formattedAltitude(meters: sample.absoluteAltitudeMeters)
         case .barometer:
-            value = PressureFormatter.hectopascals(fromKilopascals: sample.pressureKPa)
+            value = PressureFormatter.formatted(kPa: sample.pressureKPa, unit: settingsStore.pressureUnit)
         }
         let format = String(localized: "measure.chart.selected.detail.format", bundle: .main)
         return String(format: format, locale: .autoupdatingCurrent, time, value)
@@ -413,13 +503,14 @@ struct MeasureView: View {
         case .altimeter:
             return [
                 SummaryMetric(titleKey: "measure.metric.gain", value: settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters)),
+                SummaryMetric(titleKey: "measure.metric.net", value: settingsStore.preferredUnit.formattedAltitude(meters: session.netAltitudeChangeMeters)),
                 SummaryMetric(titleKey: "measure.metric.loss", value: settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters)),
                 SummaryMetric(titleKey: "measure.metric.duration", value: session.duration.formattedHoursMinutesSeconds())
             ]
         case .barometer:
             let pressures = session.samples.map { $0.pressureKPa }
-            let high = pressures.max().map { PressureFormatter.hectopascals(fromKilopascals: $0) } ?? "—"
-            let low = pressures.min().map { PressureFormatter.hectopascals(fromKilopascals: $0) } ?? "—"
+            let high = pressures.max().map { PressureFormatter.formatted(kPa: $0, unit: settingsStore.pressureUnit) } ?? "—"
+            let low = pressures.min().map { PressureFormatter.formatted(kPa: $0, unit: settingsStore.pressureUnit) } ?? "—"
             return [
                 SummaryMetric(titleKey: "measure.metric.high", value: high),
                 SummaryMetric(titleKey: "measure.metric.low", value: low),
@@ -433,6 +524,7 @@ struct MeasureView: View {
         case .altimeter:
             return [
                 SummaryMetric(titleKey: "measure.metric.gain", value: "—"),
+                SummaryMetric(titleKey: "measure.metric.net", value: "—"),
                 SummaryMetric(titleKey: "measure.metric.loss", value: "—"),
                 SummaryMetric(titleKey: "measure.metric.duration", value: "—")
             ]
@@ -450,6 +542,22 @@ private struct SummaryMetric: Identifiable {
     let id = UUID()
     let titleKey: LocalizedStringKey
     let value: String
+}
+
+private struct InlineMetric: View {
+    let titleKey: LocalizedStringKey
+    let value: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(titleKey)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+            Text(value)
+                .font(.subheadline.weight(.semibold))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
 }
 
 private struct SessionHistoryRow: View {
@@ -487,14 +595,14 @@ private struct SessionHistoryRow: View {
                 case .barometer:
                     if let high = pressures.max() {
                         Label {
-                            Text(PressureFormatter.hectopascals(fromKilopascals: high))
+                            Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
                         } icon: {
                             Image(systemName: "arrow.up")
                         }
                     }
                     if let low = pressures.min() {
                         Label {
-                            Text(PressureFormatter.hectopascals(fromKilopascals: low))
+                            Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
                         } icon: {
                             Image(systemName: "arrow.down")
                         }

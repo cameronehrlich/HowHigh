@@ -11,12 +11,22 @@ enum PressureFormatter {
     }()
 
     static func hectopascals(fromKilopascals value: Double) -> String {
-        let measurement = Measurement(value: value * 10.0, unit: UnitPressure.hectopascals)
-        return measurementFormatter.string(from: measurement)
+        formatted(kPa: value, unit: .hectopascals)
     }
 
     static func kilopascals(_ value: Double) -> String {
-        let measurement = Measurement(value: value, unit: UnitPressure.kilopascals)
-        return measurementFormatter.string(from: measurement)
+        formatted(kPa: value, unit: .kilopascals)
+    }
+
+    static func measurement(fromKPa value: Double, unit: PressureUnit) -> Measurement<UnitPressure> {
+        Measurement(value: unit.value(fromKPa: value), unit: unit.unit)
+    }
+
+    static func formatted(kPa value: Double, unit: PressureUnit) -> String {
+        measurementFormatter.string(from: measurement(fromKPa: value, unit: unit))
+    }
+
+    static func formatted(hPa value: Double, unit: PressureUnit) -> String {
+        measurementFormatter.string(from: Measurement(value: unit.value(fromHPa: value), unit: unit.unit))
     }
 }

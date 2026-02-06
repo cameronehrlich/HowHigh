@@ -8,6 +8,7 @@ final class MeasureViewModel: ObservableObject {
     @Published var currentSession: AltitudeSession?
     @Published var lastCompletedSession: AltitudeSession?
     @Published var availabilityMessage: String?
+    @Published var isCalibrating: Bool = false
     @Published private(set) var recentSessions: [AltitudeSession] = []
 
     let mode: AltitudeSession.Mode
@@ -18,7 +19,10 @@ final class MeasureViewModel: ObservableObject {
     private let reviewManager: ReviewManager
     private var cancellables: Set<AnyCancellable> = []
     private var samplesBuffer: [AltitudeSample] = []
-    private var baselineAltitude: Double?
+    private var sessionStartAltitude: Double?
+    private var zeroBaselineAltitude: Double?
+    private var pendingCalibration: Bool = false
+    private var isMonitoring: Bool = false
 
     init(mode: AltitudeSession.Mode,
          altitudeService: AltitudeService,
@@ -42,7 +46,7 @@ final class MeasureViewModel: ObservableObject {
             availabilityMessage = "measure.alert.barometerUnavailable.message"
             return
         }
-        baselineAltitude = nil
+        sessionStartAltitude = nil
         samplesBuffer.removeAll()
         var session = AltitudeSession(startDate: Date(), mode: mode)
         session.state = .recording
@@ -74,7 +78,7 @@ final class MeasureViewModel: ObservableObject {
         isRecording = false
         await sessionStore.upsert(session: session)
         samplesBuffer.removeAll()
-        baselineAltitude = nil
+        sessionStartAltitude = nil
         lastCompletedSession = session
         currentSession = nil
 
@@ -83,12 +87,27 @@ final class MeasureViewModel: ObservableObject {
     }
 
     func calibrateToCurrentReading() {
-        baselineAltitude = currentReading?.absoluteAltitudeMeters
-        samplesBuffer.removeAll()
-        if var session = currentSession {
-            session.samples.removeAll()
-            currentSession = session
-        }
+        settingsStore.altitudeDisplayMode = .net
+        pendingCalibration = true
+        isCalibrating = true
+        startMonitoring()
+        applyCalibrationIfPossible()
+    }
+
+    func startMonitoring() {
+        guard !isMonitoring else { return }
+        isMonitoring = true
+        altitudeService.startUpdates()
+    }
+
+    func stopMonitoring() {
+        guard isMonitoring else { return }
+        isMonitoring = false
+        altitudeService.stopUpdates()
+    }
+
+    func delete(session: AltitudeSession) async {
+        await sessionStore.delete(session: session)
     }
 
     private func observeSettings() {
@@ -106,10 +125,11 @@ final class MeasureViewModel: ObservableObject {
             .sink { [weak self] reading in
                 guard let self else { return }
                 self.currentReading = reading
+                self.applyCalibrationIfPossible(using: reading)
                 guard self.isRecording else { return }
-                let baseline = self.baselineAltitude ?? reading.absoluteAltitudeMeters
-                if self.baselineAltitude == nil {
-                    self.baselineAltitude = baseline
+                let baseline = self.sessionStartAltitude ?? reading.absoluteAltitudeMeters
+                if self.sessionStartAltitude == nil {
+                    self.sessionStartAltitude = baseline
                 }
                 let relative = reading.absoluteAltitudeMeters - baseline
                 let sample = AltitudeSample(timestamp: reading.timestamp,
@@ -141,6 +161,54 @@ final class MeasureViewModel: ObservableObject {
 extension MeasureViewModel {
     var canCalibrate: Bool {
         mode == .altimeter
+    }
+
+    var netAltitudeDeltaMeters: Double? {
+        guard mode == .altimeter else { return nil }
+        if let reading = currentReading {
+            if isRecording, let sessionStartAltitude {
+                return reading.absoluteAltitudeMeters - sessionStartAltitude
+            }
+            if let zeroBaselineAltitude {
+                return reading.absoluteAltitudeMeters - zeroBaselineAltitude
+            }
+        }
+        if let session = currentSession ?? lastCompletedSession, !session.samples.isEmpty {
+            return session.netAltitudeChangeMeters
+        }
+        return nil
+    }
+
+    var gainAltitudeMeters: Double? {
+        guard mode == .altimeter else { return nil }
+        return (currentSession ?? lastCompletedSession)?.totalAscentMeters
+    }
+
+    var amslAltitudeMeters: Double? {
+        if let reading = currentReading {
+            return reading.absoluteAltitudeMeters
+        }
+        return (currentSession ?? lastCompletedSession)?.samples.last?.absoluteAltitudeMeters
+    }
+
+    private func applyCalibrationIfPossible() {
+        guard pendingCalibration, let reading = currentReading else { return }
+        applyCalibrationIfPossible(using: reading)
+    }
+
+    private func applyCalibrationIfPossible(using reading: AltitudeReading) {
+        guard pendingCalibration else { return }
+        pendingCalibration = false
+        isCalibrating = false
+        zeroBaselineAltitude = reading.absoluteAltitudeMeters
+        if isRecording {
+            sessionStartAltitude = reading.absoluteAltitudeMeters
+            samplesBuffer.removeAll()
+            if var session = currentSession {
+                session.samples.removeAll()
+                currentSession = session
+            }
+        }
     }
 }
 

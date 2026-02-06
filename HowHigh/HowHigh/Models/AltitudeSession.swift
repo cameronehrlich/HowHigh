@@ -94,6 +94,11 @@ struct AltitudeSession: Identifiable, Codable {
         samples.map { $0.absoluteAltitudeMeters }.min() ?? 0
     }
 
+    var netAltitudeChangeMeters: Double {
+        guard let first = samples.first, let last = samples.last else { return 0 }
+        return last.absoluteAltitudeMeters - first.absoluteAltitudeMeters
+    }
+
     var pressureTrend: AltitudeTrend {
         samples.recentTrend()
     }

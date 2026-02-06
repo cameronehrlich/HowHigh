@@ -67,3 +67,66 @@ enum MeasurementUnit: String, Codable, CaseIterable, Identifiable {
         }
     }
 }
+
+enum PressureUnit: String, Codable, CaseIterable, Identifiable {
+    case hectopascals
+    case kilopascals
+
+    var id: String { rawValue }
+
+    var displayNameKey: LocalizedStringKey {
+        switch self {
+        case .hectopascals:
+            return "units.pressure.hpa"
+        case .kilopascals:
+            return "units.pressure.kpa"
+        }
+    }
+
+    var unit: UnitPressure {
+        switch self {
+        case .hectopascals:
+            return .hectopascals
+        case .kilopascals:
+            return .kilopascals
+        }
+    }
+
+    func value(fromKPa value: Double) -> Double {
+        switch self {
+        case .hectopascals:
+            return value * 10.0
+        case .kilopascals:
+            return value
+        }
+    }
+
+    func value(fromHPa value: Double) -> Double {
+        switch self {
+        case .hectopascals:
+            return value
+        case .kilopascals:
+            return value / 10.0
+        }
+    }
+}
+
+enum AltitudeDisplayMode: String, Codable, CaseIterable, Identifiable {
+    case gain
+    case net
+
+    var id: String { rawValue }
+
+    var displayNameKey: LocalizedStringKey {
+        switch self {
+        case .gain:
+            return "measure.metric.gain"
+        case .net:
+            return "measure.metric.net"
+        }
+    }
+
+    var metricTitleKey: LocalizedStringKey {
+        displayNameKey
+    }
+}

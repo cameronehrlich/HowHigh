@@ -32,18 +32,26 @@ struct ProfileView: View {
             }
             .pickerStyle(.segmented)
             .accessibilityIdentifier("profile.units.picker")
+
+            Picker("profile.picker.pressureUnits", selection: $settingsStore.pressureUnit) {
+                ForEach(PressureUnit.allCases) { unit in
+                    Text(unit.displayNameKey).tag(unit)
+                }
+            }
+            .pickerStyle(.segmented)
+            .accessibilityIdentifier("profile.pressure.picker")
         }
     }
 
     private var calibrationSection: some View {
-        Section(header: Text("profile.section.calibration"), footer: Text("profile.calibration.footer")) {
+        Section(header: Text("profile.section.calibration"), footer: Text(calibrationFooterText)) {
             HStack {
                 Text("profile.label.seaLevelPressure")
                 Spacer()
-                Text(PressureFormatter.kilopascals(settingsStore.seaLevelPressureKPa))
+                Text(PressureFormatter.formatted(kPa: settingsStore.seaLevelPressureKPa, unit: settingsStore.pressureUnit))
                     .foregroundStyle(.secondary)
             }
-            Slider(value: $settingsStore.seaLevelPressureKPa, in: 95...105, step: 0.1)
+            Slider(value: seaLevelPressureBinding, in: seaLevelPressureRange, step: seaLevelPressureStep)
                 .accessibilityIdentifier("profile.seaLevel.slider")
             Button("profile.action.whatIsThis") {
                 showSeaLevelInfo = true
@@ -76,6 +84,28 @@ struct ProfileView: View {
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
         let format = String(localized: "profile.about.version.format", bundle: .main)
         return String(format: format, locale: .autoupdatingCurrent, version, build)
+    }
+
+    private var seaLevelPressureBinding: Binding<Double> {
+        Binding(get: {
+            settingsStore.pressureUnit.value(fromKPa: settingsStore.seaLevelPressureKPa)
+        }, set: { newValue in
+            settingsStore.seaLevelPressureKPa = settingsStore.pressureUnit == .hectopascals ? newValue / 10.0 : newValue
+        })
+    }
+
+    private var seaLevelPressureRange: ClosedRange<Double> {
+        settingsStore.pressureUnit == .hectopascals ? 950...1050 : 95...105
+    }
+
+    private var seaLevelPressureStep: Double {
+        settingsStore.pressureUnit == .hectopascals ? 1.0 : 0.1
+    }
+
+    private var calibrationFooterText: String {
+        let format = String(localized: "profile.calibration.footer", bundle: .main)
+        let typicalValue = PressureFormatter.formatted(kPa: 101.325, unit: settingsStore.pressureUnit)
+        return String(format: format, locale: .autoupdatingCurrent, typicalValue)
     }
 
     private var seaLevelInfoSheet: some View {
