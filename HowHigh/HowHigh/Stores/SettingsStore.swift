@@ -6,6 +6,8 @@ final class SettingsStore: ObservableObject {
     @Published var pressureUnit: PressureUnit
     @Published var seaLevelPressureKPa: Double
     @Published var altitudeDisplayMode: AltitudeDisplayMode
+    @Published var weatherKitAutoCalibrationEnabled: Bool
+    @Published private(set) var weatherKitLastCalibrationDate: Date?
 
     private var cancellables: Set<AnyCancellable> = []
     private let defaults: UserDefaults
@@ -15,6 +17,8 @@ final class SettingsStore: ObservableObject {
         static let pressureUnit = "settings.pressureUnit"
         static let seaLevelPressure = "settings.seaLevelPressure"
         static let altitudeDisplayMode = "settings.altitudeDisplayMode"
+        static let weatherKitAutoCalibrationEnabled = "settings.weatherKitAutoCalibrationEnabled"
+        static let weatherKitLastCalibrationTimestamp = "settings.weatherKitLastCalibrationTimestamp"
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -42,7 +46,21 @@ final class SettingsStore: ObservableObject {
             altitudeDisplayMode = .gain
         }
 
+        weatherKitAutoCalibrationEnabled = defaults.bool(forKey: Keys.weatherKitAutoCalibrationEnabled)
+
+        let storedTimestamp = defaults.double(forKey: Keys.weatherKitLastCalibrationTimestamp)
+        if storedTimestamp > 0 {
+            weatherKitLastCalibrationDate = Date(timeIntervalSince1970: storedTimestamp)
+        } else {
+            weatherKitLastCalibrationDate = nil
+        }
+
         setupBindings()
+    }
+
+    func applyWeatherKitSeaLevelPressure(hPa: Double, timestamp: Date = Date()) {
+        seaLevelPressureKPa = hPa / 10.0
+        weatherKitLastCalibrationDate = timestamp
     }
 
     private func setupBindings() {
@@ -67,6 +85,22 @@ final class SettingsStore: ObservableObject {
         $altitudeDisplayMode
             .sink { [weak self] mode in
                 self?.defaults.set(mode.rawValue, forKey: Keys.altitudeDisplayMode)
+            }
+            .store(in: &cancellables)
+
+        $weatherKitAutoCalibrationEnabled
+            .sink { [weak self] enabled in
+                self?.defaults.set(enabled, forKey: Keys.weatherKitAutoCalibrationEnabled)
+            }
+            .store(in: &cancellables)
+
+        $weatherKitLastCalibrationDate
+            .sink { [weak self] date in
+                if let date {
+                    self?.defaults.set(date.timeIntervalSince1970, forKey: Keys.weatherKitLastCalibrationTimestamp)
+                } else {
+                    self?.defaults.removeObject(forKey: Keys.weatherKitLastCalibrationTimestamp)
+                }
             }
             .store(in: &cancellables)
     }

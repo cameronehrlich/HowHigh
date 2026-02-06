@@ -8071,6 +8071,160 @@
           }
         }
       }
+    },
+    "measure.confidence.unavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensor unavailable"
+          }
+        }
+      }
+    },
+    "measure.confidence.calibrating": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrating"
+          }
+        }
+      }
+    },
+    "measure.confidence.warmingUp": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stabilizing"
+          }
+        }
+      }
+    },
+    "measure.confidence.good": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensor stable"
+          }
+        }
+      }
+    },
+    "measure.confidence.poor": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensor noisy"
+          }
+        }
+      }
+    },
+    "measure.confidence.help.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensor Confidence"
+          }
+        }
+      }
+    },
+    "measure.confidence.help.navTitle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confidence"
+          }
+        }
+      }
+    },
+    "measure.confidence.help.body.altimeter": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your iPhone estimates altitude from barometric pressure. For best results, zero your reading at the start and hold still briefly so the sensor can settle."
+          }
+        }
+      }
+    },
+    "measure.confidence.help.body.barometer": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pressure readings are most useful when your phone is stationary and the environment is stable. Use WeatherKit calibration to improve absolute readings when available."
+          }
+        }
+      }
+    },
+    "measure.confidence.help.tip.1": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap Zero when you start a measurement."
+          }
+        }
+      }
+    },
+    "measure.confidence.help.tip.2": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hold still for a few seconds for best readings."
+          }
+        }
+      }
+    },
+    "measure.confidence.help.tip.3": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use WeatherKit calibration for better absolute altitude."
+          }
+        }
+      }
+    },
+    "profile.weatherKit.toggle.auto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto-calibrate sea-level pressure"
+          }
+        }
+      }
+    },
+    "profile.weatherKit.lastUpdated": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last updated"
+          }
+        }
+      }
     }
   },
   "version": "1.1"

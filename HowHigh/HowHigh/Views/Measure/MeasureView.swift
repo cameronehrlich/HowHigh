@@ -6,6 +6,7 @@ struct MeasureView: View {
     @ObservedObject var settingsStore: SettingsStore
     @State private var showStopConfirmation: Bool = false
     @State private var selectedSample: AltitudeSample?
+    @State private var showConfidenceHelp: Bool = false
 
     private var mode: AltitudeSession.Mode { viewModel.mode }
     private var displayMode: AltitudeDisplayMode { settingsStore.altitudeDisplayMode }
@@ -67,6 +68,9 @@ struct MeasureView: View {
             .onDisappear {
                 viewModel.stopMonitoring()
             }
+            .sheet(isPresented: $showConfidenceHelp) {
+                SensorConfidenceHelpView(mode: mode)
+            }
         }
     }
 
@@ -105,10 +109,32 @@ struct MeasureView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
+            confidenceRow
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(.regularMaterial))
+    }
+
+    private var confidenceRow: some View {
+        Button {
+            showConfidenceHelp = true
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: viewModel.confidence.systemImageName)
+                    .foregroundStyle(confidenceColor)
+                Text(LocalizedStringKey(viewModel.confidence.labelLocalizationKey))
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.top, 4)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("measure.confidence.row")
     }
 
     private var chartCard: some View {
@@ -456,6 +482,19 @@ struct MeasureView: View {
         mode == .altimeter ? "measure.chart.title.elevation" : "measure.chart.title.pressure"
     }
 
+    private var confidenceColor: Color {
+        switch viewModel.confidence {
+        case .unavailable:
+            return .red
+        case .calibrating, .warmingUp:
+            return .orange
+        case .good:
+            return .green
+        case .poor:
+            return .orange
+        }
+    }
+
     private var yAxisLabel: String {
         mode == .altimeter ? settingsStore.preferredUnit.shortAltitudeDescription : String(localized: "measure.chart.axis.pressure")
     }
@@ -634,6 +673,43 @@ private struct ChartPlaceholder: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, minHeight: 200)
+    }
+}
+
+private struct SensorConfidenceHelpView: View {
+    let mode: AltitudeSession.Mode
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("measure.confidence.help.title")
+                        .font(.title2.weight(.bold))
+
+                    Text(LocalizedStringKey(mode == .altimeter ? "measure.confidence.help.body.altimeter" : "measure.confidence.help.body.barometer"))
+                        .foregroundStyle(.secondary)
+
+                    VStack(alignment: .leading, spacing: 12) {
+                        Label("measure.confidence.help.tip.1", systemImage: "scope")
+                        Label("measure.confidence.help.tip.2", systemImage: "hand.raised")
+                        Label("measure.confidence.help.tip.3", systemImage: "location")
+                    }
+                    .font(.body)
+
+                    Spacer(minLength: 0)
+                }
+                .padding()
+            }
+            .navigationTitle("measure.confidence.help.navTitle")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("common.done") { dismiss() }
+                }
+            }
+        }
+        .presentationDetents([.medium, .large])
     }
 }
 

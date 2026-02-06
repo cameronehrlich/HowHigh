@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var settingsStore: SettingsStore
+    @ObservedObject var atmosphereStore: AtmosphereStore
     @State private var showSeaLevelInfo = false
 
     private var regionIdentifier: String {
@@ -13,6 +14,7 @@ struct ProfileView: View {
             Form {
                 unitsSection
                 calibrationSection
+                weatherKitSection
                 supportSection
                 aboutSection
             }
@@ -56,6 +58,56 @@ struct ProfileView: View {
             Button("profile.action.whatIsThis") {
                 showSeaLevelInfo = true
             }
+        }
+    }
+
+    private var weatherKitSection: some View {
+        Section(header: Text("profile.section.weatherKit")) {
+            Toggle("profile.weatherKit.toggle.auto", isOn: $settingsStore.weatherKitAutoCalibrationEnabled)
+                .accessibilityIdentifier("profile.weatherKit.toggle.auto")
+
+            if atmosphereStore.isFetching {
+                HStack(spacing: 12) {
+                    ProgressView()
+                    Text("insights.progress.weather")
+                        .foregroundStyle(.secondary)
+                }
+            } else if let error = atmosphereStore.lastError {
+                Label(error, systemImage: "exclamationmark.triangle")
+                    .foregroundStyle(.orange)
+            } else if let observation = atmosphereStore.latestObservation {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("profile.weatherKit.latest")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(weatherKitSummary(observation))
+                        .font(.subheadline)
+                }
+            } else {
+                Text("profile.weatherKit.empty")
+                    .foregroundStyle(.secondary)
+            }
+
+            if let last = settingsStore.weatherKitLastCalibrationDate {
+                HStack {
+                    Text("profile.weatherKit.lastUpdated")
+                    Spacer()
+                    Text(relativeDate(last))
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Button {
+                Task {
+                    await atmosphereStore.refresh()
+                    if let observation = atmosphereStore.latestObservation {
+                        settingsStore.applyWeatherKitSeaLevelPressure(hPa: observation.seaLevelPressureHPa, timestamp: observation.timestamp)
+                    }
+                }
+            } label: {
+                Label("profile.action.refreshWeather", systemImage: "arrow.clockwise")
+            }
+            .disabled(atmosphereStore.isFetching)
         }
     }
 
@@ -132,8 +184,34 @@ struct ProfileView: View {
         }
         .presentationDetents([.medium])
     }
+
+    private func weatherKitSummary(_ observation: AtmosphericObservation) -> String {
+        let pressure = PressureFormatter.formatted(hPa: observation.seaLevelPressureHPa, unit: settingsStore.pressureUnit)
+        let trendText = NSLocalizedString(observation.trend.descriptionKey, comment: "")
+
+        let temperatureMeasurement = Measurement(value: observation.temperatureCelsius, unit: UnitTemperature.celsius)
+        let temperature = temperatureFormatter.string(from: temperatureMeasurement)
+
+        let format = String(localized: "profile.weatherKit.summary.format", bundle: .main)
+        return String(format: format, locale: .autoupdatingCurrent, pressure, trendText, temperature)
+    }
+
+    private var temperatureFormatter: MeasurementFormatter {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = .providedUnit
+        formatter.unitStyle = .medium
+        formatter.locale = .autoupdatingCurrent
+        formatter.numberFormatter.maximumFractionDigits = 0
+        return formatter
+    }
+
+    private func relativeDate(_ date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: date, relativeTo: Date())
+    }
 }
 
 #Preview {
-    ProfileView(settingsStore: SettingsStore())
+    ProfileView(settingsStore: SettingsStore(), atmosphereStore: AtmosphereStore.preview())
 }

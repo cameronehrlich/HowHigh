@@ -10,6 +10,7 @@ final class MeasureViewModel: ObservableObject {
     @Published var availabilityMessage: String?
     @Published var isCalibrating: Bool = false
     @Published private(set) var recentSessions: [AltitudeSession] = []
+    @Published private(set) var confidence: SensorConfidence = .warmingUp
 
     let mode: AltitudeSession.Mode
 
@@ -23,6 +24,7 @@ final class MeasureViewModel: ObservableObject {
     private var zeroBaselineAltitude: Double?
     private var pendingCalibration: Bool = false
     private var isMonitoring: Bool = false
+    private var recentReadings: [AltitudeReading] = []
 
     init(mode: AltitudeSession.Mode,
          altitudeService: AltitudeService,
@@ -125,6 +127,7 @@ final class MeasureViewModel: ObservableObject {
             .sink { [weak self] reading in
                 guard let self else { return }
                 self.currentReading = reading
+                self.appendReadingForConfidence(reading)
                 self.applyCalibrationIfPossible(using: reading)
                 guard self.isRecording else { return }
                 let baseline = self.sessionStartAltitude ?? reading.absoluteAltitudeMeters
@@ -209,6 +212,23 @@ extension MeasureViewModel {
                 currentSession = session
             }
         }
+    }
+}
+
+private extension MeasureViewModel {
+    func appendReadingForConfidence(_ reading: AltitudeReading) {
+        recentReadings.append(reading)
+        if recentReadings.count > 32 {
+            recentReadings.removeFirst(recentReadings.count - 32)
+        }
+        let result = SensorConfidenceEstimator.estimate(
+            readings: recentReadings,
+            mode: mode,
+            isCalibrating: isCalibrating || pendingCalibration,
+            isAvailable: altitudeService.availabilityStatus,
+            now: Date()
+        )
+        confidence = result.confidence
     }
 }
 

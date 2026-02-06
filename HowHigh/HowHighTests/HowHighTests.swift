@@ -70,4 +70,127 @@ final class SettingsStoreTests: XCTestCase {
         XCTAssertEqual(reloaded.pressureUnit, .kilopascals)
         XCTAssertEqual(reloaded.altitudeDisplayMode, .net)
     }
+
+    func testWeatherKitCalibrationPersistence() {
+        let suiteName = "HowHigh.SettingsStoreTests.WeatherKit"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defaults.removePersistentDomain(forName: suiteName)
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        let store = SettingsStore(defaults: defaults)
+        XCTAssertFalse(store.weatherKitAutoCalibrationEnabled)
+        XCTAssertNil(store.weatherKitLastCalibrationDate)
+
+        store.weatherKitAutoCalibrationEnabled = true
+        let timestamp = Date(timeIntervalSince1970: 1_700_000_000)
+        store.applyWeatherKitSeaLevelPressure(hPa: 1015.0, timestamp: timestamp)
+
+        XCTAssertEqual(store.seaLevelPressureKPa, 101.5, accuracy: 0.0001)
+        XCTAssertNotNil(store.weatherKitLastCalibrationDate)
+        XCTAssertEqual(store.weatherKitLastCalibrationDate!.timeIntervalSince1970, timestamp.timeIntervalSince1970, accuracy: 0.001)
+
+        let reloaded = SettingsStore(defaults: defaults)
+        XCTAssertTrue(reloaded.weatherKitAutoCalibrationEnabled)
+        XCTAssertEqual(reloaded.seaLevelPressureKPa, 101.5, accuracy: 0.0001)
+        XCTAssertNotNil(reloaded.weatherKitLastCalibrationDate)
+        XCTAssertEqual(reloaded.weatherKitLastCalibrationDate!.timeIntervalSince1970, timestamp.timeIntervalSince1970, accuracy: 0.001)
+    }
+}
+
+final class SensorConfidenceEstimatorTests: XCTestCase {
+    func testWarmingUpWithTooFewSamples() {
+        let now = Date()
+        let readings = makeAltitudeReadings(start: now.addingTimeInterval(-2), count: 3, interval: 0.5, slopePerSecond: 0.2, noiseAmplitude: 0.05)
+        let result = SensorConfidenceEstimator.estimate(
+            readings: readings,
+            mode: .altimeter,
+            isCalibrating: false,
+            isAvailable: true,
+            now: now
+        )
+        XCTAssertEqual(result.confidence, .warmingUp)
+    }
+
+    func testGoodConfidenceWithLowJitter() {
+        let now = Date()
+        let readings = makeAltitudeReadings(start: now.addingTimeInterval(-7), count: 20, interval: 0.35, slopePerSecond: 0.4, noiseAmplitude: 0.08)
+        let result = SensorConfidenceEstimator.estimate(
+            readings: readings,
+            mode: .altimeter,
+            isCalibrating: false,
+            isAvailable: true,
+            now: now
+        )
+        XCTAssertEqual(result.confidence, .good)
+        XCTAssertNotNil(result.residualRMS)
+    }
+
+    func testPoorConfidenceWithHighJitter() {
+        let now = Date()
+        let readings = makeAltitudeReadings(start: now.addingTimeInterval(-7), count: 20, interval: 0.35, slopePerSecond: 0.4, noiseAmplitude: 2.0)
+        let result = SensorConfidenceEstimator.estimate(
+            readings: readings,
+            mode: .altimeter,
+            isCalibrating: false,
+            isAvailable: true,
+            now: now
+        )
+        XCTAssertEqual(result.confidence, .poor)
+        XCTAssertNotNil(result.residualRMS)
+    }
+
+    func testCalibratingOverridesSignal() {
+        let now = Date()
+        let readings = makeAltitudeReadings(start: now.addingTimeInterval(-7), count: 20, interval: 0.35, slopePerSecond: 0.0, noiseAmplitude: 5.0)
+        let result = SensorConfidenceEstimator.estimate(
+            readings: readings,
+            mode: .altimeter,
+            isCalibrating: true,
+            isAvailable: true,
+            now: now
+        )
+        XCTAssertEqual(result.confidence, .calibrating)
+    }
+
+    func testUnavailableWhenSensorUnavailable() {
+        let now = Date()
+        let readings = makeAltitudeReadings(start: now.addingTimeInterval(-7), count: 20, interval: 0.35, slopePerSecond: 0.0, noiseAmplitude: 0.1)
+        let result = SensorConfidenceEstimator.estimate(
+            readings: readings,
+            mode: .altimeter,
+            isCalibrating: false,
+            isAvailable: false,
+            now: now
+        )
+        XCTAssertEqual(result.confidence, .unavailable)
+    }
+}
+
+private func makeAltitudeReadings(
+    start: Date,
+    count: Int,
+    interval: TimeInterval,
+    slopePerSecond: Double,
+    noiseAmplitude: Double
+) -> [AltitudeReading] {
+    var readings: [AltitudeReading] = []
+    readings.reserveCapacity(count)
+    var t: TimeInterval = 0
+
+    // Deterministic pseudo-noise (no randomness in tests).
+    for index in 0..<count {
+        let ts = start.addingTimeInterval(t)
+        let noise = sin(Double(index) * 1.7) * noiseAmplitude
+        let altitude = 100.0 + slopePerSecond * t + noise
+        readings.append(
+            AltitudeReading(
+                timestamp: ts,
+                relativeAltitudeMeters: 0,
+                pressureKPa: 101.325,
+                absoluteAltitudeMeters: altitude
+            )
+        )
+        t += interval
+    }
+    return readings
 }

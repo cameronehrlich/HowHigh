@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct RootView: View {
     @ObservedObject var settingsStore: SettingsStore
@@ -7,6 +8,8 @@ struct RootView: View {
 
     @StateObject private var barometerViewModel: MeasureViewModel
     @StateObject private var altimeterViewModel: MeasureViewModel
+    @StateObject private var atmosphereStore: AtmosphereStore = AtmosphereStore()
+    @State private var didAttemptAutoWeatherKitCalibration: Bool = false
 
     init(settingsStore: SettingsStore,
          sessionStore: SessionStore,
@@ -36,10 +39,33 @@ struct RootView: View {
                     Label(String(localized: "tab.altimeter.title"), systemImage: "mountain.2")
                 }
 
-            ProfileView(settingsStore: settingsStore)
+            ProfileView(settingsStore: settingsStore, atmosphereStore: atmosphereStore)
                 .tabItem {
                     Label(String(localized: "tab.profile.title"), systemImage: "person")
                 }
+        }
+        .task {
+            await attemptAutoWeatherKitCalibrationIfNeeded()
+        }
+    }
+
+    private func attemptAutoWeatherKitCalibrationIfNeeded() async {
+        guard !didAttemptAutoWeatherKitCalibration else { return }
+        didAttemptAutoWeatherKitCalibration = true
+
+        guard settingsStore.weatherKitAutoCalibrationEnabled else { return }
+
+        let status = CLLocationManager.authorizationStatus()
+        guard status == .authorizedWhenInUse || status == .authorizedAlways else { return }
+
+        if let last = settingsStore.weatherKitLastCalibrationDate,
+           Date().timeIntervalSince(last) < 12 * 60 * 60 {
+            return
+        }
+
+        await atmosphereStore.refresh()
+        if let observation = atmosphereStore.latestObservation {
+            settingsStore.applyWeatherKitSeaLevelPressure(hPa: observation.seaLevelPressureHPa, timestamp: observation.timestamp)
         }
     }
 }
