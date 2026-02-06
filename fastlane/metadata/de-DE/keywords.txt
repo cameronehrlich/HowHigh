@@ -1,1 +1,1 @@
-Barometer,Altimeter,Höhenmesser,Druckmesser,Wetter,Sturm,Tracking,Wandern,Luftfahrt,Outdoor
+Höhenmesser,Luftdruck,Wetter,Sturm,Wandern,Outdoor,Aufstieg,Abstieg,Flug,Pilot,Barograph,Altimeter

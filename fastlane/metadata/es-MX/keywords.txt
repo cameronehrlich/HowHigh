@@ -1,1 +1,1 @@
-barometro,altimetro,altura,clima,presion,registros,meteorologia,excursion,vuelo,tormenta
+elevacion,desnivel,barometrico,clima,tormenta,pronostico,senderismo,vuelo,piloto,grafica,altitud

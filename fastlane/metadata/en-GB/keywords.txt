@@ -1,1 +1,1 @@
-barometer,altimeter,altitude tracker,pressure monitor,weather,stormwatch,hiking,aviation,met office
+elevation,tracker,barometric,weather,storm,hiking,trail,climb,gain,pilot,flight,chart,barograph,hpa

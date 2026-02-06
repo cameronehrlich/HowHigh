@@ -1,1 +1,1 @@
-barometer,altimeter,altitudelog,pressuretracker,weatheralert,stormwatch,hiking,aviation,iphone
+elevation,tracker,barometric,weather,storm,hiking,trail,climb,gain,pilot,flight,chart,barograph,hpa

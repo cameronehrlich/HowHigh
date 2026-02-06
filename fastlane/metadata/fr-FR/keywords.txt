@@ -1,1 +1,1 @@
-baromètre,altimètre,altitude,pression,météo,randonnée,aviation,orage,tracking,scientifique
+élévation,dénivelé,barométrique,météo,orage,randonnée,trail,escalade,pilote,vol,altimètre,tendance
