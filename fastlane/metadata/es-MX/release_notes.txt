@@ -1,1 +1,5 @@
-Novedades: vidrio líquido y soporte para iPad
+Novedades:
+- Indicador de confianza del sensor
+- Calibración a nivel del mar con WeatherKit (opcional) y permisos más claros
+- Altitud: ganancia vs neto, con botón de cero
+- Borra sesiones y elige hPa o kPa

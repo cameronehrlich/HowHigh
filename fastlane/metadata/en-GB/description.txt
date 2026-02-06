@@ -5,6 +5,7 @@ Why hillwalkers, pilots, and weather spotters across the UK trust HowHigh:
 - Session recording captures every outing or experiment, storing rich datasets you can replay whenever you like.
 - Interactive Swift Charts let you scrub through graphs, highlight peaks, and switch between imperial or metric units with a tap.
 - Automatic device calibration keeps readings dependable whether you are tracking storms, mapping mountain trails, or tuning indoor environments.
+- Optional WeatherKit sea-level calibration and a sensor confidence indicator help you trust your readings.
 - Universal support is optimised for iPhone and iPad, Split View, Dynamic Type, and the latest iOS accessibility features.
 
 Ready for localisation from day one, HowHigh routes every string through Localisable resources so teams can translate quickly and keep worldwide releases in sync. iCloud sync is not required—your sessions remain safely on-device until you choose to share or export them.

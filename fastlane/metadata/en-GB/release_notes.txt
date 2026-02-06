@@ -1,1 +1,5 @@
-Liquid Glass & iPad support
+New in this update:
+- Sensor confidence indicator
+- Optional WeatherKit sea-level calibration (with clearer permissions)
+- Gain vs Net elevation, plus a Zero baseline
+- Delete sessions and choose hPa or kPa

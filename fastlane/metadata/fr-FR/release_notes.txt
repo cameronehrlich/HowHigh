@@ -1,1 +1,5 @@
-Liquid Glass et prise en charge de l’iPad
+Nouveautés :
+- Indicateur de confiance du capteur
+- Calibration au niveau de la mer via WeatherKit (optionnelle) et permissions plus claires
+- Altitude : gain vs net, avec remise à zéro
+- Suppression des sessions et choix hPa/kPa

@@ -5,6 +5,7 @@ Por que montanhistas, pilotos e observadores do clima no Brasil confiam no HowHi
 - O registro de sessões grava cada aventura, treino ou experimento e cria conjuntos de dados ricos para revisar quando quiser.
 - Os gráficos interativos Swift Charts permitem deslizar pelos picos, destacar tendências e alternar entre unidades imperiais ou métricas com um toque.
 - A calibração automática mantém as leituras confiáveis, seja rastreando tempestades, mapeando trilhas ou controlando ambientes internos.
+- Calibração do WeatherKit (opcional) e indicador de confiabilidade do sensor para leituras ainda mais confiáveis.
 - O suporte universal é otimizado para iPhone e iPad, Split View, Dynamic Type e os recursos de acessibilidade mais recentes do iOS.
 
 Pensado para localização desde o primeiro dia, o HowHigh concentra todos os textos em recursos Localizable, facilitando traduções rápidas e lançamentos globais sincronizados. Não é necessário usar o iCloud — suas sessões permanecem protegidas no dispositivo até que você escolha compartilhar ou exportar.

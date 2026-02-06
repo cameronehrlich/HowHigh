@@ -1,11 +1,40 @@
 import Foundation
 import CoreLocation
 
+enum AtmosphereStoreError: Equatable {
+    case locationDenied
+    case locationUnavailable
+    case networkUnavailable
+    case unknown
+
+    var messageLocalizationKey: String {
+        switch self {
+        case .locationDenied:
+            return "weatherkit.error.locationDenied"
+        case .locationUnavailable:
+            return "weatherkit.error.locationUnavailable"
+        case .networkUnavailable:
+            return "weatherkit.error.networkUnavailable"
+        case .unknown:
+            return "weatherkit.error.generic"
+        }
+    }
+
+    var supportsOpenSettings: Bool {
+        switch self {
+        case .locationDenied:
+            return true
+        case .locationUnavailable, .networkUnavailable, .unknown:
+            return false
+        }
+    }
+}
+
 @MainActor
 final class AtmosphereStore: ObservableObject {
     @Published private(set) var latestObservation: AtmosphericObservation?
     @Published private(set) var isFetching: Bool = false
-    @Published private(set) var lastError: String?
+    @Published private(set) var lastError: AtmosphereStoreError?
 
     private let service: AtmosphericProviding
     private let locationProvider: LocationProviding
@@ -23,23 +52,33 @@ final class AtmosphereStore: ObservableObject {
             let observation = try await service.fetchObservation(for: location)
             latestObservation = observation
         } catch {
-            lastError = describe(error: error)
+            lastError = map(error: error)
         }
         isFetching = false
     }
 
-    private func describe(error: Error) -> String {
+    private func map(error: Error) -> AtmosphereStoreError {
         if let clError = error as? CLError {
             switch clError.code {
             case .denied:
-                return "Location permission is required to fetch WeatherKit data."
+                return .locationDenied
+            case .locationUnknown:
+                return .locationUnavailable
             case .network:
-                return "Network unavailable. Try again later."
+                return .networkUnavailable
             default:
-                return clError.localizedDescription
+                return .unknown
             }
         }
-        return error.localizedDescription
+        if let urlError = error as? URLError {
+            switch urlError.code {
+            case .notConnectedToInternet, .networkConnectionLost, .cannotConnectToHost, .dnsLookupFailed:
+                return .networkUnavailable
+            default:
+                break
+            }
+        }
+        return .unknown
     }
 }
 

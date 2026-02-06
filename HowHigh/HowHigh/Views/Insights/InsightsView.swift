@@ -1,9 +1,11 @@
 import SwiftUI
 import CoreLocation
+import UIKit
 
 struct InsightsView: View {
     @ObservedObject var viewModel: InsightsViewModel
     @ObservedObject var atmosphereStore: AtmosphereStore
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationStack {
@@ -14,8 +16,15 @@ struct InsightsView: View {
                     }
                 } else if let error = atmosphereStore.lastError {
                     Section {
-                        Label(error, systemImage: "exclamationmark.triangle")
+                        Label(LocalizedStringKey(error.messageLocalizationKey), systemImage: "exclamationmark.triangle")
                             .foregroundStyle(.orange)
+                        if error.supportsOpenSettings {
+                            Button("profile.action.openSettings") {
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    openURL(url)
+                                }
+                            }
+                        }
                     }
                 }
 

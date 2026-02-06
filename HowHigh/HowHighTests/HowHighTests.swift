@@ -166,6 +166,56 @@ final class SensorConfidenceEstimatorTests: XCTestCase {
     }
 }
 
+final class AltitudeServiceSeaLevelPressureFreezeTests: XCTestCase {
+    func testSeaLevelPressureSetWhileNotFrozenAppliesImmediately() {
+        let service = AltitudeService(altimeter: nil, queue: OperationQueue())
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, 101.325, accuracy: 0.0001)
+
+        service.setSeaLevelPressure(kPa: 99.9)
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, 99.9, accuracy: 0.0001)
+    }
+
+    func testSeaLevelPressureSetWhileFrozenDefersUntilUnfrozen() {
+        let service = AltitudeService(altimeter: nil, queue: OperationQueue())
+        let original = service.currentSeaLevelPressureKPa
+
+        service.beginSeaLevelPressureFreeze()
+        service.setSeaLevelPressure(kPa: 102.0)
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, original, accuracy: 0.0001)
+
+        service.endSeaLevelPressureFreeze()
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, 102.0, accuracy: 0.0001)
+    }
+
+    func testNestedFreezeDefersUntilFinalEnd() {
+        let service = AltitudeService(altimeter: nil, queue: OperationQueue())
+        let original = service.currentSeaLevelPressureKPa
+
+        service.beginSeaLevelPressureFreeze()
+        service.beginSeaLevelPressureFreeze()
+        service.setSeaLevelPressure(kPa: 103.3)
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, original, accuracy: 0.0001)
+
+        service.endSeaLevelPressureFreeze()
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, original, accuracy: 0.0001)
+
+        service.endSeaLevelPressureFreeze()
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, 103.3, accuracy: 0.0001)
+    }
+
+    func testLastPendingValueWins() {
+        let service = AltitudeService(altimeter: nil, queue: OperationQueue())
+        service.beginSeaLevelPressureFreeze()
+
+        service.setSeaLevelPressure(kPa: 100.1)
+        service.setSeaLevelPressure(kPa: 100.2)
+        service.setSeaLevelPressure(kPa: 100.3)
+
+        service.endSeaLevelPressureFreeze()
+        XCTAssertEqual(service.currentSeaLevelPressureKPa, 100.3, accuracy: 0.0001)
+    }
+}
+
 private func makeAltitudeReadings(
     start: Date,
     count: Int,

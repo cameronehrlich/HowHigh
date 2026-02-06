@@ -22,7 +22,12 @@ final class AltitudeService: ObservableObject {
     private let readingsSubject = PassthroughSubject<AltitudeReading, Never>()
     private var previewTimer: AnyCancellable?
     private var basePressureKPa: Double = 101.325 // default sea-level pressure
+    private var pendingBasePressureKPa: Double?
+    private var seaLevelPressureFreezeCount: Int = 0
     private var activeRequests: Int = 0
+
+    // Exposed for diagnostics/tests via @testable import.
+    var currentSeaLevelPressureKPa: Double { basePressureKPa }
 
     var readings: AnyPublisher<AltitudeReading, Never> {
         readingsSubject.eraseToAnyPublisher()
@@ -96,7 +101,22 @@ final class AltitudeService: ObservableObject {
     }
 
     func setSeaLevelPressure(kPa: Double) {
+        if seaLevelPressureFreezeCount > 0 {
+            pendingBasePressureKPa = kPa
+            return
+        }
         basePressureKPa = kPa
+    }
+
+    func beginSeaLevelPressureFreeze() {
+        seaLevelPressureFreezeCount += 1
+    }
+
+    func endSeaLevelPressureFreeze() {
+        seaLevelPressureFreezeCount = max(0, seaLevelPressureFreezeCount - 1)
+        guard seaLevelPressureFreezeCount == 0, let pendingBasePressureKPa else { return }
+        basePressureKPa = pendingBasePressureKPa
+        self.pendingBasePressureKPa = nil
     }
 
     private func estimateAltitude(from pressureKPa: Double) -> Double {

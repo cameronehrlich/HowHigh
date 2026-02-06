@@ -1,1 +1,1 @@
-Grave sessões precisas de barômetro e altímetro, analise os Swift Charts e aproveite uma experiência fluida no iPhone e iPad.
+Novo: indicador de confiança + calibração WeatherKit (opcional). Grave sessões, analise gráficos e acompanhe ganho ou variação líquida.

@@ -5,6 +5,7 @@ Pourquoi les randonneurs, pilotes et passionnés de météo en France font confi
 - L'enregistrement de session capture chaque sortie ou expérience et crée des ensembles de données riches que vous pouvez consulter à tout moment.
 - Les graphiques interactifs Swift Charts permettent de parcourir les courbes, de mettre en évidence les sommets et de passer de l'impérial au métrique d'un simple toucher.
 - La calibration automatique du dispositif garantit des mesures fiables pour suivre les tempêtes, planifier des itinéraires en montagne ou optimiser un environnement intérieur.
+- L’étalonnage WeatherKit (optionnel) et l’indicateur de fiabilité aident à faire confiance aux mesures.
 - La prise en charge universelle est optimisée pour iPhone et iPad, Split View, Dynamic Type et les dernières fonctionnalités d'accessibilité d'iOS.
 
 Pensé pour la localisation dès le premier jour, HowHigh gère toutes les chaînes via des ressources Localizable afin que les équipes traduisent rapidement et maintiennent des sorties mondiales synchronisées. Aucune synchronisation iCloud n'est requise : vos sessions restent en sécurité sur l'appareil jusqu'à ce que vous décidiez de les partager ou de les exporter.

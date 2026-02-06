@@ -1,1 +1,1 @@
-Registra sesiones de barómetro y altímetro, revisa gráficos interactivos y disfruta de una app nativa para iPhone y iPad.
+Nuevo: indicador de confianza y calibración WeatherKit (opcional). Registra sesiones, revisa gráficos y sigue la ganancia o el neto.

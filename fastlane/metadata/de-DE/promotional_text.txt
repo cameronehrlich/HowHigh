@@ -1,1 +1,1 @@
-Erfasse präzise Barometer- und Altimeter-Sitzungen, analysiere Swift Charts und nutze HowHigh nahtlos auf iPhone und iPad.
+Neu: Messqualitätsanzeige + optionale WeatherKit-Kalibrierung. Zeichne Barometer- und Altimeter-Sitzungen auf, analysiere Swift Charts und tracke Gewinn oder Nettohöhe.

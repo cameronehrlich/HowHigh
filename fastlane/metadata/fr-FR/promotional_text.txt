@@ -1,1 +1,1 @@
-Enregistrez des sessions barométriques et altimétriques précises, explorez Swift Charts et profitez d'une expérience fluide sur iPhone et iPad.
+Nouveau : indicateur de confiance + calibration WeatherKit (optionnelle). Enregistrez des sessions, explorez Swift Charts et suivez le gain ou le net.

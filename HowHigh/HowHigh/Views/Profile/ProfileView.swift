@@ -1,9 +1,11 @@
 import SwiftUI
+import UIKit
 
 struct ProfileView: View {
     @ObservedObject var settingsStore: SettingsStore
     @ObservedObject var atmosphereStore: AtmosphereStore
     @State private var showSeaLevelInfo = false
+    @Environment(\.openURL) private var openURL
 
     private var regionIdentifier: String {
         Locale.current.region?.identifier ?? String(localized: "profile.region.unknown")
@@ -73,8 +75,15 @@ struct ProfileView: View {
                         .foregroundStyle(.secondary)
                 }
             } else if let error = atmosphereStore.lastError {
-                Label(error, systemImage: "exclamationmark.triangle")
+                Label(LocalizedStringKey(error.messageLocalizationKey), systemImage: "exclamationmark.triangle")
                     .foregroundStyle(.orange)
+                if error.supportsOpenSettings {
+                    Button("profile.action.openSettings") {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            openURL(url)
+                        }
+                    }
+                }
             } else if let observation = atmosphereStore.latestObservation {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("profile.weatherKit.latest")

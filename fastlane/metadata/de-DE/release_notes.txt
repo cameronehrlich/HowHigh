@@ -1,1 +1,5 @@
-Liquid Glass und iPad-Unterstützung
+Neu in diesem Update:
+- Messqualitätsanzeige (Sensor Confidence)
+- Optionale WeatherKit-Kalibrierung auf Meereshöhe (klarere Berechtigungen)
+- Höhenanzeige: Gewinn vs. Netto, plus Nullpunkt
+- Sitzungen löschen und zwischen hPa/kPa wählen

@@ -5,6 +5,7 @@ Por qué excursionistas, pilotos y cazadores de tormentas en México confían en
 - Grabación de sesiones que guarda cada salida, entrenamiento o experimento para consultarlo cuando quieras.
 - Gráficas interactivas con Swift Charts para recorrer picos, comparar unidades en metros o pies y destacar tendencias con un toque.
 - Calibración automática para lecturas confiables en ciudades altas, rutas de montaña o monitoreo interior.
+- Calibración de WeatherKit (opcional) e indicador de confianza del sensor para lecturas más confiables.
 - Compatibilidad universal optimizada para iPhone y iPad, Split View, Dynamic Type y las funciones de accesibilidad más recientes de iOS.
 
 Desde el primer día está lista para localizaciones: todos los textos viven en recursos traducibles para mantener sincronizados los lanzamientos globales. Las sesiones se conservan en el dispositivo hasta que decidas compartirlas o exportarlas.

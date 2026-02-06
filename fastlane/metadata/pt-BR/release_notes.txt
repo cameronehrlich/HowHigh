@@ -1,1 +1,5 @@
-Suporte a Liquid Glass e ao iPad
+Novidades:
+- Indicador de confiança do sensor
+- Calibração ao nível do mar com WeatherKit (opcional) e permissões mais claras
+- Altitude: ganho vs líquido, com botão de zerar
+- Apague sessões e escolha hPa ou kPa

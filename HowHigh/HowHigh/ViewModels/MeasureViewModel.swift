@@ -48,6 +48,7 @@ final class MeasureViewModel: ObservableObject {
             availabilityMessage = "measure.alert.barometerUnavailable.message"
             return
         }
+        altitudeService.beginSeaLevelPressureFreeze()
         sessionStartAltitude = nil
         samplesBuffer.removeAll()
         var session = AltitudeSession(startDate: Date(), mode: mode)
@@ -70,6 +71,7 @@ final class MeasureViewModel: ObservableObject {
     }
 
     func stopRecording() async {
+        defer { altitudeService.endSeaLevelPressureFreeze() }
         altitudeService.stopUpdates()
         guard var session = currentSession else { return }
         session.samples = samplesBuffer.sorted(by: { $0.timestamp < $1.timestamp })

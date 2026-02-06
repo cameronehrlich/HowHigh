@@ -1,1 +1,1 @@
-Capture precise barometer and altimeter sessions, review Swift Charts, and enjoy seamless iPhone + iPad support with HowHigh.
+New: sensor confidence + optional WeatherKit calibration. Capture barometer and altimeter sessions, review Swift Charts, and track gain or net elevation.
