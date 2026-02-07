@@ -82,6 +82,21 @@
 - **Launch Campaign:** Soft-launch TestFlight to existing install base (email list if available); gather testimonials for App Store reviews.
 - **Retention:** Push notifications for streaks, pressure alerts, and new achievements. Optional newsletter + blog for atmospheric tips.
 
+## Current Work Status (Feb 7, 2026)
+- **MVP Release:** Shipped to App Store and initial ASO work completed. We have observed an early lift in downloads.
+- **Localization:** Localized strings across all currently supported languages; metadata localized where supported.
+- **ASO Updates:** Keyword updates applied across locales in fastlane metadata and uploaded to App Store Connect.
+- **ASC Workflow:** `asc migrate import` exposed two issues that require fixes in the CLI:
+  - Update requests must omit `locale` for existing localizations.
+  - App info updates must target `PREPARE_FOR_SUBMISSION` appInfo, not `READY_FOR_SALE`.
+- **Next Milestone:** Patch the asc CLI, verify `migrate import` end-to-end, and upstream the fix.
+
+## Immediate Focus (Next 2-3 Weeks)
+- **Distribution Infrastructure:** Fix `asc migrate import` and standardize metadata upload workflow for all locales.
+- **ASO Iteration:** Run keyword experiments in 2-3 core locales; measure conversion per locale weekly.
+- **Retention Baseline:** Add one low-risk “sticky” retention feature (lightweight streak or weekly summary) and verify D7 impact.
+- **Product Page Conversion:** Improve screenshots and captions for high-traffic locales; A/B test if possible.
+
 ## Roadmap & Milestones
 1. **Week 0-2 – Foundations:** Set up SwiftUI project, configure SPM dependencies, build `AltitudeService`, baseline UI skeleton. Deliverable: sensor data displayed in-app.
 2. **Week 3-6 – MVP Feature Build:** Session recorder, history persistence, Swift Charts integration, widgets, calibration flow.
@@ -106,4 +121,3 @@
 - Do we integrate community features (leaderboards) in V1 or keep data private until retention stabilizes?
 - Should monetization focus on subscription only or offer one-time lifetime unlock?
 - Do we need Android parity eventually, or focus exclusively on iOS ecosystem advantages?
-
