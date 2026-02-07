@@ -3,63 +3,64 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-HowHigh is an iOS application that uses the iPhone's built-in barometer (available on iPhone 6 and later) to measure vertical distance/height. The app displays height measurements in inches, feet, or yards using the device's altimeter data.
+HowHigh is an iOS barometer and altimeter app rebuilt in SwiftUI. It provides live pressure and altitude readings, session recording with interactive Swift Charts, and optional WeatherKit sea-level calibration. Targets iOS 16+, universal (iPhone + iPad).
+
+- **Bundle ID:** `com.LuckyBunny.HowHigh`
+- **App Store ID:** `921339656`
 
 ## Development Commands
 
-### Building the Project
+### Building
 ```bash
-# Install CocoaPods dependencies
-pod install
-
-# Build the project using workspace (not xcodeproj)
-xcodebuild -workspace HowHigh.xcworkspace -scheme HowHigh -configuration Debug build
-
-# Clean build
-xcodebuild -workspace HowHigh.xcworkspace -scheme HowHigh clean
+xcodebuild build -project HowHigh/HowHigh.xcodeproj -scheme HowHigh -destination 'generic/platform=iOS' -configuration Debug
 ```
 
 ### Running Tests
 ```bash
-xcodebuild test -workspace HowHigh.xcworkspace -scheme HowHigh -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -project HowHigh/HowHigh.xcodeproj -scheme HowHigh -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -only-testing:HowHighTests
 ```
 
 ### Opening in Xcode
 ```bash
-open HowHigh.xcworkspace
+open HowHigh/HowHigh.xcodeproj
 ```
 
-**Important**: Always use the `.xcworkspace` file, not the `.xcodeproj` file, since this project uses CocoaPods.
+**Important**: This project uses the `.xcodeproj` directly (no CocoaPods, no workspace). The old ObjC codebase is archived in `HowHighOG.zip`.
 
 ## Architecture
 
-### Core Components
+### SwiftUI + MVVM + Combine
 
-**ViewController** (`HowHigh/ViewController.m`)
-- Main view controller that handles all app functionality
-- Uses `CMAltimeter` to access barometer/altimeter data
-- Manages UI state between idle and measuring modes
-- Converts altitude measurements to user-selected units (inches/feet/yards)
+- **RootView** — TabView with Barometer, Altimeter, and Profile tabs
+- **MeasureView / MeasureViewModel** — Live readings, session recording, chart display, confidence indicator
+- **ProfileView** — Settings (units, pressure unit, sea-level calibration, WeatherKit toggle)
+- **InsightsView / InsightsViewModel** — Weather-based insight cards via AtmosphereStore
 
-### Key Dependencies (via CocoaPods)
-- **ReactiveCocoa 2.3**: Reactive programming framework for handling asynchronous events
-- **UIView+Positioning**: Helper methods for view positioning
-- **UIColor+Hex**: Convenience methods for creating colors from hex values
-- **UIView+Shimmer**: Animation effect for the Start button
+### Core Services
+- **AltitudeService** — Wraps `CMAltimeter` for live pressure/altitude via Combine publisher. Supports sea-level pressure freeze during recording to prevent mid-session calibration jumps.
+- **AtmosphereStore** — Fetches WeatherKit observations for sea-level pressure calibration
+- **SessionStore** — CoreData persistence for recorded sessions
+- **SettingsStore** — UserDefaults-backed preferences (units, pressure unit, display mode, WeatherKit auto-calibration)
 
-### App Functionality Flow
-1. App checks for barometer availability (`CMAltimeter.isRelativeAltitudeAvailable`)
-2. User places device on starting surface and presses "Start"
-3. App begins monitoring relative altitude changes using `startRelativeAltitudeUpdatesToQueue`
-4. Real-time height displayed as user lifts device, converted to selected unit
-5. "Reset" allows starting new measurement
+### Key Models
+- **SensorConfidence / SensorConfidenceEstimator** — Linear regression over 8-second reading window to estimate measurement jitter (good/poor/warming up/calibrating/unavailable)
+- **AltitudeSession / AltitudeSample** — Session recording with ascent/descent/net tracking
+- **AltitudeDisplayMode** — Gain vs Net elevation display
 
-### UI Architecture
-- Uses programmatic UI creation (no Interface Builder for main UI)
-- Visual blur effect applied to background image
-- Motion effects (parallax) added to content view
-- iAd banner integration (deprecated - consider removing)
+### Localization
+All UI strings use `Localizable.xcstrings` with 12 locales: en-US, en-GB, ar-SA, de-DE, es-ES, es-MX, fr-FR, ja, ko, pt-BR, ru, zh-Hans.
 
-## Hardware Requirements
-- Requires iPhone 6 or later (devices with barometer/M8 motion coprocessor)
-- App specifically checks for `CMAltimeter` availability and shows error message on unsupported devices
+## CI/CD
+- **Xcode Cloud:** "Deploy to Production" workflow triggers on push to `master`
+- **Fastlane:** Metadata management only (no build/deploy lanes)
+- **ASC CLI (`asc`):** Used for App Store Connect operations (builds, versions, submissions, metadata)
+
+### Release Workflow
+1. Merge feature branch to `master` and push
+2. Xcode Cloud builds automatically
+3. Attach build to ASC version: `asc versions attach-build --version-id VERSION --build BUILD`
+4. Submit: `asc submit create --app 921339656 --version-id VERSION --build BUILD --confirm`
+
+## ASC Notes
+- App has two `appInfo` records (READY_FOR_SALE + PREPARE_FOR_SUBMISSION). When querying app-info localizations, use `--app-info` flag to target the correct one.
+- `asc migrate import` has known bugs with locale in PATCH payloads and appInfo selection. Use individual `asc` commands as workaround.
