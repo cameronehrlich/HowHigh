@@ -32,4 +32,20 @@ extension Array where Element == AltitudeSample {
             return .steady
         }
     }
+
+    func recentAltitudeTrend(window: TimeInterval = 10) -> AltitudeTrend {
+        guard let latest = last else { return .steady }
+        let cutoff = latest.timestamp.addingTimeInterval(-window)
+        let windowSamples = filter { $0.timestamp >= cutoff }
+        guard windowSamples.count >= 2 else { return .steady }
+        let first = windowSamples.first!
+        let delta = latest.absoluteAltitudeMeters - first.absoluteAltitudeMeters
+        if delta > 0.6 {
+            return .rising
+        } else if delta < -0.6 {
+            return .falling
+        } else {
+            return .steady
+        }
+    }
 }

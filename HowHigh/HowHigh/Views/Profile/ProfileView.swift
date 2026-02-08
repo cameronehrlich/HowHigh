@@ -5,11 +5,16 @@ struct ProfileView: View {
     @ObservedObject var settingsStore: SettingsStore
     @ObservedObject var atmosphereStore: AtmosphereStore
     @State private var showSeaLevelInfo = false
+    @State private var showContactFallback = false
+    @State private var showStationPicker = false
+    @StateObject private var nwsStationStore = NWSStationStore()
     @Environment(\.openURL) private var openURL
 
     private var regionIdentifier: String {
         Locale.current.region?.identifier ?? String(localized: "profile.region.unknown")
     }
+
+    private let supportEmailAddress = "howhigh@37.technology"
 
     var body: some View {
         NavigationStack {
@@ -23,6 +28,15 @@ struct ProfileView: View {
             .navigationTitle("profile.navigation.title")
             .sheet(isPresented: $showSeaLevelInfo) {
                 seaLevelInfoSheet
+            }
+            .alert("profile.contact.fallback.title", isPresented: $showContactFallback) {
+                Button("common.copy") {
+                    UIPasteboard.general.string = supportEmailAddress
+                }
+                Button("common.ok", role: .cancel) {}
+            } message: {
+                let format = String(localized: "profile.contact.fallback.message.format", bundle: .main)
+                Text(String(format: format, locale: .autoupdatingCurrent, supportEmailAddress))
             }
         }
     }
@@ -59,6 +73,193 @@ struct ProfileView: View {
                 .accessibilityIdentifier("profile.seaLevel.slider")
             Button("profile.action.whatIsThis") {
                 showSeaLevelInfo = true
+            }
+
+            stationCalibrationSection
+        }
+    }
+
+    @ViewBuilder
+    private var stationCalibrationSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Divider()
+                .padding(.vertical, 4)
+
+            HStack {
+                Text("profile.stationCalibration.title")
+                    .font(.subheadline.weight(.semibold))
+                Spacer()
+                Text("profile.stationCalibration.usOnly")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            if let stationId = settingsStore.nwsStationIdentifier {
+                HStack {
+                    Text("profile.stationCalibration.selected")
+                    Spacer()
+                    Text(settingsStore.nwsStationName?.isEmpty == false ? settingsStore.nwsStationName! : stationId)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                }
+                .font(.footnote)
+
+                if let last = settingsStore.nwsLastCalibrationDate {
+                    HStack {
+                        Text("profile.stationCalibration.lastUpdated")
+                        Spacer()
+                        Text(relativeDate(last))
+                            .foregroundStyle(.secondary)
+                    }
+                    .font(.footnote)
+                }
+
+                Button {
+                    Task {
+                        if let obs = await nwsStationStore.fetchSeaLevelPressure(stationId: stationId) {
+                            settingsStore.applyNWSSeaLevelPressure(
+                                hPa: obs.seaLevelPressureHPa,
+                                stationIdentifier: obs.stationId,
+                                stationName: obs.stationName,
+                                timestamp: obs.timestamp
+                            )
+                        }
+                    }
+                } label: {
+                    if nwsStationStore.isFetchingObservation {
+                        HStack(spacing: 8) {
+                            ProgressView().controlSize(.small)
+                            Text("profile.stationCalibration.refreshing")
+                        }
+                    } else {
+                        Label("profile.stationCalibration.refresh", systemImage: "arrow.clockwise")
+                    }
+                }
+                .disabled(nwsStationStore.isFetchingObservation)
+            }
+
+            Button {
+                showStationPicker = true
+            } label: {
+                Label("profile.stationCalibration.select", systemImage: "location")
+            }
+            .disabled(nwsStationStore.isFetchingStations)
+            .sheet(isPresented: $showStationPicker) {
+                stationPickerSheet
+            }
+
+            if nwsStationStore.isFetchingStations {
+                HStack(spacing: 12) {
+                    ProgressView()
+                    Text("profile.stationCalibration.loadingStations")
+                        .foregroundStyle(.secondary)
+                }
+                .font(.footnote)
+            } else if let error = nwsStationStore.lastError {
+                Label(LocalizedStringKey(error.messageLocalizationKey), systemImage: "exclamationmark.triangle")
+                    .foregroundStyle(.orange)
+                    .font(.footnote)
+                if error == .locationDenied {
+                    Button("profile.action.openSettings") {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            openURL(url)
+                        }
+                    }
+                    .font(.footnote)
+                }
+            }
+        }
+    }
+
+    private var stationPickerSheet: some View {
+        NavigationStack {
+            Group {
+                if nwsStationStore.isFetchingStations {
+                    VStack(spacing: 12) {
+                        ProgressView()
+                        Text("profile.stationCalibration.loadingStations")
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding()
+                } else if let error = nwsStationStore.lastError {
+                    VStack(spacing: 12) {
+                        Image(systemName: "exclamationmark.triangle")
+                            .font(.system(size: 32))
+                            .foregroundStyle(.orange)
+                        Text(LocalizedStringKey(error.messageLocalizationKey))
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                        if error == .locationDenied {
+                            Button("profile.action.openSettings") {
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    openURL(url)
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                    }
+                    .padding()
+                } else if nwsStationStore.stations.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "antenna.radiowaves.left.and.right")
+                            .font(.system(size: 32))
+                            .foregroundStyle(.secondary)
+                        Text("profile.stationCalibration.emptyStations")
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding()
+                } else {
+                    List {
+                        ForEach(nwsStationStore.stations.prefix(12)) { station in
+                            Button {
+                                Task {
+                                    if let obs = await nwsStationStore.fetchSeaLevelPressure(stationId: station.id) {
+                                        settingsStore.applyNWSSeaLevelPressure(
+                                            hPa: obs.seaLevelPressureHPa,
+                                            stationIdentifier: obs.stationId,
+                                            stationName: obs.stationName ?? station.name,
+                                            timestamp: obs.timestamp
+                                        )
+                                        showStationPicker = false
+                                    }
+                                }
+                            } label: {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(station.name ?? station.id)
+                                        .font(.body)
+                                    HStack(spacing: 8) {
+                                        Text(station.id)
+                                        if let meters = station.distanceMeters {
+                                            Text(String(format: String(localized: "profile.stationCalibration.distance.format"), locale: .autoupdatingCurrent, meters / 1000.0))
+                                        }
+                                    }
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                }
+                            }
+                            .disabled(nwsStationStore.isFetchingObservation)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("profile.stationCalibration.selectTitle")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("common.done") { showStationPicker = false }
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Button("profile.stationCalibration.reload") {
+                        Task { await nwsStationStore.loadNearbyStations() }
+                    }
+                    .disabled(nwsStationStore.isFetchingStations)
+                }
+            }
+            .task {
+                if nwsStationStore.stations.isEmpty, !nwsStationStore.isFetchingStations {
+                    await nwsStationStore.loadNearbyStations()
+                }
             }
         }
     }
@@ -122,7 +323,19 @@ struct ProfileView: View {
 
     private var supportSection: some View {
         Section(header: Text("profile.section.support")) {
-            Link(destination: URL(string: "mailto:howhigh@37.technology")!) {
+            Button {
+                let subject = "HowHigh Support"
+                let mailto = "mailto:\(supportEmailAddress)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject)"
+                if let url = URL(string: mailto) {
+                    if UIApplication.shared.canOpenURL(url) {
+                        openURL(url)
+                    } else {
+                        showContactFallback = true
+                    }
+                } else {
+                    showContactFallback = true
+                }
+            } label: {
                 Label("profile.link.contactSupport", systemImage: "envelope")
             }
         }

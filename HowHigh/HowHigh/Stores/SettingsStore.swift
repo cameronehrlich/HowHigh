@@ -8,6 +8,9 @@ final class SettingsStore: ObservableObject {
     @Published var altitudeDisplayMode: AltitudeDisplayMode
     @Published var weatherKitAutoCalibrationEnabled: Bool
     @Published private(set) var weatherKitLastCalibrationDate: Date?
+    @Published var nwsStationIdentifier: String?
+    @Published var nwsStationName: String?
+    @Published private(set) var nwsLastCalibrationDate: Date?
 
     private var cancellables: Set<AnyCancellable> = []
     private let defaults: UserDefaults
@@ -19,6 +22,9 @@ final class SettingsStore: ObservableObject {
         static let altitudeDisplayMode = "settings.altitudeDisplayMode"
         static let weatherKitAutoCalibrationEnabled = "settings.weatherKitAutoCalibrationEnabled"
         static let weatherKitLastCalibrationTimestamp = "settings.weatherKitLastCalibrationTimestamp"
+        static let nwsStationIdentifier = "settings.nwsStationIdentifier"
+        static let nwsStationName = "settings.nwsStationName"
+        static let nwsLastCalibrationTimestamp = "settings.nwsLastCalibrationTimestamp"
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -55,12 +61,32 @@ final class SettingsStore: ObservableObject {
             weatherKitLastCalibrationDate = nil
         }
 
+        nwsStationIdentifier = defaults.string(forKey: Keys.nwsStationIdentifier)
+        nwsStationName = defaults.string(forKey: Keys.nwsStationName)
+
+        let storedNWSTimestamp = defaults.double(forKey: Keys.nwsLastCalibrationTimestamp)
+        if storedNWSTimestamp > 0 {
+            nwsLastCalibrationDate = Date(timeIntervalSince1970: storedNWSTimestamp)
+        } else {
+            nwsLastCalibrationDate = nil
+        }
+
         setupBindings()
     }
 
     func applyWeatherKitSeaLevelPressure(hPa: Double, timestamp: Date = Date()) {
         seaLevelPressureKPa = hPa / 10.0
         weatherKitLastCalibrationDate = timestamp
+    }
+
+    func applyNWSSeaLevelPressure(hPa: Double,
+                                  stationIdentifier: String,
+                                  stationName: String?,
+                                  timestamp: Date = Date()) {
+        seaLevelPressureKPa = hPa / 10.0
+        nwsStationIdentifier = stationIdentifier
+        nwsStationName = stationName
+        nwsLastCalibrationDate = timestamp
     }
 
     private func setupBindings() {
@@ -100,6 +126,36 @@ final class SettingsStore: ObservableObject {
                     self?.defaults.set(date.timeIntervalSince1970, forKey: Keys.weatherKitLastCalibrationTimestamp)
                 } else {
                     self?.defaults.removeObject(forKey: Keys.weatherKitLastCalibrationTimestamp)
+                }
+            }
+            .store(in: &cancellables)
+
+        $nwsStationIdentifier
+            .sink { [weak self] stationIdentifier in
+                if let stationIdentifier, !stationIdentifier.isEmpty {
+                    self?.defaults.set(stationIdentifier, forKey: Keys.nwsStationIdentifier)
+                } else {
+                    self?.defaults.removeObject(forKey: Keys.nwsStationIdentifier)
+                }
+            }
+            .store(in: &cancellables)
+
+        $nwsStationName
+            .sink { [weak self] stationName in
+                if let stationName, !stationName.isEmpty {
+                    self?.defaults.set(stationName, forKey: Keys.nwsStationName)
+                } else {
+                    self?.defaults.removeObject(forKey: Keys.nwsStationName)
+                }
+            }
+            .store(in: &cancellables)
+
+        $nwsLastCalibrationDate
+            .sink { [weak self] date in
+                if let date {
+                    self?.defaults.set(date.timeIntervalSince1970, forKey: Keys.nwsLastCalibrationTimestamp)
+                } else {
+                    self?.defaults.removeObject(forKey: Keys.nwsLastCalibrationTimestamp)
                 }
             }
             .store(in: &cancellables)
