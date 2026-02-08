@@ -12,11 +12,15 @@ enum AltitudeTrend: String, Codable {
         case .falling:
             return "arrow.down"
         case .steady:
-            return "arrow.right"
+            // Avoid looking like a navigation affordance.
+            return "minus"
         }
     }
 
-    var descriptionKey: String {
+    // Backwards-compatible default (pressure-centric) strings.
+    var descriptionKey: String { pressureDescriptionKey }
+
+    var pressureDescriptionKey: String {
         switch self {
         case .rising:
             return "trend.description.rising"
@@ -24,6 +28,17 @@ enum AltitudeTrend: String, Codable {
             return "trend.description.falling"
         case .steady:
             return "trend.description.steady"
+        }
+    }
+
+    var altitudeDescriptionKey: String {
+        switch self {
+        case .rising:
+            return "trend.altitude.rising"
+        case .falling:
+            return "trend.altitude.falling"
+        case .steady:
+            return "trend.altitude.steady"
         }
     }
 }

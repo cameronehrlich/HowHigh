@@ -1,8 +1,11 @@
 import SwiftUI
+import UIKit
 
 struct HistoryView: View {
     @ObservedObject var viewModel: HistoryViewModel
     @ObservedObject var settingsStore: SettingsStore
+    @State private var shareURL: URL?
+    @State private var shareErrorMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -34,6 +37,21 @@ struct HistoryView: View {
                                 HistoryRow(session: session, settingsStore: settingsStore)
                             }
                             .listRowBackground(Color.clear)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                Button(role: .destructive) {
+                                    Task { await viewModel.delete(session) }
+                                } label: {
+                                    Label(String(localized: "common.delete"), systemImage: "trash")
+                                }
+                            }
+                            .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                                Button {
+                                    share(session: session)
+                                } label: {
+                                    Label(String(localized: "common.share"), systemImage: "square.and.arrow.up")
+                                }
+                                .tint(.blue)
+                            }
                         }
                         .onDelete(perform: delete)
                     }
@@ -41,6 +59,16 @@ struct HistoryView: View {
                 }
             }
             .navigationTitle("history.navigation.title")
+        }
+        .sheet(isPresented: Binding(get: { shareURL != nil }, set: { if !$0 { shareURL = nil } })) {
+            if let shareURL {
+                ActivityView(activityItems: [shareURL])
+            }
+        }
+        .alert("common.error", isPresented: Binding(get: { shareErrorMessage != nil }, set: { if !$0 { shareErrorMessage = nil } })) {
+            Button(String(localized: "common.ok"), role: .cancel) { }
+        } message: {
+            Text(shareErrorMessage ?? "")
         }
     }
 
@@ -50,6 +78,18 @@ struct HistoryView: View {
                 let session = viewModel.sessions[index]
                 await viewModel.delete(session)
             }
+        }
+    }
+
+    private func share(session: AltitudeSession) {
+        do {
+            shareURL = try SessionExportService.exportCSV(
+                session: session,
+                preferredUnit: settingsStore.preferredUnit,
+                pressureUnit: settingsStore.pressureUnit
+            )
+        } catch {
+            shareErrorMessage = error.localizedDescription
         }
     }
 }
@@ -109,4 +149,16 @@ private struct HistoryRow: View {
         }
         .padding(.vertical, 4)
     }
+}
+
+// Simple SwiftUI wrapper for UIActivityViewController (share sheet).
+private struct ActivityView: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }

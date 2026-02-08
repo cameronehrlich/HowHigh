@@ -1,10 +1,12 @@
 import Foundation
 import CoreLocation
+import OSLog
 
 enum AtmosphereStoreError: Equatable {
     case locationDenied
     case locationUnavailable
     case networkUnavailable
+    case serviceUnavailable
     case unknown
 
     var messageLocalizationKey: String {
@@ -15,6 +17,8 @@ enum AtmosphereStoreError: Equatable {
             return "weatherkit.error.locationUnavailable"
         case .networkUnavailable:
             return "weatherkit.error.networkUnavailable"
+        case .serviceUnavailable:
+            return "weatherkit.error.serviceUnavailable"
         case .unknown:
             return "weatherkit.error.generic"
         }
@@ -24,7 +28,7 @@ enum AtmosphereStoreError: Equatable {
         switch self {
         case .locationDenied:
             return true
-        case .locationUnavailable, .networkUnavailable, .unknown:
+        case .locationUnavailable, .networkUnavailable, .serviceUnavailable, .unknown:
             return false
         }
     }
@@ -38,6 +42,7 @@ final class AtmosphereStore: ObservableObject {
 
     private let service: AtmosphericProviding
     private let locationProvider: LocationProviding
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "HowHigh", category: "AtmosphereStore")
 
     init(service: AtmosphericProviding = AtmosphereService(), locationProvider: LocationProviding = LocationProvider()) {
         self.service = service
@@ -52,6 +57,7 @@ final class AtmosphereStore: ObservableObject {
             let observation = try await service.fetchObservation(for: location)
             latestObservation = observation
         } catch {
+            log(error: error)
             lastError = map(error: error)
         }
         isFetching = false
@@ -78,7 +84,18 @@ final class AtmosphereStore: ObservableObject {
                 break
             }
         }
+        let nsError = error as NSError
+        // WeatherKit failures are frequently surfaced as NSError with opaque domains/codes.
+        // We use a separate bucket for better user messaging while keeping logs detailed.
+        if nsError.domain.lowercased().contains("weather") {
+            return .serviceUnavailable
+        }
         return .unknown
+    }
+
+    private func log(error: Error) {
+        let nsError = error as NSError
+        logger.error("WeatherKit refresh failed. type=\(String(describing: type(of: error)), privacy: .public) domain=\(nsError.domain, privacy: .public) code=\(nsError.code, privacy: .public) description=\(nsError.localizedDescription, privacy: .public)")
     }
 }
 

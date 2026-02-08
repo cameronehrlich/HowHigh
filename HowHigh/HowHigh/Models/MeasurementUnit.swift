@@ -74,6 +74,15 @@ enum PressureUnit: String, Codable, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    var symbol: String {
+        switch self {
+        case .hectopascals:
+            return "hPa"
+        case .kilopascals:
+            return "kPa"
+        }
+    }
+
     var displayNameKey: LocalizedStringKey {
         switch self {
         case .hectopascals:

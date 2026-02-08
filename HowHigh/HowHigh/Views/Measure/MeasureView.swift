@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import UIKit
 
 struct MeasureView: View {
     @ObservedObject var viewModel: MeasureViewModel
@@ -7,6 +8,8 @@ struct MeasureView: View {
     @State private var showStopConfirmation: Bool = false
     @State private var selectedSample: AltitudeSample?
     @State private var showConfidenceHelp: Bool = false
+    @State private var shareURL: URL?
+    @State private var shareErrorMessage: String?
 
     private var mode: AltitudeSession.Mode { viewModel.mode }
     private var displayMode: AltitudeDisplayMode { settingsStore.altitudeDisplayMode }
@@ -86,6 +89,9 @@ struct MeasureView: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     if mode == .altimeter {
+                        zeroButtonInline
+                    }
+                    if mode == .altimeter {
                         altimeterSecondaryMetrics
                     } else {
                         Text(secondaryMetricValue)
@@ -95,10 +101,10 @@ struct MeasureView: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 8) {
-                    Image(systemName: samples.recentTrend().systemImageName)
+                    Image(systemName: trend.systemImageName)
                         .font(.system(size: 32, weight: .semibold))
                         .foregroundStyle(trendColor)
-                    Text(LocalizedStringKey(samples.recentTrend().descriptionKey))
+                    Text(LocalizedStringKey(trendDescriptionKey))
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.trailing)
@@ -154,17 +160,7 @@ struct MeasureView: View {
     }
 
     private var modeControls: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 16) {
-                modePicker
-                zeroButton
-            }
-
-            VStack(spacing: 12) {
-                modePicker
-                zeroButton
-            }
-        }
+        modePicker
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(.regularMaterial))
@@ -181,7 +177,7 @@ struct MeasureView: View {
         .accessibilityIdentifier("measure.mode.picker")
     }
 
-    private var zeroButton: some View {
+    private var zeroButtonInline: some View {
         Button(action: viewModel.calibrateToCurrentReading) {
             if viewModel.isCalibrating {
                 HStack(spacing: 8) {
@@ -193,9 +189,9 @@ struct MeasureView: View {
                 Label("measure.action.zero", systemImage: "scope")
             }
         }
-        .frame(maxWidth: .infinity)
         .buttonStyle(.borderedProminent)
         .tint(.teal)
+        .controlSize(.small)
         .disabled(!viewModel.canCalibrate || viewModel.isCalibrating)
     }
 
@@ -287,23 +283,51 @@ struct MeasureView: View {
             Text("measure.pastSessions.title")
                 .font(.headline)
                 .accessibilityIdentifier("measure.pastSessions.title")
-            VStack(spacing: 12) {
+            List {
                 ForEach(viewModel.recentSessions) { session in
                     NavigationLink {
-                        SessionDetailView(mode: mode,
-                                          session: session,
-                                          settingsStore: settingsStore,
-                                          onDelete: {
-                                              await viewModel.delete(session: session)
-                                          })
+                        SessionDetailView(
+                            mode: mode,
+                            session: session,
+                            settingsStore: settingsStore,
+                            onDelete: { await viewModel.delete(session: session) }
+                        )
                     } label: {
                         SessionHistoryRow(session: session, mode: mode, settingsStore: settingsStore)
-                            .padding(16)
-                            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(.ultraThinMaterial))
+                            .padding(.vertical, 6)
                     }
-                    .buttonStyle(.plain)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(role: .destructive) {
+                            Task { await viewModel.delete(session: session) }
+                        } label: {
+                            Label(String(localized: "common.delete"), systemImage: "trash")
+                        }
+                    }
+                    .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                        Button {
+                            share(session: session)
+                        } label: {
+                            Label(String(localized: "common.share"), systemImage: "square.and.arrow.up")
+                        }
+                        .tint(.blue)
+                    }
                 }
+                .listRowBackground(Color.clear)
             }
+            .listStyle(.plain)
+            .scrollDisabled(true)
+            .scrollContentBackground(.hidden)
+            .frame(height: recentSessionsListHeight)
+        }
+        .sheet(isPresented: Binding(get: { shareURL != nil }, set: { if !$0 { shareURL = nil } })) {
+            if let shareURL {
+                ActivityView(activityItems: [shareURL])
+            }
+        }
+        .alert("common.error", isPresented: Binding(get: { shareErrorMessage != nil }, set: { if !$0 { shareErrorMessage = nil } })) {
+            Button(String(localized: "common.ok"), role: .cancel) { }
+        } message: {
+            Text(shareErrorMessage ?? "")
         }
     }
 
@@ -311,11 +335,20 @@ struct MeasureView: View {
     private var measurementChart: some View {
         let chart = Chart {
             ForEach(samples) { sample in
+                AreaMark(
+                    x: .value("measure.chart.axis.time", sample.timestamp),
+                    y: .value(yAxisLabel, chartValue(for: sample))
+                )
+                .interpolationMethod(.catmullRom)
+                .foregroundStyle(chartFillGradient)
+
                 LineMark(
                     x: .value("measure.chart.axis.time", sample.timestamp),
                     y: .value(yAxisLabel, chartValue(for: sample))
                 )
                 .interpolationMethod(.catmullRom)
+                .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                .foregroundStyle(chartLineColor)
                 if let selectedSample, selectedSample.id == sample.id {
                     RuleMark(x: .value("measure.chart.selected", selectedSample.timestamp))
                         .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [3]))
@@ -468,7 +501,7 @@ struct MeasureView: View {
     }
 
     private var trendColor: Color {
-        switch samples.recentTrend() {
+        switch trend {
         case .rising:
             return .green
         case .falling:
@@ -478,8 +511,44 @@ struct MeasureView: View {
         }
     }
 
+    private var trend: AltitudeTrend {
+        switch mode {
+        case .barometer:
+            return samples.recentTrend()
+        case .altimeter:
+            return samples.recentAltitudeTrend()
+        }
+    }
+
+    private var trendDescriptionKey: String {
+        switch mode {
+        case .barometer:
+            return trend.pressureDescriptionKey
+        case .altimeter:
+            return trend.altitudeDescriptionKey
+        }
+    }
+
     private var chartTitleKey: LocalizedStringKey {
         mode == .altimeter ? "measure.chart.title.elevation" : "measure.chart.title.pressure"
+    }
+
+    private var chartLineColor: Color {
+        switch mode {
+        case .altimeter:
+            return .blue
+        case .barometer:
+            return .purple
+        }
+    }
+
+    private var chartFillGradient: LinearGradient {
+        let base = chartLineColor
+        return LinearGradient(
+            colors: [base.opacity(0.22), base.opacity(0.02)],
+            startPoint: .top,
+            endPoint: .bottom
+        )
     }
 
     private var confidenceColor: Color {
@@ -501,23 +570,45 @@ struct MeasureView: View {
 
     private var chartDomain: ClosedRange<Double>? {
         let values = samples.map { chartValue(for: $0) }
-        guard let min = values.min(), let max = values.max(), min != max else { return nil }
+        guard let minValue = values.min(), let maxValue = values.max(), minValue != maxValue else { return nil }
         let padding: Double
         switch mode {
         case .altimeter:
-            padding = 5.0
+            let range = maxValue - minValue
+            // Small movements early in a session should be visible; avoid a big fixed padding.
+            padding = Swift.min(Swift.max(range * 0.25, 0.25), 5.0)
         case .barometer:
             padding = settingsStore.pressureUnit == .hectopascals ? 0.5 : 0.05
         }
-        return (min - padding)...(max + padding)
+        return (minValue - padding)...(maxValue + padding)
     }
 
     private func chartValue(for sample: AltitudeSample) -> Double {
         switch mode {
         case .altimeter:
-            return settingsStore.preferredUnit.convertedAltitude(from: sample.absoluteAltitudeMeters)
+            // Relative makes small movements visible while recording.
+            return settingsStore.preferredUnit.convertedAltitude(from: sample.relativeAltitudeMeters)
         case .barometer:
             return settingsStore.pressureUnit.value(fromKPa: sample.pressureKPa)
+        }
+    }
+
+    private var recentSessionsListHeight: CGFloat {
+        // A non-scrolling List embedded in ScrollView needs an explicit height.
+        let rowHeight: CGFloat = 58
+        let maxRows = min(viewModel.recentSessions.count, 6)
+        return CGFloat(maxRows) * rowHeight + 12
+    }
+
+    private func share(session: AltitudeSession) {
+        do {
+            shareURL = try SessionExportService.exportCSV(
+                session: session,
+                preferredUnit: settingsStore.preferredUnit,
+                pressureUnit: settingsStore.pressureUnit
+            )
+        } catch {
+            shareErrorMessage = error.localizedDescription
         }
     }
 
@@ -526,7 +617,7 @@ struct MeasureView: View {
         let value: String
         switch mode {
         case .altimeter:
-            value = settingsStore.preferredUnit.formattedAltitude(meters: sample.absoluteAltitudeMeters)
+            value = settingsStore.preferredUnit.formattedAltitude(meters: sample.relativeAltitudeMeters)
         case .barometer:
             value = PressureFormatter.formatted(kPa: sample.pressureKPa, unit: settingsStore.pressureUnit)
         }
@@ -715,4 +806,16 @@ private struct SensorConfidenceHelpView: View {
 
 #Preview {
     MeasureView(viewModel: .preview(mode: .altimeter), settingsStore: SettingsStore())
+}
+
+// Simple SwiftUI wrapper for UIActivityViewController (share sheet).
+private struct ActivityView: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }

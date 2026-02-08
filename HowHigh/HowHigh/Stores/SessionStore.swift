@@ -101,3 +101,46 @@ extension AltitudeSessionEntity {
         NSFetchRequest<AltitudeSessionEntity>(entityName: "AltitudeSessionEntity")
     }
 }
+
+enum SessionExportError: LocalizedError {
+    case noSamples
+
+    var errorDescription: String? {
+        switch self {
+        case .noSamples:
+            return String(localized: "session.export.error.noSamples")
+        }
+    }
+}
+
+enum SessionExportService {
+    static func exportCSV(session: AltitudeSession, preferredUnit: MeasurementUnit, pressureUnit: PressureUnit) throws -> URL {
+        guard !session.samples.isEmpty else { throw SessionExportError.noSamples }
+
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent(exportFilename(for: session, ext: "csv"))
+
+        let altitudeUnit = preferredUnit.unitSymbol
+        let pressureUnitSymbol = pressureUnit.symbol
+        var lines: [String] = []
+        lines.append("timestamp,absolute_altitude_\(altitudeUnit),relative_altitude_\(altitudeUnit),pressure_\(pressureUnitSymbol)")
+
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
+        for sample in session.samples.sorted(by: { $0.timestamp < $1.timestamp }) {
+            let ts = formatter.string(from: sample.timestamp)
+            let absAlt = preferredUnit.convertedAltitude(from: sample.absoluteAltitudeMeters)
+            let relAlt = preferredUnit.convertedAltitude(from: sample.relativeAltitudeMeters)
+            let pressure = pressureUnit.value(fromKPa: sample.pressureKPa)
+            lines.append("\(ts),\(absAlt),\(relAlt),\(pressure)")
+        }
+
+        try lines.joined(separator: "\n").write(to: url, atomically: true, encoding: .utf8)
+        return url
+    }
+
+    private static func exportFilename(for session: AltitudeSession, ext: String) -> String {
+        let date = session.startDate.formatted(date: .numeric, time: .omitted).replacingOccurrences(of: "/", with: "-")
+        return "HowHigh-\(session.mode.rawValue)-\(date)-\(session.id.uuidString).\(ext)"
+    }
+}
