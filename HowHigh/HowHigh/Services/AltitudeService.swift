@@ -120,10 +120,9 @@ final class AltitudeService: ObservableObject {
     }
 
     private func estimateAltitude(from pressureKPa: Double) -> Double {
-        let seaLevelPressureHPa = basePressureKPa * 10.0
-        let pressureHPa = pressureKPa * 10.0
-        let ratio = pressureHPa / seaLevelPressureHPa
-        return max(0, 44330.0 * (1.0 - pow(ratio, 0.1903)))
+        // Don't clamp to >= 0; negative values can happen when sea-level pressure is miscalibrated
+        // (common) or the user is below sea level (real).
+        return BarometricAltitudeEstimator.altitudeMeters(pressureKPa: pressureKPa, seaLevelPressureKPa: basePressureKPa)
     }
 
     private func startPreview() {

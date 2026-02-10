@@ -84,10 +84,18 @@ final class NWSService: NWSProviding {
         let url = URL(string: "https://api.weather.gov/stations/\(stationId)/observations/latest")!
         let observation: NWSLatestObservationResponse = try await getJSON(url)
 
-        guard let seaLevelPressurePa = observation.properties.seaLevelPressure?.value else {
+        let hPa: Double
+        if let seaLevelPressurePa = observation.properties.seaLevelPressure?.value {
+            hPa = seaLevelPressurePa / 100.0
+        } else if let stationPressurePa = observation.properties.barometricPressure?.value,
+                  let elevationMeters = observation.properties.elevation?.value,
+                  let computed = Self.computeSeaLevelPressureHPa(stationPressurePa: stationPressurePa, elevationMeters: elevationMeters) {
+            // Many NWS stations omit `seaLevelPressure` but provide station pressure + elevation.
+            // Compute SLP using the same ISA model used by our altitude estimation for self-consistency.
+            hPa = computed
+        } else {
             throw NWSServiceError.missingSeaLevelPressure
         }
-        let hPa = seaLevelPressurePa / 100.0
 
         let timestamp = parseISO8601(observation.properties.timestamp) ?? Date()
         return NWSSeaLevelPressureObservation(
@@ -131,6 +139,15 @@ final class NWSService: NWSProviding {
         f2.formatOptions = [.withInternetDateTime]
         return f2.date(from: value)
     }
+
+    static func computeSeaLevelPressureHPa(stationPressurePa: Double, elevationMeters: Double) -> Double? {
+        // Invert: altitude = 44330 * (1 - (P/P0)^0.1903)  ->  P0 = P / (1 - h/44330)^(1/0.1903)
+        // Note: stationPressurePa is expected to be the local (station) pressure at the station's elevation.
+        let denom = 1.0 - (elevationMeters / 44330.0)
+        guard denom > 0 else { return nil }
+        let stationPressureHPa = stationPressurePa / 100.0
+        return stationPressureHPa / pow(denom, 5.255)
+    }
 }
 
 private struct NWSPointResponse: Decodable {
@@ -166,6 +183,8 @@ private struct NWSLatestObservationResponse: Decodable {
     struct Properties: Decodable {
         let timestamp: String?
         let seaLevelPressure: QuantitativeValue?
+        let barometricPressure: QuantitativeValue?
+        let elevation: QuantitativeValue?
         let stationName: String?
     }
 

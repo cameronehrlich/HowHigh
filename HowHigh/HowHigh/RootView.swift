@@ -55,7 +55,7 @@ struct RootView: View {
 
         guard settingsStore.weatherKitAutoCalibrationEnabled else { return }
 
-        let status = CLLocationManager.authorizationStatus()
+        let status = CLLocationManager().authorizationStatus
         guard status == .authorizedWhenInUse || status == .authorizedAlways else { return }
 
         if let last = settingsStore.weatherKitLastCalibrationDate,

@@ -122,17 +122,49 @@ enum SessionExportService {
         let altitudeUnit = preferredUnit.unitSymbol
         let pressureUnitSymbol = pressureUnit.symbol
         var lines: [String] = []
-        lines.append("timestamp,absolute_altitude_\(altitudeUnit),relative_altitude_\(altitudeUnit),pressure_\(pressureUnitSymbol)")
+        switch session.mode {
+        case .altimeter:
+            lines.append("timestamp,absolute_altitude_\(altitudeUnit),relative_altitude_\(altitudeUnit),pressure_\(pressureUnitSymbol)")
+        case .barometer:
+            // In barometer mode, altitude is not the primary signal and depends on calibration.
+            // Export pressure directly, plus a derived "pressure altitude" using a standard reference
+            // pressure so the CSV remains interpretable even without calibration.
+            lines.append("timestamp,pressure_\(pressureUnitSymbol),pressure_delta_\(pressureUnitSymbol),pressure_altitude_\(altitudeUnit),pressure_altitude_delta_\(altitudeUnit)")
+        }
 
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 
-        for sample in session.samples.sorted(by: { $0.timestamp < $1.timestamp }) {
+        let sortedSamples = session.samples.sorted(by: { $0.timestamp < $1.timestamp })
+        let baselinePressureKPa = sortedSamples.first?.pressureKPa ?? 0
+        let standardSeaLevelPressureKPa = 101.325
+        let baselinePressureAltitudeMeters = BarometricAltitudeEstimator.altitudeMeters(
+            pressureKPa: baselinePressureKPa,
+            seaLevelPressureKPa: standardSeaLevelPressureKPa
+        )
+
+        for sample in sortedSamples {
             let ts = formatter.string(from: sample.timestamp)
-            let absAlt = preferredUnit.convertedAltitude(from: sample.absoluteAltitudeMeters)
-            let relAlt = preferredUnit.convertedAltitude(from: sample.relativeAltitudeMeters)
-            let pressure = pressureUnit.value(fromKPa: sample.pressureKPa)
-            lines.append("\(ts),\(absAlt),\(relAlt),\(pressure)")
+            switch session.mode {
+            case .altimeter:
+                let absAlt = preferredUnit.convertedAltitude(from: sample.absoluteAltitudeMeters)
+                let relAlt = preferredUnit.convertedAltitude(from: sample.relativeAltitudeMeters)
+                let pressure = pressureUnit.value(fromKPa: sample.pressureKPa)
+                lines.append("\(ts),\(absAlt),\(relAlt),\(pressure)")
+            case .barometer:
+                let pressure = pressureUnit.value(fromKPa: sample.pressureKPa)
+                let pressureDelta = pressureUnit.value(fromKPa: sample.pressureKPa - baselinePressureKPa)
+
+                let pressureAltitudeMeters = BarometricAltitudeEstimator.altitudeMeters(
+                    pressureKPa: sample.pressureKPa,
+                    seaLevelPressureKPa: standardSeaLevelPressureKPa
+                )
+                let pressureAltitudeDeltaMeters = pressureAltitudeMeters - baselinePressureAltitudeMeters
+
+                let pressureAltitude = preferredUnit.convertedAltitude(from: pressureAltitudeMeters)
+                let pressureAltitudeDelta = preferredUnit.convertedAltitude(from: pressureAltitudeDeltaMeters)
+                lines.append("\(ts),\(pressure),\(pressureDelta),\(pressureAltitude),\(pressureAltitudeDelta)")
+            }
         }
 
         try lines.joined(separator: "\n").write(to: url, atomically: true, encoding: .utf8)

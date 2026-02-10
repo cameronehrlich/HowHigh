@@ -39,6 +39,8 @@ final class AtmosphereStore: ObservableObject {
     @Published private(set) var latestObservation: AtmosphericObservation?
     @Published private(set) var isFetching: Bool = false
     @Published private(set) var lastError: AtmosphereStoreError?
+    // Surface diagnostics in TestFlight builds to help debug WeatherKit provisioning/outages.
+    @Published private(set) var lastErrorDebugDescription: String?
 
     private let service: AtmosphericProviding
     private let locationProvider: LocationProviding
@@ -52,6 +54,7 @@ final class AtmosphereStore: ObservableObject {
     func refresh() async {
         isFetching = true
         lastError = nil
+        lastErrorDebugDescription = nil
         do {
             let location = try await locationProvider.requestLocation()
             let observation = try await service.fetchObservation(for: location)
@@ -59,6 +62,7 @@ final class AtmosphereStore: ObservableObject {
         } catch {
             log(error: error)
             lastError = map(error: error)
+            lastErrorDebugDescription = debugDescription(for: error)
         }
         isFetching = false
     }
@@ -85,6 +89,15 @@ final class AtmosphereStore: ObservableObject {
             }
         }
         let nsError = error as NSError
+
+        // WeatherKit and networking stacks frequently wrap the real cause in NSUnderlyingErrorKey.
+        if let underlying = underlyingError(from: nsError) {
+            let mapped = map(error: underlying)
+            if mapped != .unknown {
+                return mapped
+            }
+        }
+
         // WeatherKit failures are frequently surfaced as NSError with opaque domains/codes.
         // We use a separate bucket for better user messaging while keeping logs detailed.
         if nsError.domain.lowercased().contains("weather") {
@@ -96,6 +109,35 @@ final class AtmosphereStore: ObservableObject {
     private func log(error: Error) {
         let nsError = error as NSError
         logger.error("WeatherKit refresh failed. type=\(String(describing: type(of: error)), privacy: .public) domain=\(nsError.domain, privacy: .public) code=\(nsError.code, privacy: .public) description=\(nsError.localizedDescription, privacy: .public)")
+    }
+
+    private func underlyingError(from error: NSError, maxDepth: Int = 4) -> Error? {
+        var current: NSError? = error
+        for _ in 0..<maxDepth {
+            guard let next = current?.userInfo[NSUnderlyingErrorKey] as? NSError else { return nil }
+            if next.domain != current?.domain || next.code != current?.code {
+                return next
+            }
+            current = next
+        }
+        return nil
+    }
+
+    private func debugDescription(for error: Error) -> String {
+        let nsError = error as NSError
+        var parts: [String] = [
+            "domain=\(nsError.domain)",
+            "code=\(nsError.code)"
+        ]
+
+        var current: NSError? = nsError
+        var depth = 0
+        while let next = current?.userInfo[NSUnderlyingErrorKey] as? NSError, depth < 4 {
+            parts.append("underlying=\(next.domain)(\(next.code))")
+            current = next
+            depth += 1
+        }
+        return parts.joined(separator: " • ")
     }
 }
 

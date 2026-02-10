@@ -216,6 +216,84 @@ final class AltitudeServiceSeaLevelPressureFreezeTests: XCTestCase {
     }
 }
 
+final class NWSServiceTests: XCTestCase {
+    func testComputeSeaLevelPressureFallbackMatchesKnownSample() {
+        // Sample from https://api.weather.gov/stations/KLAX/observations/latest (2026-02-08):
+        // barometricPressure.value=102065.75 Pa, elevation.value=32 m, seaLevelPressure.value=null
+        let stationPressurePa = 102_065.75
+        let elevationMeters = 32.0
+
+        let seaLevelHPa = NWSService.computeSeaLevelPressureHPa(
+            stationPressurePa: stationPressurePa,
+            elevationMeters: elevationMeters
+        )
+
+        XCTAssertNotNil(seaLevelHPa)
+        XCTAssertEqual(seaLevelHPa!, 1024.538, accuracy: 0.05)
+    }
+
+    func testComputeSeaLevelPressureReturnsNilForInvalidElevation() {
+        let seaLevelHPa = NWSService.computeSeaLevelPressureHPa(
+            stationPressurePa: 100_000,
+            elevationMeters: 44_330 // denom becomes 0
+        )
+        XCTAssertNil(seaLevelHPa)
+    }
+}
+
+final class BarometricAltitudeEstimatorTests: XCTestCase {
+    func testPressureEqualsSeaLevelPressureReturnsNearZero() {
+        let meters = BarometricAltitudeEstimator.altitudeMeters(pressureKPa: 101.325, seaLevelPressureKPa: 101.325)
+        XCTAssertEqual(meters, 0, accuracy: 0.0001)
+    }
+
+    func testLowerPressureYieldsPositiveAltitude() {
+        let meters = BarometricAltitudeEstimator.altitudeMeters(pressureKPa: 90.0, seaLevelPressureKPa: 101.325)
+        XCTAssertGreaterThan(meters, 0)
+    }
+
+    func testHigherPressureYieldsNegativeAltitude() {
+        let meters = BarometricAltitudeEstimator.altitudeMeters(pressureKPa: 103.0, seaLevelPressureKPa: 101.325)
+        XCTAssertLessThan(meters, 0)
+    }
+}
+
+final class SessionExportServiceTests: XCTestCase {
+    func testBarometerExportWritesPressureDeltaAndPressureAltitudeColumns() throws {
+        let start = Date(timeIntervalSince1970: 1_700_000_000)
+        let samples = [
+            AltitudeSample(timestamp: start, relativeAltitudeMeters: 0, pressureKPa: 101.0, absoluteAltitudeMeters: 0),
+            AltitudeSample(timestamp: start.addingTimeInterval(1), relativeAltitudeMeters: 0, pressureKPa: 100.5, absoluteAltitudeMeters: 0)
+        ]
+        let session = AltitudeSession(startDate: start,
+                                      endDate: start.addingTimeInterval(1),
+                                      samples: samples,
+                                      state: .completed,
+                                      mode: .barometer)
+
+        let url = try SessionExportService.exportCSV(session: session, preferredUnit: .imperial, pressureUnit: .hectopascals)
+        let contents = try String(contentsOf: url, encoding: .utf8)
+        let lines = contents.split(separator: "\n", omittingEmptySubsequences: false)
+        XCTAssertGreaterThanOrEqual(lines.count, 3)
+        XCTAssertEqual(lines[0], "timestamp,pressure_hPa,pressure_delta_hPa,pressure_altitude_ft,pressure_altitude_delta_ft")
+
+        let row1 = lines[1].split(separator: ",")
+        let row2 = lines[2].split(separator: ",")
+        XCTAssertEqual(row1.count, 5)
+        XCTAssertEqual(row2.count, 5)
+
+        let row1Delta = Double(row1[2])!
+        let row2Delta = Double(row2[2])!
+        XCTAssertEqual(row1Delta, 0, accuracy: 0.0001)
+        XCTAssertEqual(row2Delta, -5.0, accuracy: 0.0001)
+
+        let row1Alt = Double(row1[3])!
+        let row2Alt = Double(row2[3])!
+        XCTAssertNotEqual(row1Alt, 0, accuracy: 0.0001)
+        XCTAssertNotEqual(row2Alt, 0, accuracy: 0.0001)
+    }
+}
+
 private func makeAltitudeReadings(
     start: Date,
     count: Int,

@@ -363,14 +363,27 @@ struct MeasureView: View {
         }
         .chartOverlay { proxy in
             GeometryReader { geometry in
-                Rectangle().fill(.clear).contentShape(Rectangle())
-                    .gesture(DragGesture(minimumDistance: 0)
-                        .onChanged { value in
-                            updateSelection(value: value, proxy: proxy, geometry: geometry)
-                        }
-                        .onEnded { _ in
-                            selectedSample = nil
-                        }
+                let plotFrame = geometry[proxy.plotAreaFrame]
+                // Restrict hit-testing to the plot area only so the surrounding card and scroll view behave normally.
+                Rectangle()
+                    .fill(.clear)
+                    .contentShape(Rectangle())
+                    .frame(width: plotFrame.size.width, height: plotFrame.size.height)
+                    .position(x: plotFrame.midX, y: plotFrame.midY)
+                    .gesture(
+                        LongPressGesture(minimumDuration: 0.25)
+                            .sequenced(before: DragGesture(minimumDistance: 0))
+                            .onChanged { value in
+                                switch value {
+                                case .second(true, let drag?):
+                                    updateSelection(locationX: drag.location.x, proxy: proxy, plotWidth: plotFrame.size.width)
+                                default:
+                                    break
+                                }
+                            }
+                            .onEnded { _ in
+                                selectedSample = nil
+                            }
                     )
             }
         }
@@ -395,17 +408,12 @@ struct MeasureView: View {
         }
     }
 
-    private func updateSelection(value: DragGesture.Value, proxy: ChartProxy, geometry: GeometryProxy) {
-        let plotFrame = geometry[proxy.plotAreaFrame]
-        let location = CGPoint(
-            x: value.location.x - plotFrame.origin.x,
-            y: value.location.y - plotFrame.origin.y
-        )
-        guard location.x >= 0, location.x <= plotFrame.size.width else {
+    private func updateSelection(locationX: CGFloat, proxy: ChartProxy, plotWidth: CGFloat) {
+        guard locationX >= 0, locationX <= plotWidth else {
             selectedSample = nil
             return
         }
-        guard let date: Date = proxy.value(atX: location.x) else {
+        guard let date: Date = proxy.value(atX: locationX) else {
             selectedSample = nil
             return
         }
@@ -595,9 +603,11 @@ struct MeasureView: View {
 
     private var recentSessionsListHeight: CGFloat {
         // A non-scrolling List embedded in ScrollView needs an explicit height.
-        let rowHeight: CGFloat = 58
+        // Keep this generous to avoid clipping under Dynamic Type and iOS list row chrome.
+        let rowHeight: CGFloat = 86
         let maxRows = min(viewModel.recentSessions.count, 6)
-        return CGFloat(maxRows) * rowHeight + 12
+        let chrome: CGFloat = 24
+        return CGFloat(maxRows) * rowHeight + chrome
     }
 
     private func share(session: AltitudeSession) {

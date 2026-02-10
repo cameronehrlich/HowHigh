@@ -278,6 +278,12 @@ struct ProfileView: View {
             } else if let error = atmosphereStore.lastError {
                 Label(LocalizedStringKey(error.messageLocalizationKey), systemImage: "exclamationmark.triangle")
                     .foregroundStyle(.orange)
+                if let debug = atmosphereStore.lastErrorDebugDescription {
+                    Text(debug)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .textSelection(.enabled)
+                }
                 if error.supportsOpenSettings {
                     Button("profile.action.openSettings") {
                         if let url = URL(string: UIApplication.openSettingsURLString) {
