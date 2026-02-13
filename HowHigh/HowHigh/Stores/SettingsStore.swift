@@ -11,6 +11,8 @@ final class SettingsStore: ObservableObject {
     @Published var nwsStationIdentifier: String?
     @Published var nwsStationName: String?
     @Published private(set) var nwsLastCalibrationDate: Date?
+    @Published var showChart: Bool
+    @Published var keepScreenOn: Bool
 
     private var cancellables: Set<AnyCancellable> = []
     private let defaults: UserDefaults
@@ -25,6 +27,8 @@ final class SettingsStore: ObservableObject {
         static let nwsStationIdentifier = "settings.nwsStationIdentifier"
         static let nwsStationName = "settings.nwsStationName"
         static let nwsLastCalibrationTimestamp = "settings.nwsLastCalibrationTimestamp"
+        static let showChart = "settings.showChart"
+        static let keepScreenOn = "settings.keepScreenOn"
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -70,6 +74,14 @@ final class SettingsStore: ObservableObject {
         } else {
             nwsLastCalibrationDate = nil
         }
+
+        // Default to true for showChart (existing behavior), false for keepScreenOn
+        if defaults.object(forKey: Keys.showChart) != nil {
+            showChart = defaults.bool(forKey: Keys.showChart)
+        } else {
+            showChart = true
+        }
+        keepScreenOn = defaults.bool(forKey: Keys.keepScreenOn)
 
         setupBindings()
     }
@@ -157,6 +169,18 @@ final class SettingsStore: ObservableObject {
                 } else {
                     self?.defaults.removeObject(forKey: Keys.nwsLastCalibrationTimestamp)
                 }
+            }
+            .store(in: &cancellables)
+
+        $showChart
+            .sink { [weak self] show in
+                self?.defaults.set(show, forKey: Keys.showChart)
+            }
+            .store(in: &cancellables)
+
+        $keepScreenOn
+            .sink { [weak self] keepOn in
+                self?.defaults.set(keepOn, forKey: Keys.keepScreenOn)
             }
             .store(in: &cancellables)
     }

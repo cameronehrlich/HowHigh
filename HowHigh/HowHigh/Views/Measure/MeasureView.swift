@@ -26,17 +26,21 @@ struct MeasureView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
-                    ViewThatFits(in: .horizontal) {
-                        HStack(alignment: .top, spacing: 24) {
-                            readingCard
-                            chartCard
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if settingsStore.showChart {
+                        ViewThatFits(in: .horizontal) {
+                            HStack(alignment: .top, spacing: 24) {
+                                readingCard
+                                chartCard
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
-                        VStack(spacing: 24) {
-                            readingCard
-                            chartCard
+                            VStack(spacing: 24) {
+                                readingCard
+                                chartCard
+                            }
                         }
+                    } else {
+                        readingCard
                     }
                     if mode == .altimeter {
                         modeControls
@@ -67,9 +71,14 @@ struct MeasureView: View {
             }
             .onAppear {
                 viewModel.startMonitoring()
+                UIApplication.shared.isIdleTimerDisabled = settingsStore.keepScreenOn
             }
             .onDisappear {
                 viewModel.stopMonitoring()
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
+            .onChange(of: settingsStore.keepScreenOn) { newValue in
+                UIApplication.shared.isIdleTimerDisabled = newValue
             }
             .sheet(isPresented: $showConfidenceHelp) {
                 SensorConfidenceHelpView(mode: mode)

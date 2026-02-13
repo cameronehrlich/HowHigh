@@ -20,6 +20,7 @@ struct ProfileView: View {
         NavigationStack {
             Form {
                 unitsSection
+                displaySection
                 calibrationSection
                 weatherKitSection
                 supportSection
@@ -38,6 +39,13 @@ struct ProfileView: View {
                 let format = String(localized: "profile.contact.fallback.message.format", bundle: .main)
                 Text(String(format: format, locale: .autoupdatingCurrent, supportEmailAddress))
             }
+        }
+    }
+
+    private var displaySection: some View {
+        Section(header: Text("profile.section.display")) {
+            Toggle("profile.display.showChart", isOn: $settingsStore.showChart)
+            Toggle("profile.display.keepScreenOn", isOn: $settingsStore.keepScreenOn)
         }
     }
 
