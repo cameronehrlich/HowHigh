@@ -411,9 +411,9 @@ struct MeasureView: View {
         }
 
         if let domain = chartDomain {
-            chart.chartYScale(domain: domain)
+            chart.chartYScale(domain: domain).clipped()
         } else {
-            chart
+            chart.clipped()
         }
     }
 

@@ -206,6 +206,7 @@ extension MeasureViewModel {
         pendingCalibration = false
         isCalibrating = false
         zeroBaselineAltitude = reading.absoluteAltitudeMeters
+        reviewManager.recordCalibration()
         if isRecording {
             sessionStartAltitude = reading.absoluteAltitudeMeters
             samplesBuffer.removeAll()

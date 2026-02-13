@@ -26,7 +26,7 @@ struct ProfileView: View {
                 supportSection
                 aboutSection
             }
-            .navigationTitle("profile.navigation.title")
+            .navigationTitle("tab.settings.title")
             .sheet(isPresented: $showSeaLevelInfo) {
                 seaLevelInfoSheet
             }
@@ -337,6 +337,12 @@ struct ProfileView: View {
 
     private var supportSection: some View {
         Section(header: Text("profile.section.support")) {
+            Button {
+                ReviewManager.openWriteReview()
+            } label: {
+                Label("profile.action.writeReview", systemImage: "star")
+            }
+
             Button {
                 let subject = "HowHigh Support"
                 let mailto = "mailto:\(supportEmailAddress)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject)"

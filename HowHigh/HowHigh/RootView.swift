@@ -41,7 +41,7 @@ struct RootView: View {
 
             ProfileView(settingsStore: settingsStore, atmosphereStore: atmosphereStore)
                 .tabItem {
-                    Label(String(localized: "tab.profile.title"), systemImage: "person")
+                    Label(String(localized: "tab.settings.title"), systemImage: "gearshape")
                 }
         }
         .task {
