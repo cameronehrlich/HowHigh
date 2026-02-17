@@ -71,14 +71,9 @@ struct MeasureView: View {
             }
             .onAppear {
                 viewModel.startMonitoring()
-                UIApplication.shared.isIdleTimerDisabled = settingsStore.keepScreenOn
             }
             .onDisappear {
                 viewModel.stopMonitoring()
-                UIApplication.shared.isIdleTimerDisabled = false
-            }
-            .onChange(of: settingsStore.keepScreenOn) { newValue in
-                UIApplication.shared.isIdleTimerDisabled = newValue
             }
             .sheet(isPresented: $showConfidenceHelp) {
                 SensorConfidenceHelpView(mode: mode)

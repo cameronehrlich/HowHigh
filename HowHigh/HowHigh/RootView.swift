@@ -1,10 +1,12 @@
 import SwiftUI
 import CoreLocation
+import UIKit
 
 struct RootView: View {
     @ObservedObject var settingsStore: SettingsStore
     @ObservedObject var sessionStore: SessionStore
     @ObservedObject var altitudeService: AltitudeService
+    @Environment(\.scenePhase) private var scenePhase
 
     @StateObject private var barometerViewModel: MeasureViewModel
     @StateObject private var altimeterViewModel: MeasureViewModel
@@ -44,9 +46,25 @@ struct RootView: View {
                     Label(String(localized: "tab.settings.title"), systemImage: "gearshape")
                 }
         }
+        .onAppear {
+            applyIdleTimerPolicy()
+        }
+        .onChange(of: settingsStore.keepScreenOn) { _ in
+            applyIdleTimerPolicy()
+        }
+        .onChange(of: scenePhase) { _ in
+            applyIdleTimerPolicy()
+        }
         .task {
             await attemptAutoWeatherKitCalibrationIfNeeded()
         }
+    }
+
+    private func applyIdleTimerPolicy() {
+        UIApplication.shared.isIdleTimerDisabled = IdleTimerPolicy.shouldDisableIdleTimer(
+            keepScreenOn: settingsStore.keepScreenOn,
+            scenePhase: scenePhase
+        )
     }
 
     private func attemptAutoWeatherKitCalibrationIfNeeded() async {

@@ -97,6 +97,38 @@ final class SettingsStoreTests: XCTestCase {
     }
 }
 
+final class IdleTimerPolicyTests: XCTestCase {
+    func testDisablesIdleTimerOnlyWhenEnabledAndAppIsActive() {
+        XCTAssertTrue(
+            IdleTimerPolicy.shouldDisableIdleTimer(
+                keepScreenOn: true,
+                scenePhase: .active
+            )
+        )
+
+        XCTAssertFalse(
+            IdleTimerPolicy.shouldDisableIdleTimer(
+                keepScreenOn: false,
+                scenePhase: .active
+            )
+        )
+
+        XCTAssertFalse(
+            IdleTimerPolicy.shouldDisableIdleTimer(
+                keepScreenOn: true,
+                scenePhase: .inactive
+            )
+        )
+
+        XCTAssertFalse(
+            IdleTimerPolicy.shouldDisableIdleTimer(
+                keepScreenOn: true,
+                scenePhase: .background
+            )
+        )
+    }
+}
+
 final class SensorConfidenceEstimatorTests: XCTestCase {
     func testWarmingUpWithTooFewSamples() {
         let now = Date()

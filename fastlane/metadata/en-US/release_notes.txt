@@ -1,5 +1,3 @@
 New in this update:
-- Sensor confidence indicator
-- Optional WeatherKit sea-level calibration (with clearer permissions)
-- Gain vs Net elevation, plus a Zero baseline
-- Delete sessions and choose hPa or kPa
+- Fixed an issue where Keep Screen On could still allow the display to sleep.
+- Improved screen-awake reliability when switching tabs or returning to the app.
