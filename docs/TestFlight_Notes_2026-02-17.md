@@ -4,6 +4,7 @@
 
 ### Focus
 - Fix reliability of `Keep Screen On`.
+- Improve Dynamic Type support (system text-size scaling).
 
 ### Verify
 - [ ] Keep Screen On ON: screen remains awake on Altimeter tab during active viewing.
@@ -15,3 +16,5 @@
 ### Secondary checks
 - [ ] `Show Chart` toggle still works and layout remains stable.
 - [ ] Zero/Calibrate control remains immediately reachable in Altimeter view.
+- [ ] At an Accessibility text size, Barometer, Altimeter, History, Session Detail, and Settings remain readable and navigable.
+- [ ] Unit/pressure pickers in Settings remain usable at larger text sizes.

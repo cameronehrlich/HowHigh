@@ -5,11 +5,14 @@ import UIKit
 struct MeasureView: View {
     @ObservedObject var viewModel: MeasureViewModel
     @ObservedObject var settingsStore: SettingsStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var showStopConfirmation: Bool = false
     @State private var selectedSample: AltitudeSample?
     @State private var showConfidenceHelp: Bool = false
     @State private var shareURL: URL?
     @State private var shareErrorMessage: String?
+    @ScaledMetric(relativeTo: .largeTitle) private var primaryMetricFontSize: CGFloat = 48
+    @ScaledMetric(relativeTo: .title2) private var trendIconFontSize: CGFloat = 32
 
     private var mode: AltitudeSession.Mode { viewModel.mode }
     private var displayMode: AltitudeDisplayMode { settingsStore.altitudeDisplayMode }
@@ -20,6 +23,10 @@ struct MeasureView: View {
 
     private var samples: [AltitudeSample] {
         (viewModel.currentSession?.samples ?? viewModel.lastCompletedSession?.samples) ?? []
+    }
+
+    private var usesAccessibilityLayout: Bool {
+        dynamicTypeSize.isAccessibilitySize
     }
 
     var body: some View {
@@ -83,35 +90,16 @@ struct MeasureView: View {
 
     private var readingCard: some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(primaryMetricTitleKey)
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
-                    Text(primaryMetricValue)
-                        .font(.system(size: 48, weight: .bold, design: .rounded))
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
-                    if mode == .altimeter {
-                        zeroButtonInline
-                    }
-                    if mode == .altimeter {
-                        altimeterSecondaryMetrics
-                    } else {
-                        Text(secondaryMetricValue)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
+            if usesAccessibilityLayout {
+                VStack(alignment: .leading, spacing: 14) {
+                    primaryReadingContent
+                    trendIndicator(trailingAlignment: false)
                 }
-                Spacer()
-                VStack(alignment: .trailing, spacing: 8) {
-                    Image(systemName: trend.systemImageName)
-                        .font(.system(size: 32, weight: .semibold))
-                        .foregroundStyle(trendColor)
-                    Text(LocalizedStringKey(trendDescriptionKey))
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.trailing)
+            } else {
+                HStack(alignment: .top) {
+                    primaryReadingContent
+                    Spacer(minLength: 16)
+                    trendIndicator(trailingAlignment: true)
                 }
             }
             if !viewModel.isRecording {
@@ -124,6 +112,40 @@ struct MeasureView: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(.regularMaterial))
+    }
+
+    private var primaryReadingContent: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(primaryMetricTitleKey)
+                .font(.headline)
+                .foregroundStyle(.secondary)
+            Text(primaryMetricValue)
+                .font(.system(size: primaryMetricFontSize, weight: .bold, design: .rounded))
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
+            if mode == .altimeter {
+                zeroButtonInline
+            }
+            if mode == .altimeter {
+                altimeterSecondaryMetrics
+            } else {
+                Text(secondaryMetricValue)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private func trendIndicator(trailingAlignment: Bool) -> some View {
+        VStack(alignment: trailingAlignment ? .trailing : .leading, spacing: 8) {
+            Image(systemName: trend.systemImageName)
+                .font(.system(size: trendIconFontSize, weight: .semibold))
+                .foregroundStyle(trendColor)
+            Text(LocalizedStringKey(trendDescriptionKey))
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(trailingAlignment ? .trailing : .leading)
+        }
     }
 
     private var confidenceRow: some View {
@@ -171,14 +193,26 @@ struct MeasureView: View {
     }
 
     private var modePicker: some View {
-        Picker("measure.mode.label", selection: $settingsStore.altitudeDisplayMode) {
-            ForEach(AltitudeDisplayMode.allCases) { option in
-                Text(option.displayNameKey).tag(option)
+        Group {
+            if usesAccessibilityLayout {
+                Picker("measure.mode.label", selection: $settingsStore.altitudeDisplayMode) {
+                    ForEach(AltitudeDisplayMode.allCases) { option in
+                        Text(option.displayNameKey).tag(option)
+                    }
+                }
+                .pickerStyle(.menu)
+                .accessibilityIdentifier("measure.mode.picker")
+            } else {
+                Picker("measure.mode.label", selection: $settingsStore.altitudeDisplayMode) {
+                    ForEach(AltitudeDisplayMode.allCases) { option in
+                        Text(option.displayNameKey).tag(option)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .accessibilityIdentifier("measure.mode.picker")
             }
         }
-        .pickerStyle(.segmented)
         .frame(maxWidth: .infinity)
-        .accessibilityIdentifier("measure.mode.picker")
     }
 
     private var zeroButtonInline: some View {
@@ -204,7 +238,8 @@ struct MeasureView: View {
             Text("measure.sessionSummary.title")
                 .font(.headline)
                 .accessibilityIdentifier("measure.sessionSummary.title")
-            let columns = Array(repeating: GridItem(.flexible(), spacing: 12), count: 2)
+            let columnCount = usesAccessibilityLayout ? 1 : 2
+            let columns = Array(repeating: GridItem(.flexible(), spacing: 12), count: columnCount)
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(summaryMetrics) { metric in
                     summaryMetricTile(metric)
@@ -237,30 +272,44 @@ struct MeasureView: View {
             .tint(primaryButtonTint)
             .disabled(primaryButtonDisabled)
 
-            HStack(spacing: 16) {
-                Button(action: viewModel.isRecording ? viewModel.pauseRecording : viewModel.resumeRecording) {
-                    Label(viewModel.isRecording ? LocalizedStringKey("measure.action.pause") : LocalizedStringKey("measure.action.resume"), systemImage: viewModel.isRecording ? "pause" : "play")
-                        .frame(maxWidth: .infinity)
+            if usesAccessibilityLayout {
+                VStack(spacing: 12) {
+                    pauseResumeButton
+                    stopButton
                 }
-                .buttonStyle(.bordered)
-                .disabled(viewModel.currentSession == nil)
-
-                Button(role: .destructive) {
-                    showStopConfirmation = true
-                } label: {
-                    Label(LocalizedStringKey("measure.action.stop"), systemImage: "stop.fill")
-                        .frame(maxWidth: .infinity)
+            } else {
+                HStack(spacing: 16) {
+                    pauseResumeButton
+                    stopButton
                 }
-                .buttonStyle(.bordered)
-                .disabled(viewModel.currentSession == nil)
-                .confirmationDialog(LocalizedStringKey("measure.dialog.stop.title"), isPresented: $showStopConfirmation, actions: {
-                    Button(String(localized: "measure.dialog.stopAndSave"), role: .destructive) {
-                        Task { await viewModel.stopRecording() }
-                    }
-                    Button(String(localized: "common.cancel"), role: .cancel) { }
-                })
             }
         }
+    }
+
+    private var pauseResumeButton: some View {
+        Button(action: viewModel.isRecording ? viewModel.pauseRecording : viewModel.resumeRecording) {
+            Label(viewModel.isRecording ? LocalizedStringKey("measure.action.pause") : LocalizedStringKey("measure.action.resume"), systemImage: viewModel.isRecording ? "pause" : "play")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.bordered)
+        .disabled(viewModel.currentSession == nil)
+    }
+
+    private var stopButton: some View {
+        Button(role: .destructive) {
+            showStopConfirmation = true
+        } label: {
+            Label(LocalizedStringKey("measure.action.stop"), systemImage: "stop.fill")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.bordered)
+        .disabled(viewModel.currentSession == nil)
+        .confirmationDialog(LocalizedStringKey("measure.dialog.stop.title"), isPresented: $showStopConfirmation, actions: {
+            Button(String(localized: "measure.dialog.stopAndSave"), role: .destructive) {
+                Task { await viewModel.stopRecording() }
+            }
+            Button(String(localized: "common.cancel"), role: .cancel) { }
+        })
     }
 
     private var altimeterSecondaryMetrics: some View {
@@ -608,7 +657,7 @@ struct MeasureView: View {
     private var recentSessionsListHeight: CGFloat {
         // A non-scrolling List embedded in ScrollView needs an explicit height.
         // Keep this generous to avoid clipping under Dynamic Type and iOS list row chrome.
-        let rowHeight: CGFloat = 86
+        let rowHeight: CGFloat = usesAccessibilityLayout ? 118 : 86
         let maxRows = min(viewModel.recentSessions.count, 6)
         let chrome: CGFloat = 24
         return CGFloat(maxRows) * rowHeight + chrome
@@ -708,6 +757,7 @@ private struct SessionHistoryRow: View {
     let session: AltitudeSession
     let mode: AltitudeSession.Mode
     let settingsStore: SettingsStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var pressures: [Double] {
         session.samples.map { $0.pressureKPa }
@@ -715,62 +765,91 @@ private struct SessionHistoryRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Text(session.startDate, style: .date)
-                    .font(.headline)
-                Spacer()
-                Text(session.startDate, style: .time)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            HStack(spacing: 16) {
-                switch mode {
-                case .altimeter:
-                    Label {
-                        Text(settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters))
-                    } icon: {
-                        Image(systemName: "arrow.up")
-                    }
-                    Label {
-                        Text(settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters))
-                    } icon: {
-                        Image(systemName: "arrow.down")
-                    }
-                case .barometer:
-                    if let high = pressures.max() {
-                        Label {
-                            Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
-                        } icon: {
-                            Image(systemName: "arrow.up")
-                        }
-                    }
-                    if let low = pressures.min() {
-                        Label {
-                            Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
-                        } icon: {
-                            Image(systemName: "arrow.down")
-                        }
-                    }
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(session.startDate, style: .date)
+                        .font(.headline)
+                    Text(session.startDate, style: .time)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
+            } else {
+                HStack {
+                    Text(session.startDate, style: .date)
+                        .font(.headline)
+                    Spacer()
+                    Text(session.startDate, style: .time)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 8) {
+                    metricLabels
+                    durationLabel
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            } else {
+                HStack(spacing: 16) {
+                    metricLabels
+                    durationLabel
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var metricLabels: some View {
+        switch mode {
+        case .altimeter:
+            Label {
+                Text(settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters))
+            } icon: {
+                Image(systemName: "arrow.up")
+            }
+            Label {
+                Text(settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters))
+            } icon: {
+                Image(systemName: "arrow.down")
+            }
+        case .barometer:
+            if let high = pressures.max() {
                 Label {
-                    Text(session.duration.formattedHoursMinutes())
+                    Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
                 } icon: {
-                    Image(systemName: "clock")
+                    Image(systemName: "arrow.up")
                 }
             }
-            .font(.footnote)
-            .foregroundStyle(.secondary)
+            if let low = pressures.min() {
+                Label {
+                    Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
+                } icon: {
+                    Image(systemName: "arrow.down")
+                }
+            }
+        }
+    }
+
+    private var durationLabel: some View {
+        Label {
+            Text(session.duration.formattedHoursMinutes())
+        } icon: {
+            Image(systemName: "clock")
         }
     }
 }
 
 private struct ChartPlaceholder: View {
     let messageKey: LocalizedStringKey
+    @ScaledMetric(relativeTo: .title2) private var iconSize: CGFloat = 32
 
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
             Image(systemName: "waveform.path.ecg")
-                .font(.system(size: 32))
+                .font(.system(size: iconSize))
                 .foregroundStyle(.secondary)
             Text(messageKey)
                 .font(.footnote)

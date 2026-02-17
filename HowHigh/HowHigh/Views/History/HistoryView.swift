@@ -4,6 +4,7 @@ import UIKit
 struct HistoryView: View {
     @ObservedObject var viewModel: HistoryViewModel
     @ObservedObject var settingsStore: SettingsStore
+    @ScaledMetric(relativeTo: .largeTitle) private var emptyStateIconSize: CGFloat = 48
     @State private var shareURL: URL?
     @State private var shareErrorMessage: String?
 
@@ -13,7 +14,7 @@ struct HistoryView: View {
                 if viewModel.sessions.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "clock.fill")
-                            .font(.system(size: 48))
+                            .font(.system(size: emptyStateIconSize))
                             .foregroundStyle(.secondary)
                         Text("history.empty.title")
                             .font(.headline)
@@ -97,57 +98,86 @@ struct HistoryView: View {
 private struct HistoryRow: View {
     let session: AltitudeSession
     let settingsStore: SettingsStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(session.startDate, style: .date)
-                    .font(.headline)
-                Spacer()
-                Text(session.startDate, style: .time)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            HStack(spacing: 16) {
-                switch session.mode {
-                case .altimeter:
-                    Label {
-                        Text(settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters))
-                    } icon: {
-                        Image(systemName: "arrow.up")
-                    }
-                    Label {
-                        Text(settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters))
-                    } icon: {
-                        Image(systemName: "arrow.down")
-                    }
-                case .barometer:
-                    let pressures = session.samples.map { $0.pressureKPa }
-                    if let high = pressures.max() {
-                        Label {
-                            Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
-                        } icon: {
-                            Image(systemName: "arrow.up")
-                        }
-                    }
-                    if let low = pressures.min() {
-                        Label {
-                            Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
-                        } icon: {
-                            Image(systemName: "arrow.down")
-                        }
-                    }
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(session.startDate, style: .date)
+                        .font(.headline)
+                    Text(session.startDate, style: .time)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
-                Label {
-                    Text(session.duration.formattedHoursMinutes())
-                } icon: {
-                    Image(systemName: "clock")
+            } else {
+                HStack {
+                    Text(session.startDate, style: .date)
+                        .font(.headline)
+                    Spacer()
+                    Text(session.startDate, style: .time)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
             }
-            .font(.footnote)
-            .foregroundStyle(.secondary)
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 8) {
+                    sessionMetricLabels
+                    durationLabel
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            } else {
+                HStack(spacing: 16) {
+                    sessionMetricLabels
+                    durationLabel
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            }
         }
         .padding(.vertical, 4)
+    }
+
+    @ViewBuilder
+    private var sessionMetricLabels: some View {
+        switch session.mode {
+        case .altimeter:
+            Label {
+                Text(settingsStore.preferredUnit.formattedGain(meters: session.totalAscentMeters))
+            } icon: {
+                Image(systemName: "arrow.up")
+            }
+            Label {
+                Text(settingsStore.preferredUnit.formattedGain(meters: session.totalDescentMeters))
+            } icon: {
+                Image(systemName: "arrow.down")
+            }
+        case .barometer:
+            let pressures = session.samples.map { $0.pressureKPa }
+            if let high = pressures.max() {
+                Label {
+                    Text(PressureFormatter.formatted(kPa: high, unit: settingsStore.pressureUnit))
+                } icon: {
+                    Image(systemName: "arrow.up")
+                }
+            }
+            if let low = pressures.min() {
+                Label {
+                    Text(PressureFormatter.formatted(kPa: low, unit: settingsStore.pressureUnit))
+                } icon: {
+                    Image(systemName: "arrow.down")
+                }
+            }
+        }
+    }
+
+    private var durationLabel: some View {
+        Label {
+            Text(session.duration.formattedHoursMinutes())
+        } icon: {
+            Image(systemName: "clock")
+        }
     }
 }
 

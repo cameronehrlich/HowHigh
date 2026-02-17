@@ -4,6 +4,7 @@ import UIKit
 struct ProfileView: View {
     @ObservedObject var settingsStore: SettingsStore
     @ObservedObject var atmosphereStore: AtmosphereStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var showSeaLevelInfo = false
     @State private var showContactFallback = false
     @State private var showStationPicker = false
@@ -15,6 +16,10 @@ struct ProfileView: View {
     }
 
     private let supportEmailAddress = "howhigh@37.technology"
+
+    private var usesAccessibilityLayout: Bool {
+        dynamicTypeSize.isAccessibilitySize
+    }
 
     var body: some View {
         NavigationStack {
@@ -51,21 +56,41 @@ struct ProfileView: View {
 
     private var unitsSection: some View {
         Section(header: Text("profile.section.units")) {
-            Picker("profile.picker.units", selection: $settingsStore.preferredUnit) {
-                ForEach(MeasurementUnit.allCases) { unit in
-                    Text(unit.displayNameKey).tag(unit)
+            if usesAccessibilityLayout {
+                Picker("profile.picker.units", selection: $settingsStore.preferredUnit) {
+                    ForEach(MeasurementUnit.allCases) { unit in
+                        Text(unit.displayNameKey).tag(unit)
+                    }
                 }
+                .pickerStyle(.menu)
+                .accessibilityIdentifier("profile.units.picker")
+            } else {
+                Picker("profile.picker.units", selection: $settingsStore.preferredUnit) {
+                    ForEach(MeasurementUnit.allCases) { unit in
+                        Text(unit.displayNameKey).tag(unit)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .accessibilityIdentifier("profile.units.picker")
             }
-            .pickerStyle(.segmented)
-            .accessibilityIdentifier("profile.units.picker")
 
-            Picker("profile.picker.pressureUnits", selection: $settingsStore.pressureUnit) {
-                ForEach(PressureUnit.allCases) { unit in
-                    Text(unit.displayNameKey).tag(unit)
+            if usesAccessibilityLayout {
+                Picker("profile.picker.pressureUnits", selection: $settingsStore.pressureUnit) {
+                    ForEach(PressureUnit.allCases) { unit in
+                        Text(unit.displayNameKey).tag(unit)
+                    }
                 }
+                .pickerStyle(.menu)
+                .accessibilityIdentifier("profile.pressure.picker")
+            } else {
+                Picker("profile.picker.pressureUnits", selection: $settingsStore.pressureUnit) {
+                    ForEach(PressureUnit.allCases) { unit in
+                        Text(unit.displayNameKey).tag(unit)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .accessibilityIdentifier("profile.pressure.picker")
             }
-            .pickerStyle(.segmented)
-            .accessibilityIdentifier("profile.pressure.picker")
         }
     }
 
@@ -93,13 +118,23 @@ struct ProfileView: View {
             Divider()
                 .padding(.vertical, 4)
 
-            HStack {
-                Text("profile.stationCalibration.title")
-                    .font(.subheadline.weight(.semibold))
-                Spacer()
-                Text("profile.stationCalibration.usOnly")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+            if usesAccessibilityLayout {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("profile.stationCalibration.title")
+                        .font(.subheadline.weight(.semibold))
+                    Text("profile.stationCalibration.usOnly")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                HStack {
+                    Text("profile.stationCalibration.title")
+                        .font(.subheadline.weight(.semibold))
+                    Spacer()
+                    Text("profile.stationCalibration.usOnly")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
 
             if let stationId = settingsStore.nwsStationIdentifier {
@@ -193,7 +228,7 @@ struct ProfileView: View {
                 } else if let error = nwsStationStore.lastError {
                     VStack(spacing: 12) {
                         Image(systemName: "exclamationmark.triangle")
-                            .font(.system(size: 32))
+                            .font(.title)
                             .foregroundStyle(.orange)
                         Text(LocalizedStringKey(error.messageLocalizationKey))
                             .foregroundStyle(.secondary)
@@ -211,7 +246,7 @@ struct ProfileView: View {
                 } else if nwsStationStore.stations.isEmpty {
                     VStack(spacing: 12) {
                         Image(systemName: "antenna.radiowaves.left.and.right")
-                            .font(.system(size: 32))
+                            .font(.title)
                             .foregroundStyle(.secondary)
                         Text("profile.stationCalibration.emptyStations")
                             .foregroundStyle(.secondary)

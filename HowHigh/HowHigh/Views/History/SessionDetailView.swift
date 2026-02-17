@@ -171,6 +171,7 @@ private struct SessionInteractiveChart: View {
     let value: (AltitudeSample) -> Double
     let formattedValue: (AltitudeSample) -> String
     let placeholderKey: LocalizedStringKey
+    @ScaledMetric(relativeTo: .title3) private var placeholderIconSize: CGFloat = 28
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -179,7 +180,7 @@ private struct SessionInteractiveChart: View {
             if samples.isEmpty {
                 VStack(spacing: 12) {
                     Image(systemName: "waveform.path.ecg")
-                        .font(.system(size: 28))
+                        .font(.system(size: placeholderIconSize))
                         .foregroundStyle(.secondary)
                     Text(placeholderKey)
                         .font(.footnote)

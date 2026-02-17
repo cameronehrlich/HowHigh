@@ -1,3 +1,4 @@
 New in this update:
 - Fixed an issue where Keep Screen On could still allow the display to sleep.
 - Improved screen-awake reliability when switching tabs or returning to the app.
+- Improved support for iOS Dynamic Type so text scales more gracefully across screens.

@@ -20,15 +20,14 @@
   - Zero/Calibrate action is visible directly in the main altitude card without scrolling.
 
 ### 3) User-adjustable font size and font style
-- Recommendation: **Defer to next feature release**.
-- Reason: Useful request but larger UI scope and additional QA/localization burden than this bug-fix release.
-- Proposed follow-up scope:
-  - Add a simple “Reading text size” setting (`Small`, `Default`, `Large`) for the primary altitude number.
-  - Keep typography family fixed for now (font style choice can be considered later if demand repeats).
+- Recommendation: **Ship system Dynamic Type support now; no in-app font-size setting**.
+- Status: Implemented in this release across primary measurement, lists, and settings layouts.
+- Reason: Uses iOS-native accessibility behavior, lowers settings complexity, and covers Andy’s readability need without a separate custom control.
 
 ## App Store Release Notes (en-US / en-GB)
 - Fixed an issue where Keep Screen On could still allow the display to sleep.
 - Improved screen-awake reliability when switching tabs or returning to the app.
+- Improved support for iOS Dynamic Type so text scales more gracefully across screens.
 
 ## QA Checklist Before Submission
 - Keep Screen On = ON:
@@ -41,3 +40,6 @@
 - Display options:
   - Toggle chart visibility on/off and confirm layout.
   - Confirm Zero/Calibrate remains easy to access in altimeter mode.
+- Dynamic Type:
+  - Set iOS text size to at least one Accessibility size and verify core screens remain readable.
+  - Confirm segmented controls gracefully switch to menu-style pickers where needed.
