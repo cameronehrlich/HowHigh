@@ -98,7 +98,7 @@ final class SettingsStoreTests: XCTestCase {
 }
 
 final class IdleTimerPolicyTests: XCTestCase {
-    func testDisablesIdleTimerOnlyWhenEnabledAndAppIsActive() {
+    func testDisablesIdleTimerWhenEnabledUnlessAppIsBackgrounded() {
         XCTAssertTrue(
             IdleTimerPolicy.shouldDisableIdleTimer(
                 keepScreenOn: true,
@@ -113,7 +113,7 @@ final class IdleTimerPolicyTests: XCTestCase {
             )
         )
 
-        XCTAssertFalse(
+        XCTAssertTrue(
             IdleTimerPolicy.shouldDisableIdleTimer(
                 keepScreenOn: true,
                 scenePhase: .inactive
